@@ -31,15 +31,7 @@ class case:
     def __str__(self):
         return "case de type {} a la position {} \n marchable = {} ouvrable = {} l'image ce trouve en {}".format(
         self.type, self.pos, self.marchable, self.ouvrable, self.image)
-        
-class herbe(case):
-    def __init__(self):
-      case.__init__(self)
-      self.type = "herbe"
-      self.rep = "H"
-      self.chemin_image = "Data/herbe.png"
-      self.load_image()
-      
+
       
 class mur(case):
     def __init__(self):
@@ -47,5 +39,37 @@ class mur(case):
       self.type = "mur"
       self.marchable = False
       self.rep = "M"
-      self.chemin_image = "Data/Mur.png"
+      self.chemin_image = "data/Mur.png"
+      self.load_image()
+      
+class herbe1(case):
+    def __init__(self):
+      case.__init__(self)
+      self.type = "herbe1"
+      self.rep = "H"
+      self.chemin_image = "data/grass17.png"
+      self.load_image()
+
+class herbe2(case):
+    def __init__(self):
+      case.__init__(self)
+      self.type = "herbe2"
+      self.rep = "H"
+      self.chemin_image = "data/grass04.png"
+      self.load_image()
+
+class herbe3(case):
+    def __init__(self):
+      case.__init__(self)
+      self.type = "herbe3"
+      self.rep = "H"
+      self.chemin_image = "data/grass03.png"
+      self.load_image()
+
+class herbe4(case):
+    def __init__(self):
+      case.__init__(self)
+      self.type = "herbe4"
+      self.rep = "H"
+      self.chemin_image = "data/grass02.png"
       self.load_image()
