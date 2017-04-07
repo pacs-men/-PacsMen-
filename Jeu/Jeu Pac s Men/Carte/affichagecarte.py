@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-import carte_test
+import carte
 import pygame
 from pygame.locals import *
 import sys
-sys.path.append("C:/Users/nassim/Documents/GitHub/Unfaithful-Spaghetti/Jeu Pac s Men/combat")
+sys.path.append("../combat")
 import combat
 
 
@@ -21,7 +21,7 @@ pygame.init()
 fenetre=pygame.display.set_mode((640,640), RESIZABLE)
 pygame.display.set_caption('Programme Pygame de base')
 
-mape= carte_test.carte(taille_carte)
+mape= carte.carte(taille_carte)
 x=0
 y=0
 def affichercarte(x0,y0):
@@ -33,50 +33,59 @@ def affichercarte(x0,y0):
 #    self.image = pygame.image.load("Data/personnage").convert_alpha()
 
 imgJoueur = combat.AssassinsMagique()
-personnage=imgJoueur.img
+personnage=imgJoueur.img.convert_alpha()
 
 background_song=pygame.mixer.Sound("song1.ogg")
 
 continuer = 1
-player_position = pygame.mouse.get_pos()
+player_position = [5, 5]
+
+affichercarte(x,y)
+background_song.play()
+i = player_position[0]
+j = player_position[1]
 
 while continuer:
-    affichercarte(x,y)
-
-    i = player_position[0]
-    j = player_position[1]
+    # prise en compte des evenements
     for event in pygame.event.get():
         if event.type == QUIT:
             continuer = 0
-        tkey=pygame.key.get_pressed()
+        if event.type == KEYDOWN:
+            if event.key == K_DOWN:
+                pass
+            
+        '''
+         tkey = pygame.key.get_pressed()
         if tkey[K_LEFT]:
             i -= 32
             if x>0:
                 x-=1
             affichercarte(x,y)
-            pygame.display.update()
+            #pygame.display.update()
         elif tkey[K_RIGHT]:
             i += 32
             if x<taille_carte-D:
                 x+=1
             affichercarte(x,y)
-            pygame.display.update()
+            #pygame.display.update()
         elif tkey[K_UP]:
             j += 32
             if y>0:
                 y-=1
             affichercarte(x,y)
-            pygame.display.update()
+            #pygame.display.update()
         elif tkey[K_DOWN]:#On descend le perso
             j -= 32
             if y<taille_carte-D:
                 y+=1
             affichercarte(x,y)
-            pygame.display.update()
-
+            #pygame.display.update()'''
+    
+    # affichage
+    affichercarte(x,y)
     fenetre.blit(personnage, [i, j])
-    background_song.play()
     pygame.display.flip()
+    
 #==============================================================================
 # def haut():
 #     global x,y
@@ -122,4 +131,6 @@ while continuer:
 #         if event.type == QUIT:
 #             continuer = 0
 #==============================================================================
+
+
 
