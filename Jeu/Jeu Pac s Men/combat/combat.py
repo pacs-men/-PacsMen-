@@ -18,18 +18,21 @@ class perso:
         self.prec=100   #pourcent
         self.crit=0     #pourcent
         
+        #variable passif
         self.passif=0
         self.stun=False
         self.effet=False
         self.brulure=0
         self.saignement=0
         
+        #variable equipement
         self.arme=arme()
         self.armure=armure()
         self.type_action=None
         self.action=None
         self.cible=None
         
+        #variable potion
         self.armure1=0
         self.armure1fois=0
         self.armure2=0
@@ -52,13 +55,25 @@ class perso:
         self.vitessefois=0
         self.precision=0
         self.precisionfois=0
-
-
-
-          
         
-        
-        
+        #variable inventaire
+        self.potionvie1=0
+        self.potionvie2=0
+        self.potionvie3=0
+        self.potionarmure1=0
+        self.potionarmure2=0
+        self.potionarmure3=0
+        self.potionforce1=0
+        self.potionforce2=0
+        self.potionforce3=0
+        self.potioncritique1=0
+        self.potioncritique2=0
+        self.potioncritique3=0
+        self.potionvitesse=0
+        self.potionprecision=0
+        self.arme_total=[]
+        self.armure_total=[]
+
     def attaque(self):
         '''
             selection du type d'attaque
@@ -67,9 +82,9 @@ class perso:
         if self.stun == True:
             self.stun = False
             pass
-        if self.action == "Physique":
+        elif self.action == "Physique":
             self.AttaquePhysique()
-        if self.action == "Magique":
+        elif self.action == "Magique":
             self.AttaqueMagique()
         
         
