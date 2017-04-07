@@ -78,7 +78,6 @@ class perso:
         '''
             selection du type d'attaque
         '''
-        #print 1
         if self.stun == True:
             self.stun = False
             pass
@@ -93,14 +92,11 @@ class perso:
         '''
             execution d'une attaque physique
         '''
-        #print 2
-        self.passif_def()
         if random.randrange(100)<self.prec:
+            self.passif_attaque_def()
             if random.randrange(100)>self.crit:
-                #print 4
                 self.cible.pv -= (self.atk+self.arme.atk)*(1-float(self.cible.defen+self.cible.armure.defen)/100)
             else:
-                #print 5
                 self.cible.pv -= (self.atk+self.arme.atk)*(1-float(self.cible.defen+self.cible.armure.defen)/100)*2
             
             
@@ -109,23 +105,26 @@ class perso:
         '''
             execution d'une attaque magique
         '''
-        self.passif_def()
         if random.randrange(100)<self.prec:
+            self.passif_attaque_def()
             if random.randrange(100)>self.crit:
-                #print 6
                 self.cible.pv -= (self.mag+self.arme.mag)*(1-float(self.cible.res+self.cible.armure.res)/100)
             else:
-                #print 7
                 self.cible.pv -= (self.mag+self.arme.mag)*(1-float(self.cible.res+self.cible.armure.res)/100)*2
                 
                 
                 
-    def passif_def(self):
+    def passif_attaque_def(self,adv):
+        '''
+            effet des passifs d'attaque
+        '''
+        pass
+    
+    def passif_def(self,adv):
         '''
             effet des passifs
         '''
         pass
-    
     
     
     def effet_def(self):
@@ -350,7 +349,7 @@ class AssassinsMagique(perso):
         self.crit=10
         self.img= pygame.image.load("Data/perso.png").convert_alpha()
         
-        def passif_def(self,adv):
+        def passif_attaque_def(self,adv):
             self.pv += 5
 
 class Mage(perso):
@@ -368,9 +367,9 @@ class Mage(perso):
         self.vit=80
         self.prec=90
         self.crit=5
-        #self.img= pygame.image.load("Data/").convert_alpha()
+        self.img= pygame.image.load("Data/perso.png").convert_alpha()
         
-    def passif_def(adv):
+    def passif_attaque_def(adv):
         if random.randrange(10)<1:
             adv.stun=True
         
@@ -389,9 +388,9 @@ class AssassinsPhysique(perso):
         self.vit=80
         self.prec=100
         self.crit=10
-        #self.img= pygame.image.load("Data/").convert_alpha()
+        self.img= pygame.image.load("Data/perso.png").convert_alpha()
         
-     def passif_def(adv):
+     def passif_attaque_def(adv):
         adv.saignement = 1
         
 class Combattant(perso):
@@ -408,6 +407,7 @@ class Combattant(perso):
         self.vit=50
         self.prec=100
         self.crit=5
+        self.img= pygame.image.load("Data/perso.png").convert_alpha()
         
     def passif_def(self,adv):
         if self.pv < 500*0.7 and self.passif == 0:
@@ -435,9 +435,54 @@ class Archer(perso):
         self.vit=100
         self.prec=95
         self.crit=20
+        self.img= pygame.image.load("Data/perso.png").convert_alpha()
+        self.cible2=None
         
-    def passif_def(adv):
-        pass
+    def attaque2(self):
+        '''
+            selection du type d'attaque
+        '''
+        if self.stun == True:
+            self.stun = False
+            pass
+        elif self.action == "Physique":
+            self.AttaquePhysique2()
+        elif self.action == "Magique":
+            self.AttaqueMagique2()
+        
+        
+        
+    def AttaquePhysique2(self):
+        '''
+            execution d'une attaque physique
+        '''
+        if random.randrange(100)<self.prec:
+            self.passif_attaque_def()
+            if random.randrange(100)>self.crit:
+                self.cible2.pv -= (self.atk+self.arme.atk)*(1-float(self.cible2.defen+self.cible2.armure.defen)/100)
+            else:
+                self.cible2.pv -= (self.atk+self.arme.atk)*(1-float(self.cible2.defen+self.cible2.armure.defen)/100)*2
+            
+            
+            
+    def AttaqueMagique2(self):
+        '''
+            execution d'une attaque magique
+        '''
+        if random.randrange(100)<self.prec:
+            self.passif_attaque_def()
+            if random.randrange(100)>self.crit:
+                self.cible2.pv -= (self.mag+self.arme.mag)*(1-float(self.cible2.res+self.cible2.armure.res)/100)
+            else:
+                self.cible2.pv -= (self.mag+self.arme.mag)*(1-float(self.cible2.res+self.cible2.armure.res)/100)*2
+        
+    def passif_def(self,adv):
+        while 1:
+            i=random.randrange(len(adv))
+            if adv[i].jouable == False and adv[i] != self.cible:
+                self.cible2=adv[i]
+                self.attaque2()
+                
         
         
 class Soigneur(perso):
@@ -454,6 +499,7 @@ class Soigneur(perso):
         self.vit=30
         self.prec=95
         self.crit=0
+        self.img= pygame.image.load("Data/perso.png").convert_alpha()
         
     def passif_def(self,adv):
         self.pv += 15
@@ -467,6 +513,7 @@ class ennemi_test(perso):
         self.pv=100
         self.atk=10
         self.vit=10
+        self.img= pygame.image.load("Data/perso.png").convert_alpha()
 
 
 
@@ -782,6 +829,7 @@ def combat_attaque(participant_vit):
         attaque de tous les participants dans l'ordre de vitesse + test de mort
     '''
     for i in range (len(participant_vit)):
+        participant_vit[i].passif_def(participant_vit)
         if participant_vit[i].pv < 0:
             if participant_vit[i].jouable==True:
                 break
