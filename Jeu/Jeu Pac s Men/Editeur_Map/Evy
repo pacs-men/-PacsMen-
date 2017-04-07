@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+
+from Tkinter import *
+
+fenetre = Tk()
+largeur = 100
+hauteur = 100
+
+N=10
+L_case=10
+
+c = Canvas(fenetre, width= largeur, height= hauteur, bg= "black", borderwidth = 0)
+
+def lignes():
+    for i in range(0,N*L_case,L_case):
+        # les +2 sont à cause de Tkinter qui rajoute 2
+        c.create_line(i+2, 0, i+2,N*L_case+2 , fill = "red")
+        c.create_line(0, i+2, N*L_case+2, i+2, fill = "red")
+lignes()
+        
+"""def case():
+    for i in range (10):
+        for j in range (10):
+            case = C.create_rectangle( i*10, j*10, i*10+10, j*10+10 , outline= "red" )
+"""
+#boutons
+
+M = Button(fenetre, text="mur", command=fenetre.quit)
+M.pack(side = RIGHT)
+H = Button(fenetre, text="herbe", command=fenetre.quit)
+H.pack(side = RIGHT)
+Co = Button(fenetre, text="coffre", command=fenetre.quit)
+Co.pack()
+RQ = Button(fenetre, text="quitter", command=fenetre.quit)
+RQ.pack()
+
+
+c.pack()
+
+c.update()
+
+fenetre.title('Editeur - Jeu PACSMEN')
+
+fenetre.mainloop()

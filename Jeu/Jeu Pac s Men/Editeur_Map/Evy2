@@ -1,0 +1,37 @@
+
+from Tkinter import *
+
+Cases = 10
+
+taille_case = 10
+
+hauteur_fenetre = Case*(taille_case+1)
+largeur_fenetre = Case*(taille_case+1)
+
+fenetre = Tk()
+
+c= Canvas(fenetre, width= largeur_fenetre, height= hauteur_fenetre, bg= "black")
+
+def case(i,j):
+    c.create_rectangle(i*taille_case,j*taille_case,taille_case*i + taille_case,taille_case*j + taille_case, outline="red")
+
+
+def afficher_matrice(m):
+    for i in range(Case):
+        for j in range(Case):
+            case(i,j)
+        
+
+
+
+def c_matrice():
+    m = []
+    for i in range(Case):
+        for j in range(Case):
+            
+
+c.pack()
+
+fenetre.mainloop()
+
+fenetre.pack()
