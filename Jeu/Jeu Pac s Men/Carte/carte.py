@@ -63,12 +63,26 @@ class carte:
     def placer_obj(self,objet, x, y):
         self.matrice_objet[x][y] = objet
         
+    def est_marchable(self, x, y):
+        return self.dict_cases[self.matrice_case[x][y]].marchable
+       
+    def deplacer(self, (x1, y1), (x2, y2)):
+        self.matrice_objet[x2][y2] = self.matrice_objet[x1][y1]
+        self.matrice_objet[x1][y1] = None
+        
+    def obj_vide(self, x1, y1):
+        if self.matrice_objet[x1][y1] == None:
+            return True
+        else:
+            return False
+        
         
 if __name__ == "__main__":
-    
+    # exemple de fonctionnement de la carte et de objets
     a = carte(10)
     print a
-    b = objet(a, 5, 5)
-    
-    print a.matrice_objet
+    b = obj_boug(a, 5, 5)
+    c = objet(a, 6, 5)
+    b.ch_direction("bas")
     print a
+    
