@@ -3,6 +3,7 @@ import carte
 import pygame
 from pygame.locals import *
 import sys
+import objet
 sys.path.append("../combat")
 import combat
 
@@ -22,37 +23,68 @@ fenetre=pygame.display.set_mode((640,640), RESIZABLE)
 pygame.display.set_caption('Programme Pygame de base')
 
 mape= carte.carte(taille_carte)
+perso = objet.obj_boug(mape, 10,10)
+
+imgJoueur = combat.AssassinsMagique()
+personnage=imgJoueur.img.convert_alpha()
 x=0
 y=0
 def affichercarte(x0,y0):
     for x in range(D):
         for y in range(D):
             fenetre.blit(mape.get_image_case(x+x0, y+y0),(x*32, y*32))
-
+            
+    for x in range(D):
+        for y in range(D):
+            if mape.matrice_objet[x+x0][y+y0] != None:
+                fenetre.blit(personnage,(x*32, y*32))
+    
 #def perso(i,j):
 #    self.image = pygame.image.load("Data/personnage").convert_alpha()
 
-imgJoueur = combat.AssassinsMagique()
-personnage=imgJoueur.img.convert_alpha()
 
-background_song=pygame.mixer.Sound("song1.ogg")
+
+
+background_song=pygame.mixer.Sound("Data/laser5.ogg")
 
 continuer = 1
 player_position = [5, 5]
 
 affichercarte(x,y)
 background_song.play()
-i = player_position[0]
-j = player_position[1]
+
+#i = player_position[0]
+#j = player_position[1]
 
 while continuer:
     # prise en compte des evenements
+    background_song.play()
     for event in pygame.event.get():
         if event.type == QUIT:
             continuer = 0
         if event.type == KEYDOWN:
             if event.key == K_DOWN:
-                pass
+                 if perso.direction != "bas":
+                     perso.ch_direction("bas")
+                 else:
+                     perso.avancer()
+            if event.key == K_UP:
+                if perso.direction != "haut":
+                    perso.ch_direction("haut")
+                else:
+                    perso.avancer()
+                
+            if event.key == K_LEFT:
+                if perso.direction != "gauche":
+                     perso.ch_direction("gauche")
+                else:
+                     perso.avancer()
+            if event.key == K_RIGHT:
+                if perso.direction != "droite":
+                     perso.ch_direction("droite")
+                else:
+                     perso.avancer()
+                        
             
         '''
          tkey = pygame.key.get_pressed()
@@ -82,8 +114,18 @@ while continuer:
             #pygame.display.update()'''
     
     # affichage
-    affichercarte(x,y)
-    fenetre.blit(personnage, [i, j])
+    if perso.posx <10:
+        x0 = 0
+    else:
+        x0 = perso.posx-10
+    affichercarte(x0,perso.posy-10)
+    
+    if perso.posy <10:
+        y0 = 0
+    else:
+        y0 = perso.posy-10
+    affichercarte(x0,y0)
+    #fenetre.blit(personnage, [i, j])
     pygame.display.flip()
     
 #==============================================================================
@@ -131,6 +173,3 @@ while continuer:
 #         if event.type == QUIT:
 #             continuer = 0
 #==============================================================================
-
-
-
