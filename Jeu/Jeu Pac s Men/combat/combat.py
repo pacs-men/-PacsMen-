@@ -159,94 +159,95 @@ class perso:
                     
     def popo_actif(self):
         potion=self.action
-        if potion == "vie1": 
+        if potion == "vie1" and self.potionvie1>0:
             self.pv += 50
             if self.pv > self.pv_max:
                 self.pv = self.pv_max
-            pass
+                self.pv += 50
+            self.potionvie1-=1
         
-        if potion == "vie2": 
+        if potion == "vie2"and self.potionvie2>0: 
             self.pv += 100
             if self.pv > self.pv_max:
                 self.pv = self.pv_max
-            pass
+            self.potionvie2-=1
         
-        if potion == "vie3": 
+        if potion == "vie3"and self.potionvie3>0:
             self.pv += 250
             if self.pv > self.pv_max:
                 self.pv = self.pv_max
-            pass
+            self.potionvie3-=1
         
-        if potion == "force1":
+        if potion == "force1"and self.potionforce1>0:
             self.atk += 50
             self.mag += 50  
             self.force1 =2
             self.force1fois +=1
-            pass
+            self.potionforce1-=1
         
-        if potion == "force2": 
+        if potion == "force2"and self.potionforce2>0: 
             self.atk +=100
             self.mag +=100
             self.force1 =2
             self.force2fois +=1
-            pass
+            self.potionforce2-=1
         
-        if potion == "force3": 
+        if potion == "force3"and self.potionforce3>0: 
             self.atk +=150
             self.mag +=150
             self.force3 =1  #"tour"
             self.force3fois +=1
-            pass
+            self.potionforce3-=1
             
-        if potion == "armure1": 
+        if potion == "armure1"and self.potionarmure1>0: 
             self.defend +=5
             self.res +=5
             self.armure1 =2 #"tour"
             self.armure1fois +=1
-            pass
+            self.potionarmure1-=1
             
-        if potion == "armure2": 
+        if potion == "armure2"and self.potionarmure2>0: 
             self.defend +=10
             self.res +=10
             self.armure2 =2 #"tour"
             self.armure2fois +=1
-            pass
+            self.potionarmure2-=1
             
-        if potion == "armure3": 
+        if potion == "armure3"and self.potionarmure3>0: 
             self.defend +=20
             self.res +=20
             self.armure3 =1 #"tour"
             self.armure3fois +=1
-            pass
+            self.potionarmure3-=1
             
-        if potion == "critique1": 
+        if potion == "critique1"and self.potioncritique1>0: 
             self.crit += 5
             self.critique1 =4 #"tour"
             self.critique1fois +=1
-            pass
+            self.potioncritique1-=1
             
-        if potion == "critique2": 
+        if potion == "critique2"and self.potioncritique2>0: 
             self.crit += 10
             self.critique2 =3#"tour"
             self.critique2fois +=1
-            pass
+            self.potioncritique2-=1
             
-        if potion == "critique3": 
+        if potion == "critique3"and self.potioncritique3>0: 
             self.crit += 15
             self.critique3 =2 #"tour"
-            pass
+            self.potioncritique3-=1
         
-        if potion == "vitesse": 
+        if potion == "vitesse"and self.potionvitesse>0: 
             self.vit += 100
             self.vitesse =1 #"combat"
             self.vitessefois +=1
-            pass
+            self.potionvitesse-=1
             
-        if potion == "precision": 
+        if potion == "precision"and self.potionprecision>0: 
             self.prec += 15
             self.precision =1 #"combat"
             self.precisionfois +=1
-            pass
+            self.potionprecision-=1
             
     
     def popo_def(self):
