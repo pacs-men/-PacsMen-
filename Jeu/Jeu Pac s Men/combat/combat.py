@@ -515,7 +515,196 @@ class ennemi_test(perso):
         self.vit=10
         self.img= pygame.image.load("Data/perso.png").convert_alpha()
 
+class mobs(perso):
+    
+    def __init__(self):
+        perso.__init__(self)
+        self.nombre=1
+        
+        
+        
 
+class Rats(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Rats"
+        self.pv_max=50
+        self.pv=50
+        self.atk=15
+        self.defen=5
+        self.res=10
+        self.vit=20
+        self.nombre=4
+        
+class Gobelins(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Gobelins"
+        self.pv_max=40
+        self.pv=40
+        self.atk=0
+        self.mag=15
+        self.defen=5
+        self.res=10
+        self.vit=40
+        self.nombre=4
+                
+class Aigles(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Aigles"
+        self.pv_max=25
+        self.pv=25
+        self.atk=40
+        self.mag=0
+        self.defen=10
+        self.res=0
+        self.vit=100
+        self.nombre=2       
+        
+class Slime(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Slime"
+        self.pv_max=90
+        self.pv=90
+        self.atk=0
+        self.mag=30
+        self.defen=10
+        self.res=20
+        self.vit=40
+        self.nombre=1         
+        
+class Centaures(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Centaures"
+        self.pv_max=80
+        self.pv=80
+        self.atk=0
+        self.mag=50
+        self.defen=10
+        self.res=20
+        self.vit=70
+        self.nombre=3        
+               
+class Loup_garou(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Loup Garou"
+        self.pv_max=200
+        self.pv=200
+        self.atk=60
+        self.mag=0
+        self.defen=25
+        self.res=15
+        self.vit=70
+        self.nombre=1        
+        
+class Araingnees(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Araingnées"
+        self.pv_max=20
+        self.pv=20
+        self.atk=0
+        self.mag=20
+        self.defen=5
+        self.res=5
+        self.vit=120
+        self.nombre=3       
+                
+class Carapateur(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Carapateur"
+        self.pv_max=300
+        self.pv=300
+        self.atk=0
+        self.mag=0
+        self.defen=25
+        self.res=25
+        self.vit=10
+        self.nombre=1         
+        
+class Golems(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Carapateur"
+        self.pv_max=300
+        self.pv=300
+        self.atk=0
+        self.mag=40
+        self.defen=15
+        self.res=25
+        self.vit=20
+        self.nombre=2        
+        
+class Golems(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Carapateur"
+        self.pv_max=300
+        self.pv=300
+        self.atk=0
+        self.mag=40
+        self.defen=15
+        self.res=25
+        self.vit=20
+        self.nombre=2          
+        
+class Treant(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Tréant"
+        self.pv_max=500
+        self.pv=500
+        self.atk=0
+        self.mag=45
+        self.defen=20
+        self.res=25
+        self.vit=10
+        self.nombre=1  
+        
+class Geant(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Géant"
+        self.pv_max=400
+        self.pv=400
+        self.atk=40
+        self.mag=45
+        self.defen=25
+        self.res=20
+        self.vit=10
+        self.nombre=1        
+        
+        
+class Nains(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Nains"
+        self.pv_max=100
+        self.pv=100
+        self.atk=40
+        self.mag=0
+        self.defen=20
+        self.res=25
+        self.vit=40
+        self.nombre=3
+        
+class Elfs(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Elfs"
+        self.pv_max=85
+        self.pv=85
+        self.atk=0
+        self.mag=30
+        self.defen=15
+        self.res=30
+        self.vit=80
+        self.nombre=2
 
 class arme:
     def __init__(self):
@@ -947,25 +1136,3 @@ class potionprecision:
 class potionvitesse:
     def __init__(self):
         self.prec=50   
-                
-                
-
-   
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
