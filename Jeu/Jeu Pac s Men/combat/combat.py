@@ -2,7 +2,6 @@
 import random,pygame
 
 class perso:
-    
     def __call__(self):
         print "ceci est une fonction"
     
@@ -251,20 +250,7 @@ class perso:
             
     
     def popo_def(self):
-        if self.precisionfois > 0:
-            if self.precision == 0:
-                self.prec -= 10
-                self.precisionfois -= 1
-            else:
-                self.precison -=1
-
-        if self.vitessefois > 0:
-            if self.vitesse == 0:
-                self.vit -= 10
-                self.vitessefois -= 1
-            else:
-                self.vitesse -=1
-
+        
         if self.critique3fois > 0:
             if self.critique3 == 0:
                 self.crit -= 15
@@ -333,6 +319,18 @@ class perso:
                 self.force1fois -= 1
             else:
                 self.force1 -=1
+                
+    def popo_def_2(self):
+        
+        if self.precision == 1:
+            self.precision -= 15 * self.precisionfois
+            self.precisionfois -= 1
+            self.precision -=1
+            
+        if self.vitesse == 1:
+            self.vitesse -= 15 * self.vitessefois
+            self.vitessefois -= 1
+            self.vitesse -=1
             
 class AssassinsMagique(perso):
     def __init__(self):
@@ -517,14 +515,10 @@ class ennemi_test(perso):
         self.img= pygame.image.load("Data/perso.png").convert_alpha()
 
 class mobs(perso):
-    
     def __init__(self):
         perso.__init__(self)
         self.nombre=1
         
-        
-        
-
 class Rats(mobs):
     def __init__(self):
         mobs.__init__(self)
@@ -992,26 +986,23 @@ def combat_start(joueur,participant):
         trie les participants au combat selon leur vitesse
     '''
     if joueur.type_action == None:
-        
         participant.sort(key=lambda v: v.vit)
         participant.reverse()
         combat_attaque(participant)
     
     if joueur.type_action == "potion":
-        
         joueur.popo_actif()
         participant.sort(key=lambda v: v.vit)
         participant.reverse()
         combat_attaque(participant)
         
     if joueur.type_action == "attaque":
-        
         participant.append(joueur)
         participant.sort(key=lambda v: v.vit)
         participant.reverse()
         combat_attaque(participant)
     
-        
+    
 def combat_attaque(participant_vit):
     '''
         fonction dans laquelle le joueur attaque
