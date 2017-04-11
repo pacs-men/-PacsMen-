@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import random,pygame
+from pygame.locals import *
 
 class perso:
     def __call__(self):
@@ -1128,3 +1129,19 @@ class potionprecision:
 class potionvitesse:
     def __init__(self):
         self.prec=50   
+        
+def affiche_combat(fenetre):
+    continuer = 1 
+    black=(0,0,0)
+    font = pygame.font.SysFont('Calibri', 25, True, False)
+    fenetre.fill((0xFF, 0xFF, 0xFF))
+    while continuer == 1:
+        text = font.render("attaque",True,black)
+        fenetre.blit(text, [250, 250])
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                continuer = 0
+    
+    
+    
