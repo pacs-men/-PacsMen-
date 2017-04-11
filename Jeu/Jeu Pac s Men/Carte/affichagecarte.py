@@ -19,7 +19,7 @@ import combat
 D=20
 taille_carte = 30
 pygame.init()
-fenetre=pygame.display.set_mode((640,640), RESIZABLE)
+fenetre=pygame.display.set_mode((640,640))
 pygame.display.set_caption('Programme Pygame de base')
 
 mape= carte.carte(taille_carte)
@@ -85,7 +85,8 @@ while continuer:
                 else:
                      perso.avancer()
                         
-            
+            if event.key == K_TAB:
+                combat.affiche_combat(fenetre)
         '''
          tkey = pygame.key.get_pressed()
         if tkey[K_LEFT]:
