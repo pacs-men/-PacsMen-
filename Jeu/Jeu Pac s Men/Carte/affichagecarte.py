@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import carte
+import script
 import pygame
 from pygame.locals import *
 import sys
@@ -38,12 +39,11 @@ def affichercarte(x0,y0):
         for y in range(D):
             if mape.matrice_objet[x+x0][y+y0] != None:
                 fenetre.blit(personnage,(x*32, y*32))
-
 #def perso(i,j):
 #    self.image = pygame.image.load("Data/personnage").convert_alpha()
 
 
-
+dialogues=script.script1(fenetre)
 
 background_song=pygame.mixer.Sound("Data/laser5.ogg")
 
@@ -87,6 +87,11 @@ while continuer:
 
             if event.key == K_TAB:
                 combat.affiche_combat(fenetre)
+
+            if event.key == K_s:
+                print(dialogues.texte)
+            if event.key == K_d:
+                print(dialogues.mots1)
         '''
          tkey = pygame.key.get_pressed()
         if tkey[K_LEFT]:
