@@ -33,12 +33,12 @@ def affichercarte(x0,y0):
     for x in range(D):
         for y in range(D):
             fenetre.blit(mape.get_image_case(x+x0, y+y0),(x*32, y*32))
-            
+
     for x in range(D):
         for y in range(D):
             if mape.matrice_objet[x+x0][y+y0] != None:
                 fenetre.blit(personnage,(x*32, y*32))
-    
+
 #def perso(i,j):
 #    self.image = pygame.image.load("Data/personnage").convert_alpha()
 
@@ -52,6 +52,7 @@ player_position = [5, 5]
 
 affichercarte(x,y)
 background_song.play()
+pygame.key.set_repeat(300,70)
 
 #i = player_position[0]
 #j = player_position[1]
@@ -64,27 +65,26 @@ while continuer:
             continuer = 0
         if event.type == KEYDOWN:
             if event.key == K_DOWN:
-                 if perso.direction != "bas":
-                     perso.ch_direction("bas")
-                 else:
-                     perso.avancer()
+                if perso.direction != "bas":
+                    perso.ch_direction("bas")
+                else:
+                    perso.avancer()
             if event.key == K_UP:
                 if perso.direction != "haut":
                     perso.ch_direction("haut")
                 else:
                     perso.avancer()
-                
             if event.key == K_LEFT:
                 if perso.direction != "gauche":
-                     perso.ch_direction("gauche")
+                    perso.ch_direction("gauche")
                 else:
-                     perso.avancer()
+                    perso.avancer()
             if event.key == K_RIGHT:
                 if perso.direction != "droite":
-                     perso.ch_direction("droite")
+                    perso.ch_direction("droite")
                 else:
-                     perso.avancer()
-                        
+                    perso.avancer()
+
             if event.key == K_TAB:
                 combat.affiche_combat(fenetre)
         '''
@@ -113,7 +113,7 @@ while continuer:
                 y+=1
             affichercarte(x,y)
             #pygame.display.update()'''
-    
+
     # affichage
     if perso.posx<10:
         x0 = 0
@@ -121,18 +121,18 @@ while continuer:
         x0 = taille_carte-20
     else:
         x0 = perso.posx-10
-    
+
     if perso.posy<10:
         y0 = 0
     elif perso.posy>=taille_carte-11:
         y0 = taille_carte-20
-    
+
     else:
         y0 = perso.posy-10
     affichercarte(x0,y0)
     #fenetre.blit(personnage, [i, j])
     pygame.display.flip()
-    
+
 #==============================================================================
 # def haut():
 #     global x,y
