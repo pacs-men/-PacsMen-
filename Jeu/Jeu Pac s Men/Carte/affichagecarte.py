@@ -115,14 +115,18 @@ while continuer:
             #pygame.display.update()'''
     
     # affichage
-    if perso.posx <10:
+    if perso.posx<10:
         x0 = 0
+    elif perso.posx>=taille_carte-11:
+        x0 = taille_carte-20
     else:
         x0 = perso.posx-10
-    affichercarte(x0,perso.posy-10)
     
-    if perso.posy <10:
+    if perso.posy<10:
         y0 = 0
+    elif perso.posy>=taille_carte-11:
+        y0 = taille_carte-20
+    
     else:
         y0 = perso.posy-10
     affichercarte(x0,y0)
