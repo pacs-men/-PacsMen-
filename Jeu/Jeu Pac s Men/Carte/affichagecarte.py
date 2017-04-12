@@ -7,6 +7,8 @@ import sys
 import objet
 sys.path.append("../combat")
 import combat
+import pickle
+import random
 
 
 #==============================================================================
@@ -39,11 +41,23 @@ def affichercarte(x0,y0):
         for y in range(D):
             if mape.matrice_objet[x+x0][y+y0] != None:
                 fenetre.blit(personnage,(x*32, y*32))
+    
+def ouvrir_map():
+    carte = ""
+    with open("carte.mp", "rb") as fichier:
+        depick = pickle.Unpickler(fichier)
+        carte = depick.load()
+        
+    for x in range(len(carte)):
+        for y in range(len(carte)):
+            if carte[x][y] == "Herbe":
+                carte[x][y]+= str(random.randrange(1, 5))
+    return carte
+    
 #def perso(i,j):
 #    self.image = pygame.image.load("Data/personnage").convert_alpha()
 
-
-dialogues=script.script1(fenetre)
+#dialogues=script.script1(fenetre)
 
 background_song=pygame.mixer.Sound("Data/laser5.ogg")
 
