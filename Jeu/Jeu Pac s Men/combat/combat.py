@@ -1140,7 +1140,7 @@ def affiche_combat(fenetre):
         fenetre.blit(text, [250, 250])
         pygame.display.flip()
         for event in pygame.event.get():
-            if event.type == QUIT:
+            if event.type == KEYDOWN and event.key == K_TAB:
                 continuer = 0
     
     
