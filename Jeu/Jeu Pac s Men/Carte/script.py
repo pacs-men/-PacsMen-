@@ -4,6 +4,8 @@ Created on Tue Apr 11 22:38:18 2017
 
 @author: nassim
 """
+#import sys
+#print u"dépasse".encode( sys.stdout.encoding )
 
 class script1:
     '''une ligne fait exactement 39 caractères avec les paramètres de bases des caracteres'''
