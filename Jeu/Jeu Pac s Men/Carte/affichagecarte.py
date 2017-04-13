@@ -15,9 +15,8 @@ import random
 # map=cases.carte(10)
 # map.matrice[x][y].afficher(i, j)
 #==============================================================================
-
-
-
+black=(0,0,0)
+white=(0xFF,0xFF,0xFF)
 
 D=20
 taille_carte = 30
@@ -30,6 +29,10 @@ perso = objet.obj_boug(mape, 10,10)
 
 imgJoueur = combat.AssassinsMagique()
 personnage=imgJoueur.img.convert_alpha()
+
+dialogues=script.script1()
+font = pygame.font.SysFont('Calibri', 25, True, False)
+
 x=0
 y=0
 def affichercarte(x0,y0):
@@ -41,31 +44,31 @@ def affichercarte(x0,y0):
         for y in range(D):
             if mape.matrice_objet[x+x0][y+y0] != None:
                 fenetre.blit(personnage,(x*32, y*32))
-    
+
 def ouvrir_map():
     carte = ""
     with open("carte.mp", "rb") as fichier:
         depick = pickle.Unpickler(fichier)
         carte = depick.load()
-        
+
     for x in range(len(carte)):
         for y in range(len(carte)):
             if carte[x][y] == "Herbe":
                 carte[x][y]+= str(random.randrange(1, 5))
     return carte
-    
+
 #def perso(i,j):
 #    self.image = pygame.image.load("Data/personnage").convert_alpha()
 
 #dialogues=script.script1(fenetre)
 
-background_song=pygame.mixer.Sound("Data/laser5.ogg")
+#background_song=pygame.mixer.Sound("Data/laser5.ogg")
 
 continuer = 1
 player_position = [5, 5]
 
 affichercarte(x,y)
-background_song.play()
+#background_song.play()
 pygame.key.set_repeat(300,70)
 
 #i = player_position[0]
@@ -73,7 +76,7 @@ pygame.key.set_repeat(300,70)
 
 while continuer:
     # prise en compte des evenements
-    background_song.play()
+    #background_song.play()
     for event in pygame.event.get():
         if event.type == QUIT:
             continuer = 0
@@ -103,9 +106,9 @@ while continuer:
                 combat.affiche_combat(fenetre)
 
             if event.key == K_s:
-                print(dialogues.texte)
-            if event.key == K_d:
-                print(dialogues.mots1)
+                text = font.render(dialogues.page2,True,black)
+                fenetre.blit(text, [0,0])
+                pygame.display.flip()
         '''
          tkey = pygame.key.get_pressed()
         if tkey[K_LEFT]:
