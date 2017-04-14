@@ -1130,18 +1130,65 @@ class potionvitesse:
     def __init__(self):
         self.prec=50   
         
-def affiche_combat(fenetre):
-    continuer = 1 
+def affiche_combat(fenetre,joueur,ennemi):
+    continuer = 1
+    position_bouton=1
     black=(0,0,0)
+    blanc=(0xFF, 0xFF, 0xFF)
     font = pygame.font.SysFont('Calibri', 25, True, False)
-    fenetre.fill((0xFF, 0xFF, 0xFF))
+    fenetre.fill(blanc)
     while continuer == 1:
-        text = font.render("attaque",True,black)
-        fenetre.blit(text, [250, 250])
+        if position_bouton == 1:
+            pygame.draw.rect(fenetre, blanc, [210, 590, 190, 50], 3)
+            pygame.draw.rect(fenetre, blanc, [100, 590, 110, 50], 3)
+            pygame.draw.rect(fenetre, black, [0, 590, 100, 50], 3)
+        if position_bouton == 2:
+            pygame.draw.rect(fenetre, blanc, [0, 590, 100, 50], 3)
+            pygame.draw.rect(fenetre, blanc, [210, 590, 190, 50], 3)
+            pygame.draw.rect(fenetre, black, [100, 590, 110, 50], 3)
+        if position_bouton == 3:
+            pygame.draw.rect(fenetre, blanc, [100, 590, 110, 50], 3)
+            pygame.draw.rect(fenetre, blanc, [0, 590, 100, 50], 3)
+            pygame.draw.rect(fenetre, black, [210, 590, 190, 50], 3)
+        text1 = font.render("attaque",True,black)
+        text2 =font.render("potion",True,black)
+        text3 =font.render("fuite",True,black)
+        text4 = font.render(ennemi[0].nom,True,black)
+        fenetre.blit(text1, [10, 600])
+        fenetre.blit(text2, [120, 600])
+        fenetre.blit(text3, [230, 600])
+        fenetre.blit(text4, [430, 600])
+        pygame.draw.rect(fenetre, black, [0, 590, 640, 50], 1)
+        pygame.draw.line(fenetre, black, [100, 590], [100, 640], 1)
+        pygame.draw.line(fenetre, black, [210, 590], [210, 640], 1)
+        pygame.draw.line(fenetre, black, [400, 590], [400, 640], 1)
         pygame.display.flip()
+        
         for event in pygame.event.get():
-            if event.type == KEYDOWN and event.key == K_TAB:
-                continuer = 0
-    
-    
-    
+            if event.type == KEYDOWN:
+                if event.key == K_TAB:
+                    continuer = 0
+                if event.key == K_UP or event.key == K_RIGHT:
+                    if position_bouton <3:
+                        position_bouton += 1
+                if event.key == K_DOWN or event.key == K_LEFT:
+                    if position_bouton >1:
+                        position_bouton -= 1
+                if event.key == K_RETURN:
+                    if position_bouton == 1:
+                        while continuer == 1:
+                           for event in pygame.event.get():
+                                if event.type == KEYDOWN:
+                                    if event.key == K_TAB:
+                                        continuer = 0
+                    if position_bouton == 2:
+                        while continuer == 1:
+                            for event in pygame.event.get():
+                                if event.type == KEYDOWN:
+                                    if event.key == K_TAB:
+                                        continuer = 0
+                    if position_bouton == 3:
+                        for event in pygame.event.get():
+                            if event.type == KEYDOWN:
+                                if event.key == K_TAB:
+                                    continuer = 0
