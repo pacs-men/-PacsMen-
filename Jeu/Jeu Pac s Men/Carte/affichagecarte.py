@@ -103,7 +103,7 @@ while continuer:
                     perso.avancer()
 
             if event.key == K_TAB:
-                combat.affiche_combat(fenetre)
+                combat.affiche_combat(fenetre,perso,[combat.Gobelins(),combat.Gobelins(),combat.Gobelins()])
 
             if event.key == K_s:
                 text = font.render(dialogues.page2,True,black)
