@@ -1,0 +1,24 @@
+carte n°1:
+-herbe 
+-arbre
+-plancher
+-porte
+-maison
+-barrière 
+-terre labourée
+-buissons
+-foret
+
+Carte n°2:
+-sol en pierre
+-mur en pierre brute
+-stactite
+-eau
+
+Carte n°3:
+-stone brique en mur en sol
+-tapis rouge 
+-table 
+-éclairage
+-trône
+-balcon interieur(optionnel)
