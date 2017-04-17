@@ -1,10 +1,10 @@
-e# -PacsMen-
+# -PacsMen-
 Jeu pour L'isn
 
 Avant fin des vacances:
 
 Jeu terminé jouable et battre le boss:
-- Terminer l'éditur de maps 
+- Terminer l'éditeur de maps 
 - Avoir toutes les textures
 - Map aléatoire
 - Menu principal
