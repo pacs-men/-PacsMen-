@@ -114,7 +114,7 @@ class perso:
                 
                 
                 
-    def passif_attaque_def(self,adv):
+    def passif_attaque_def(self):
         '''
             effet des passifs d'attaque
         '''
@@ -349,7 +349,7 @@ class AssassinsMagique(perso):
         self.crit=10
         self.img= pygame.image.load("Data/perso.png").convert_alpha()
         
-        def passif_attaque_def(self,adv):
+        def passif_attaque_def(self):
             self.pv += 5
 
 class Mage(perso):
@@ -369,9 +369,9 @@ class Mage(perso):
         self.crit=5
         self.img= pygame.image.load("Data/perso.png").convert_alpha()
         
-    def passif_attaque_def(adv):
+    def passif_attaque_def(self):
         if random.randrange(10)<1:
-            adv.stun=True
+            self.cible.stun=True
         
         
 class AssassinsPhysique(perso):
@@ -390,8 +390,8 @@ class AssassinsPhysique(perso):
         self.crit=10
         self.img= pygame.image.load("Data/perso.png").convert_alpha()
         
-     def passif_attaque_def(adv):
-        adv.saignement = 1
+     def passif_attaque_def(self):
+        self.cible.saignement = 1
         
 class Combattant(perso):
     def __init__(self):
@@ -409,7 +409,7 @@ class Combattant(perso):
         self.crit=5
         self.img= pygame.image.load("Data/perso.png").convert_alpha()
         
-    def passif_def(self,adv):
+    def passif_def(self):
         if self.pv < 500*0.7 and self.passif == 0:
             self.defen == self.defen*2
             self.res == self.res*2
@@ -1002,6 +1002,7 @@ def combat_start(joueur,participant):
         participant.sort(key=lambda v: v.vit)
         participant.reverse()
         combat_attaque(participant)
+        participant.remove(joueur)
     
     
 def combat_attaque(participant_vit):
