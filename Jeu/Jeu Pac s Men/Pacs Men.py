@@ -17,7 +17,7 @@ white=(0xFF,0xFF,0xFF)
 
 taille_fenetre=20
 pygame.init()
-fenetre=pygame.display.set_motaille_fenetree((640,640))
+fenetre=pygame.display.set_mode((640,640))
 pygame.display.set_caption('Programme Pygame de base')
 
 mape= carte.carte(fichier = "carte.mp")
