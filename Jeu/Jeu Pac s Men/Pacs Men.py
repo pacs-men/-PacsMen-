@@ -27,7 +27,7 @@ perso = objet.obj_boug(mape, 10,10)
 imgJoueur = combat.AssassinsMagique()
 personnage=imgJoueur.img.convert_alpha()
 
-dialogues=script.script1()
+dialogues=script.script1(texte)
 font = pygame.font.SysFont('Calibri', 25, True, False)
 
 x=0
@@ -94,9 +94,10 @@ while continuer:
                 combat.affiche_combat(fenetre)
 
             if event.key == K_s:
-                text = font.render(dialogues.page2,True,black)
-                fenetre.blit(text, [0,0])
-                pygame.display.flip()
+                for a in range (len(sc.ls_page)):
+                    text = font.render(dialogues.ls_page[a],True,black)
+                    fenetre.blit(text, [0,0])
+                    pygame.display.flip()
 
     # affichage
     if perso.posx<10:
