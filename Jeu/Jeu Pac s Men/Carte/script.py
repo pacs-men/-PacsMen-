@@ -7,11 +7,11 @@ Created on Tue Apr 11 22:38:18 2017
 #import sys
 #print u"dépasse".encode( sys.stdout.encoding )
 
-with open("script.txt","r") as fichier_script:
-    texte = []    
+with open("data/script.txt","r") as fichier_script:
+    texte = []
     for i in range(5):
         texte.append(fichier_script.readline())
-    
+
 print texte
 
 
@@ -19,6 +19,12 @@ class script1:
     '''une ligne fait exactement 39 caractères avec les paramètres de bases des caracteres'''
     def __init__(self, texte):
         self.ls_page = texte
+
+if __name__ == "__main__":
+    sc = script1(texte)
+    for a in range (len(sc.ls_page)):
+        print sc.ls_page[a]
+
 #==============================================================================
 #         self.page2 = u"Vous êtes un ancien membre d’une guilde".encode('utf-8')
 #         self.page3 = "bla bla bla bla bla"
@@ -26,9 +32,6 @@ class script1:
 #         self.page4 = "bla bla bla bla bla"
 #==============================================================================
 
-sc = script1(texte)
-for a in range (len(sc.ls_page)):
-    print sc.ls_page[a]
 '''
 Vous êtes un ancien membre d’une guilde
 nommé les Pac’s Men dont les membres ont
