@@ -1228,3 +1228,4 @@ def affiche_combat(fenetre,joueur,ennemi):
 
 
 def select_ennemi(fenetre,joueur,ennemi):
+    pass
