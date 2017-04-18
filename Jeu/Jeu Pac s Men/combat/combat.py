@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import random,pygame
+import random ,pygame
 from pygame.locals import *
 
 class perso:
@@ -347,7 +347,7 @@ class AssassinsMagique(perso):
         self.vit=80
         self.prec=100
         self.crit=10
-        self.img= pygame.image.load("Data/perso.png").convert_alpha()
+        self.img= pygame.image.load("../data/perso.png").convert_alpha()
         
         def passif_attaque_def(self):
             self.pv += 5
@@ -367,7 +367,7 @@ class Mage(perso):
         self.vit=80
         self.prec=90
         self.crit=5
-        self.img= pygame.image.load("Data/perso.png").convert_alpha()
+        self.img= pygame.image.load("../data/perso.png").convert_alpha()
         
     def passif_attaque_def(self):
         if random.randrange(10)<1:
@@ -388,7 +388,7 @@ class AssassinsPhysique(perso):
         self.vit=80
         self.prec=100
         self.crit=10
-        self.img= pygame.image.load("Data/perso.png").convert_alpha()
+        self.img= pygame.image.load("../data/perso.png").convert_alpha()
         
      def passif_attaque_def(self):
         self.cible.saignement = 1
@@ -407,7 +407,7 @@ class Combattant(perso):
         self.vit=50
         self.prec=100
         self.crit=5
-        self.img= pygame.image.load("Data/perso.png").convert_alpha()
+        self.img= pygame.image.load("../data/perso.png").convert_alpha()
         
     def passif_def(self):
         if self.pv < 500*0.7 and self.passif == 0:
@@ -435,7 +435,7 @@ class Archer(perso):
         self.vit=100
         self.prec=95
         self.crit=20
-        self.img= pygame.image.load("Data/perso.png").convert_alpha()
+        self.img= pygame.image.load("../data/perso.png").convert_alpha()
         self.cible2=None
         
     def attaque2(self):
@@ -1137,6 +1137,13 @@ def affiche_combat(fenetre,joueur,ennemi):
     black=(0,0,0)
     blanc=(0xFF, 0xFF, 0xFF)
     font = pygame.font.SysFont('Calibri', 25, True, False)
+    text1 = font.render("attaque",True,black)
+    text2 =font.render("potion",True,black)
+    text3 =font.render("fuite",True,black)
+    text4 = font.render(ennemi[0].nom,True,black)
+    text5 = font.render("attaque physique",True,black)
+    text6 = font.render("attaque magique",True,black)
+
     fenetre.fill(blanc)
     while continuer == 1:
         if position_bouton == 1:
@@ -1151,10 +1158,6 @@ def affiche_combat(fenetre,joueur,ennemi):
             pygame.draw.rect(fenetre, blanc, [100, 590, 110, 50], 3)
             pygame.draw.rect(fenetre, blanc, [0, 590, 100, 50], 3)
             pygame.draw.rect(fenetre, black, [210, 590, 190, 50], 3)
-        text1 = font.render("attaque",True,black)
-        text2 =font.render("potion",True,black)
-        text3 =font.render("fuite",True,black)
-        text4 = font.render(ennemi[0].nom,True,black)
         fenetre.blit(text1, [10, 600])
         fenetre.blit(text2, [120, 600])
         fenetre.blit(text3, [230, 600])
@@ -1175,21 +1178,53 @@ def affiche_combat(fenetre,joueur,ennemi):
                 if event.key == K_DOWN or event.key == K_LEFT:
                     if position_bouton >1:
                         position_bouton -= 1
+
                 if event.key == K_RETURN:
+
                     if position_bouton == 1:
+                        joueur.action_type = attaque
                         while continuer == 1:
-                           for event in pygame.event.get():
-                                if event.type == KEYDOWN:
-                                    if event.key == K_TAB:
-                                        continuer = 0
-                    if position_bouton == 2:
-                        while continuer == 1:
+                            pygame.draw.rect(fenetre, blanc, [0, 585, 640, 55])
+                            pygame.draw.rect(fenetre, black, [0, 590, 640, 50], 1)
+                            pygame.draw.line(fenetre, black, [400, 590], [400, 640], 1)
+                            pygame.draw.line(fenetre, black, [200, 590], [200, 640], 1)
+                            fenetre.blit(text4, [430, 600])
+                            fenetre.blit(text5, [10, 600])
+                            fenetre.blit(text6, [210, 600])
+                            pygame.display.flip()
                             for event in pygame.event.get():
                                 if event.type == KEYDOWN:
                                     if event.key == K_TAB:
                                         continuer = 0
+                                    if event.key == K_UP or event.key == K_RIGHT:
+                                        if position_bouton <2:
+                                            position_bouton += 1
+                                    if event.key == K_DOWN or event.key == K_LEFT:
+                                        if position_bouton >1:
+                                            position_bouton -= 1
+                                    if event.key == K_RETURN:
+                                        if position_bouton == 1:
+                                            joueur.action = Physique
+                                        if position_bouton == 2:
+                                            joueur.action = Magique
+                                        select_ennemi(fenetre,joueur,ennemi)
+
+                    if position_bouton == 2:
+                        joueur.action_type = potion
+                        while continuer == 1:
+
+                            for event in pygame.event.get():
+                                if event.type == KEYDOWN:
+                                    if event.key == K_TAB:
+                                        continuer = 0
+
                     if position_bouton == 3:
-                        for event in pygame.event.get():
-                            if event.type == KEYDOWN:
-                                if event.key == K_TAB:
-                                    continuer = 0
+                        while continuer == 1:
+
+                            for event in pygame.event.get():
+                                if event.type == KEYDOWN:
+                                    if event.key == K_TAB:
+                                        continuer = 0
+
+
+def select_ennemi(fenetre,joueur,ennemi):
