@@ -15,7 +15,8 @@ bouton_1 = False
 pos_debut = (0, 0)
 pos_fin = (0, 0)
 
-dict_case = {"herbe":"green", "mur":"black"}
+dict_case = {"herbe":"green", "mur":"grey"}
+
 dict_obj = {"coffre":"brown", "arbre" :"green"}
 
 def petit(a, b):
@@ -59,12 +60,8 @@ def c_matrice(N):
 def afficher_matrice(m):
     for i in range(nombre_case):
         for j in range(nombre_case):
-            if m[i][j] == "herbe":
-                case(i,j, "green")
-            elif m[i][j] == "mur":
-                case(i,j, "brown")
+            case(i, j, dict_case[m[i][j]])            
             
-                
 
 def case(i, j, color):
     c.create_rectangle(i*l_case , j*l_case, (i*l_case)+l_case, (j*l_case)+l_case,fill = color)    
@@ -78,12 +75,11 @@ def c_matrice2(N):
     return l
 
 def afficher_matrice2(l):
-    for x in range(nombre_case):
-        for y in range(nombre_case):
-            if l[x][y] == "coffre":
-                objet(x,y, "red")
-            elif l[x][y] == "arbre":
-                objet(x,y, "blue" )
+    for i in range(nombre_case):
+        for j in range(nombre_case):
+            ob = l[i][j]
+            if ob!="":            
+                objet(i, j, dict_obj[ob])
 
 def click(event):
     global pos_debut
@@ -166,5 +162,4 @@ while True:
     afficher_matrice2(l)
     c.update()
     c.delete(ALL)
-
 
