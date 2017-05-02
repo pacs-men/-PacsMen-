@@ -20,14 +20,14 @@ pygame.init()
 fenetre=pygame.display.set_mode((640,640))
 pygame.display.set_caption('Programme Pygame de base')
 
-mape= carte.carte(fichier = "carte.mp")
+mape = carte.carte(fichier = "carte.mp")
 taille_carte = mape.taille_mat[0]
-perso = objet.obj_boug(mape, 10,10)
+perso = objet.obj_boug(mape, 2, 2)
 
 imgJoueur = combat.AssassinsMagique()
 personnage=imgJoueur.img.convert_alpha()
 
-dialogues=script.script1(texte)
+#dialogues=script.script1(texte)
 font = pygame.font.SysFont('Calibri', 25, True, False)
 
 x=0
@@ -56,7 +56,6 @@ def ouvrir_map():
 
 
 continuer = 1
-player_position = [5, 5]
 
 affichercarte(x,y)
 #background_song.play()
