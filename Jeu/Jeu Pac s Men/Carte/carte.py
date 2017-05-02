@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Apr 06 22:22:10 2017
-
-@author: Emeric Coudeville
-"""
 import pygame
 from pygame.locals import*
 
@@ -11,12 +5,16 @@ from cases import*
 from objet import*
 
 import random
+import pickle
+import sys
+
 class carte:
     
-    def __init__(self, taille_mat):
-        
-        self.taille_mat = [taille_mat, taille_mat]
-        # création de la matrice qui sert au cases dde la carte
+    def __init__(self, fichier):
+        self.fichier = fichier
+        self.recup_map()
+        self.taille_mat = [len(self.matrice_case), len(self.matrice_case[0])]
+        # création de la matrice qu sert au cases dde la carte
         self.dict_cases = {
                             "herbe1": herbe1(),
                             "herbe2": herbe2(),
@@ -24,27 +22,35 @@ class carte:
                             "herbe4": herbe4(),
                             "mur": mur()
                           }
-        self.matrice_case = [[[] for a in range(self.taille_mat[1])] for a in range(self.taille_mat[0])]
-        self.remplir_mat_cases()
+        #self.matrice_case = [[[] for a in range(self.taille_mat[1])] for a in range(self.taille_mat[0])]
         
         # création de la matrice qui sert gérer les objet de la scène
-        self.matrice_objet = [[None for a in range(self.taille_mat[1])] for a in range(self.taille_mat[0])]
+        #self.matrice_objet = [[None for a in range(self.taille_mat[1])] for a in range(self.taille_mat[0])]
         
         
-    def remplir_mat_cases(self):
-        for x in range(self.taille_mat[0]):
-            for y in range(self.taille_mat[1]):
-                self.matrice_case[x][y] = "herbe"+str(random.randrange(1, 4))
-                
-                
-        for x in range(self.taille_mat[0]):
-            self.matrice_case[x][0] = "mur"
-            self.matrice_case[x][self.taille_mat[0]-1] = "mur"
-            
-        for y in range(self.taille_mat[1]):
-            self.matrice_case[0][y] = "mur"
-            self.matrice_case[self.taille_mat[1]-1][y] = "mur"
-                
+    def recup_map(self):
+        double_mat = []
+        with open(self.fichier, "rb") as fichier:
+            pick = pickle.Unpickler(fichier)
+            double_mat = pick.load()
+        
+        mat_case = double_mat[0]
+        self.matrice_case = mat_case
+        mat_objet = double_mat[1]
+        
+        for x in range(len(mat_case)):
+            for y in range(len(mat_case[0])):
+                if mat_case[x][y] == "herbe":
+                    self.matrice_case[x][y] = "herbe"+str(random.randrange(1, 5))
+        
+        self.matrice_objet = [[None for a in range(len(mat_objet))] for a in range(len(mat_objet[0]))]
+        """
+        for x in range(len(mat_objet)):
+            for y in range(len(mat_objet[0])):
+                if mat_objet[x][y] != None:
+                    self.matrice_objet[x][y] = exec(mat_objet[x][y]+"()")
+        """    
+        
     def get_image_case(self, x, y):
         return self.dict_cases[self.matrice_case[x][y]].image
         
@@ -79,10 +85,17 @@ class carte:
         
 if __name__ == "__main__":
     # exemple de fonctionnement de la carte et de objets
-    a = carte(10)
+    print("")
+    print("")
+    print("")
+    #sys.path.append("..")
+    print sys.path
+    dir(sys)
+    a = carte("carte.mp")
+    
+    
     print a
     b = obj_boug(a, 5, 5)
     c = objet(a, 6, 5)
     b.ch_direction("bas")
     print a
-    
