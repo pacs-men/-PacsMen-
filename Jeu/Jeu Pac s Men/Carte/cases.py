@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Apr 06 22:19:54 2017
-
-@author: Emeric Coudeville
-"""
 import pygame
 from pygame.locals import*
 
@@ -47,7 +41,7 @@ class herbe1(case):
       case.__init__(self)
       self.type = "herbe1"
       self.rep = "H"
-      self.chemin_image = "data/grass17.png"
+      self.chemin_image = "data/Grass17.png"
       self.load_image()
 
 class herbe2(case):
@@ -55,7 +49,7 @@ class herbe2(case):
       case.__init__(self)
       self.type = "herbe2"
       self.rep = "H"
-      self.chemin_image = "data/grass04.png"
+      self.chemin_image = "data/Grass04.png"
       self.load_image()
 
 class herbe3(case):
@@ -63,7 +57,7 @@ class herbe3(case):
       case.__init__(self)
       self.type = "herbe3"
       self.rep = "H"
-      self.chemin_image = "data/grass03.png"
+      self.chemin_image = "data/Grass03.png"
       self.load_image()
 
 class herbe4(case):
@@ -71,5 +65,5 @@ class herbe4(case):
       case.__init__(self)
       self.type = "herbe4"
       self.rep = "H"
-      self.chemin_image = "data/grass02.png"
+      self.chemin_image = "data/Grass02.png"
       self.load_image()
