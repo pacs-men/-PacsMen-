@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Apr 06 22:19:57 2017
-
-@author: Emeric Coudeville
-"""
-
 import pygame
 from pygame.locals import*
 
@@ -45,4 +38,15 @@ class obj_boug(objet):
                 self.carte.deplacer((self.posx, self.posy), (self.posx+self.dict_dir[self.direction][0], self.posy+self.dict_dir[self.direction][1]))
                 self.posx = self.posx+self.dict_dir[self.direction][0]
                 self.posy = self.posy+self.dict_dir[self.direction][1]
-                    
+            
+
+
+class perso(obj_boug):
+    def __init__(self, carte, x, y):
+        obj_boug.__init__(self, carte , x, y)
+        self.dict_images = {"gauche":pygame.image.load(""),"droite":pygame.image.load(""),"haut":pygame.image.load(""),"bas":pygame.image.load("") }
+
+class arbre(objet):
+     def __init__(self, carte, x, y):
+         objet.__init__(self, carte, x, y)
+         self.image = pygame.image.load("sprite_01")
