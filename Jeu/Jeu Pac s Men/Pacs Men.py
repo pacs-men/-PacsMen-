@@ -40,7 +40,7 @@ def affichercarte(x0,y0):
     for x in range(taille_fenetre):
         for y in range(taille_fenetre):
             if mape.matrice_objet[x+x0][y+y0] != None:
-                fenetre.blit(personnage,(x*32, y*32))
+                fenetre.blit(mape.get_image_obj(x+x0, y+y0),(x*32, y*32))
 
 def ouvrir_map():
     carte = ""
