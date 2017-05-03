@@ -347,7 +347,7 @@ class AssassinsMagique(perso):
         self.vit=80
         self.prec=100
         self.crit=10
-        self.img= pygame.image.load("../data/perso.png").convert_alpha()
+        self.img= pygame.image.load("data/perso.png").convert_alpha()
         
         def passif_attaque_def(self):
             self.pv += 5
