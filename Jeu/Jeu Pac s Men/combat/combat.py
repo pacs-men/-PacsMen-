@@ -1169,7 +1169,7 @@ def affiche_combat(fenetre,joueur,ennemi):
                 if event.key == K_RETURN:
 
                     if position_bouton == 1:
-                        joueur.action_type = attaque
+                        joueur.action_type = "attaque"
                         while continuer == 1:
                             pygame.draw.rect(fenetre, blanc, [0, 585, 640, 55])
                             pygame.draw.rect(fenetre, black, [0, 590, 640, 50], 1)
