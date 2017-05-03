@@ -367,7 +367,7 @@ class Mage(perso):
         self.vit=80
         self.prec=90
         self.crit=5
-        self.img= pygame.image.load("../data/perso.png").convert_alpha()
+        self.img= pygame.image.load("data/perso.png").convert_alpha()
         
     def passif_attaque_def(self):
         if random.randrange(10)<1:
@@ -388,7 +388,7 @@ class AssassinsPhysique(perso):
         self.vit=80
         self.prec=100
         self.crit=10
-        self.img= pygame.image.load("../data/perso.png").convert_alpha()
+        self.img= pygame.image.load("data/perso.png").convert_alpha()
         
      def passif_attaque_def(self):
         self.cible.saignement = 1
@@ -407,7 +407,7 @@ class Combattant(perso):
         self.vit=50
         self.prec=100
         self.crit=5
-        self.img= pygame.image.load("../data/perso.png").convert_alpha()
+        self.img= pygame.image.load("data/perso.png").convert_alpha()
         
     def passif_def(self):
         if self.pv < 500*0.7 and self.passif == 0:
@@ -435,7 +435,7 @@ class Archer(perso):
         self.vit=100
         self.prec=95
         self.crit=20
-        self.img= pygame.image.load("../data/perso.png").convert_alpha()
+        self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.cible2=None
         
     def attaque2(self):
@@ -499,7 +499,7 @@ class Soigneur(perso):
         self.vit=30
         self.prec=95
         self.crit=0
-        self.img= pygame.image.load("Data/perso.png").convert_alpha()
+        self.img= pygame.image.load("data/perso.png").convert_alpha()
         
     def passif_def(self,adv):
         self.pv += 15
@@ -513,7 +513,7 @@ class ennemi_test(perso):
         self.pv=100
         self.atk=10
         self.vit=10
-        self.img= pygame.image.load("Data/perso.png").convert_alpha()
+        self.img= pygame.image.load("data/perso.png").convert_alpha()
 
 class mobs(perso):
     def __init__(self):
