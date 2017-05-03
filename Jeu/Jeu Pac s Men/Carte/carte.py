@@ -34,10 +34,12 @@ class carte:
         with open(self.fichier, "rb") as fichier:
             pick = pickle.Unpickler(fichier)
             double_mat = pick.load()
-        
+        print double_mat
         mat_case = double_mat[0]
         self.matrice_case = mat_case
         mat_objet = double_mat[1]
+        print mat_case
+        print mat_objet
         
         for x in range(len(mat_case)):
             for y in range(len(mat_case[0])):
@@ -45,15 +47,17 @@ class carte:
                     self.matrice_case[x][y] = "herbe"+str(random.randrange(1, 5))
         
         self.matrice_objet = [[None for a in range(len(mat_objet))] for a in range(len(mat_objet[0]))]
-        """
+        
         for x in range(len(mat_objet)):
             for y in range(len(mat_objet[0])):
-                if mat_objet[x][y] != None:
-                    self.matrice_objet[x][y] = exec(mat_objet[x][y]+"()")
-        """    
+                if mat_objet[x][y] != "":
+                    exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
+          
         
     def get_image_case(self, x, y):
         return self.dict_cases[self.matrice_case[x][y]].image
+    def get_image_obj(self, x, y):
+        return self.matrice_objet[x][y].image
         
        
     def __repr__(self):
