@@ -46,7 +46,7 @@ def lignes():
 def creer_fichier():
     with open("carte.mp", "wb") as fichier:
         pick = pickle.Pickler(fichier)
-        pick.dump(m)
+        pick.dump([m, l])
 
 def c_matrice(N):
     m = []
@@ -162,4 +162,3 @@ while True:
     afficher_matrice2(l)
     c.update()
     c.delete(ALL)
-
