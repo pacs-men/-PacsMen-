@@ -24,7 +24,7 @@ class obj_boug(objet):
         objet.__init__(self, carte, x, y)
         self.direction = "gauche"
         self.dict_dir = {"gauche":(-1, 0), "droite":(1, 0), "haut":(0, -1), "bas":(0, 1)}
-    
+        self.image = pygame.image.load("data/perso.png")
     def ch_direction(self, direction):
         if direction in ["haut", "bas", "gauche", "droite"]:
             self.direction = direction
@@ -50,4 +50,9 @@ class perso(obj_boug):
 class arbre(objet):
      def __init__(self, carte, x, y):
          objet.__init__(self, carte, x, y)
-         self.image = pygame.image.load("sprite_01")
+         self.image = pygame.image.load("data/sprite_01.png")
+
+class ennemi(objet):
+     def __init__(self, carte, x, y):
+         objet.__init__(self, carte, x, y)
+         self.image = pygame.image.load("data/perso.png")
