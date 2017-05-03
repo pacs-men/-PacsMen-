@@ -1191,9 +1191,9 @@ def affiche_combat(fenetre,joueur,ennemi):
                                             position_bouton -= 1
                                     if event.key == K_RETURN:
                                         if position_bouton == 1:
-                                            joueur.action = Physique
+                                            joueur.action = "Physique"
                                         if position_bouton == 2:
-                                            joueur.action = Magique
+                                            joueur.action = "Magique"
                                         select_ennemi(fenetre,joueur,ennemi)
 
                     if position_bouton == 2:
