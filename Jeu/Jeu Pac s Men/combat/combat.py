@@ -1132,6 +1132,12 @@ def affiche_combat(fenetre,joueur,ennemi):
     text6 = font.render("attaque magique",True,black)
 
     fenetre.fill(blanc)
+    background_image = pygame.image.load("data/background.jpg").convert()
+    fenetre.blit(background_image, [0, 0])
+    
+    fenetre.blit(joueur.img, [10, 50])
+    
+    
     while continuer == 1:
         if position_bouton == 1:
             pygame.draw.rect(fenetre, blanc, [210, 590, 190, 50], 3)
