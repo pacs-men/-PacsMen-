@@ -95,7 +95,7 @@ while continuer:
                     perso.avancer()
 
             if event.key == K_TAB:
-                combat.affiche_combat(fenetre,joueur,ennemi[e])
+                combat.affiche_combat(fenetre,joueur,ennemi[4])
 
             if event.key == K_s:
                 for a in range (len(sc.ls_page)):
