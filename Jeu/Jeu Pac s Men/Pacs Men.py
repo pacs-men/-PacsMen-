@@ -24,8 +24,13 @@ mape = carte.carte(fichier = "carte.mp")
 taille_carte = mape.taille_mat[0]
 perso = objet.obj_boug(mape, 2, 2)
 
-imgJoueur = combat.AssassinsMagique()
-personnage=imgJoueur.img.convert_alpha()
+joueur = combat.AssassinsMagique()
+personnage=joueur.img.convert_alpha()
+
+ennemi= [combat.Aigles(),combat.Araingnees(),combat.Rats(),combat.Geant(),combat.Gobelins(),combat.Golems(),combat.Slime(),combat.Carapateur(),combat.Centaures(),combat.Loup_garou(),combat.Treant(),combat.Nains(),combat.Elfs()]
+#choix de de l'ennemi
+#e = random.randrange(0,12)
+e = 4
 
 #dialogues=script.script1(texte)
 font = pygame.font.SysFont('Calibri', 25, True, False)
@@ -90,7 +95,7 @@ while continuer:
                     perso.avancer()
 
             if event.key == K_TAB:
-                combat.affiche_combat(fenetre)
+                combat.affiche_combat(fenetre,joueur,ennemi[e])
 
             if event.key == K_s:
                 for a in range (len(sc.ls_page)):

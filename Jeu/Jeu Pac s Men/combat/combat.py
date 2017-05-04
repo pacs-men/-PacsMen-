@@ -1127,7 +1127,7 @@ def affiche_combat(fenetre,joueur,ennemi):
     text1 = font.render("attaque",True,black)
     text2 =font.render("potion",True,black)
     text3 =font.render("fuite",True,black)
-    text4 = font.render(ennemi[0].nom,True,black)
+    text4 = font.render(ennemi[4].nom,True,black)
     text5 = font.render("attaque physique",True,black)
     text6 = font.render("attaque magique",True,black)
 
