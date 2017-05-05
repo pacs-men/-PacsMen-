@@ -108,8 +108,8 @@ def affiche_combat(fenetre,joueur,ennemi):
                         position_bouton =1
                         while continuer == 1:
                             if position_bouton == 1:
-                                pygame.draw.rect(fenetre, blanc, [0, 585, 190, 50], 3)
-                                pygame.draw.rect(fenetre, black, [0, 590, 100, 50], 3)
+                                pygame.draw.rect(fenetre, blanc, [0, 590, 590, 50], 3)
+                                pygame.draw.rect(fenetre, black, [590, 590, 50, 50], 3)
                             if position_bouton == 2:
                                 pygame.draw.rect(fenetre, blanc, [210, 590, 190, 50], 3)
                                 pygame.draw.rect(fenetre, black, [100, 590, 110, 50], 3)
@@ -118,7 +118,7 @@ def affiche_combat(fenetre,joueur,ennemi):
                             pygame.draw.line(fenetre, black, [400, 590], [400, 640], 1)
                             pygame.draw.line(fenetre, black, [200, 590], [200, 640], 1)
                             fenetre.blit(text4, [430, 600])
-                            fenetre.blit(text5, [10, 600])
+                            fenetre.blit(text5, [5, 600])
                             fenetre.blit(text6, [210, 600])
                             pygame.display.flip()
                             for event in pygame.event.get():
