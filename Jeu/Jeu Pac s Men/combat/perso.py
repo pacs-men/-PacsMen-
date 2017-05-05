@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import random ,pygame
+import random ,pygame,armes,armure
 from pygame.locals import *
 
 class perso:
