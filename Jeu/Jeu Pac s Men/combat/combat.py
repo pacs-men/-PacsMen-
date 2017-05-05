@@ -686,7 +686,7 @@ class Elfs(mobs):
         self.mag=30
         self.defen=15
         self.res=30
-        self.vit=80
+        self.vit=90
         self.nombre=2
 
 class arme:
