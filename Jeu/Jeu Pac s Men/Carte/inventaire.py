@@ -8,11 +8,11 @@ import pygame
 from pygame.locals import *
 import sys
 sys.path.append("../combat")
-import combat
+import perso
 pygame.init()
 fenetre=pygame.display.set_mode((640,640))
 pygame.display.set_caption('Programme Pygame de base')
-Joueur = combat.AssassinsMagique()
+Joueur = perso.AssassinsMagique()
 Joueur.potionvie1 += 10
 Joueur.pv -= 10
 
