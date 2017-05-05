@@ -8,32 +8,18 @@ def combat_start(joueur,participant):
         fonction principale du combat 
         parametre: class joueur , liste des participants
         
-        appelle la bonne fonction secondaire en fonction du type d'action du joueur
+        appelle la fonction secondaire en ajoutant joueur a la liste des participant
         trie les participants au combat selon leur vitesse
     '''
-    if joueur.type_action == None:
-        participant.sort(key=lambda v: v.vit)
-        participant.reverse()
-        combat_attaque(participant)
-    
-    if joueur.type_action == "potion":
-        joueur.popo_actif()
-        participant.sort(key=lambda v: v.vit)
-        participant.reverse()
-        combat_attaque(participant)
-        
-    if joueur.type_action == "attaque":
-        participant.append(joueur)
-        participant.sort(key=lambda v: v.vit)
-        participant.reverse()
-        combat_attaque(participant)
-        participant.remove(joueur)
+    participant.append(joueur)
+    participant.sort(key=lambda v: v.vit)
+    participant.reverse()
+    combat_attaque(participant)
+    participant.remove(joueur)
     
     
 def combat_attaque(participant_vit):
     '''
-        fonction dans laquelle le joueur attaque
-        
         attaque de tous les participants dans l'ordre de vitesse + test de mort
     '''
     for i in range (len(participant_vit)):
@@ -45,9 +31,16 @@ def combat_attaque(participant_vit):
                 pass
             
         else:
-            participant_vit[i].cible_def(participant_vit)
-            participant_vit[i].attaque()
-            participant_vit[i].popo_def()
+            if participant_vit[i].jouable==True:
+                 if joueur.type_action == "potion":
+                     joueur.popo_actif()
+                 elif joueur.type_action == "attaque":
+                     participant_vit[i].attaque()
+                     participant_vit[i].popo_def()
+            else:
+                participant_vit[i].cible_def(participant_vit)
+                participant_vit[i].attaque()
+                participant_vit[i].popo_def()
             
             
     
@@ -63,7 +56,7 @@ def affiche_combat(fenetre,joueur,ennemi):
     text1 = font.render("attaque",True,black)
     text2 =font.render("potion",True,black)
     text3 =font.render("fuite",True,black)
-    text4 = font.render(ennemi[4].nom,True,black)
+    text4 = font.render(ennemi[1].nom,True,black)
     text5 = font.render("attaque physique",True,black)
     text6 = font.render("attaque magique",True,black)
 
@@ -112,7 +105,14 @@ def affiche_combat(fenetre,joueur,ennemi):
 
                     if position_bouton == 1:
                         joueur.action_type = "attaque"
+                        position_bouton =1
                         while continuer == 1:
+                            if position_bouton == 1:
+                                pygame.draw.rect(fenetre, blanc, [0, 585, 190, 50], 3)
+                                pygame.draw.rect(fenetre, black, [0, 590, 100, 50], 3)
+                            if position_bouton == 2:
+                                pygame.draw.rect(fenetre, blanc, [210, 590, 190, 50], 3)
+                                pygame.draw.rect(fenetre, black, [100, 590, 110, 50], 3)
                             pygame.draw.rect(fenetre, blanc, [0, 585, 640, 55])
                             pygame.draw.rect(fenetre, black, [0, 590, 640, 50], 1)
                             pygame.draw.line(fenetre, black, [400, 590], [400, 640], 1)
@@ -139,7 +139,7 @@ def affiche_combat(fenetre,joueur,ennemi):
                                         select_ennemi(fenetre,joueur,ennemi)
 
                     if position_bouton == 2:
-                        joueur.action_type = potion
+                        joueur.action_type = "potion"
                         while continuer == 1:
 
                             for event in pygame.event.get():
