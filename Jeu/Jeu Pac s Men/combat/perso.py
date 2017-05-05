@@ -377,7 +377,7 @@ class Mage(perso):
 class AssassinsPhysique(perso):
      def __init__(self):
         perso.__init__(self)
-        self.nom="nassim"
+        self.nom="Nassim"
         self.jouable=True
         self.pv_max=250
         self.pv=250

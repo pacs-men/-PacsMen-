@@ -6,15 +6,12 @@ Created on Fri Apr 14 11:24:09 2017
 """
 import pygame
 from pygame.locals import *
-import sys
-sys.path.append("../combat")
-import perso
-pygame.init()
-fenetre=pygame.display.set_mode((640,640))
-pygame.display.set_caption('Programme Pygame de base')
-Joueur = perso.AssassinsMagique()
-Joueur.potionvie1 += 10
-Joueur.pv -= 10
+#pygame.init()
+#fenetre=pygame.display.set_mode((640,640))
+#pygame.display.set_caption('Programme Pygame de base')
+#Joueur = perso.AssassinsMagique()
+#Joueur.potionvie1 += 10
+#Joueur.pv -= 10
 
 def inventaire(fenetre,Joueur):
     continuer = 1
@@ -103,7 +100,7 @@ def inventaire(fenetre,Joueur):
         
         for event in pygame.event.get():
             if event.type == KEYDOWN:
-                if event.key == K_TAB:
+                if event.key == K_i:
                     continuer = 0
                 if event.key == K_DOWN or event.key == K_RIGHT:
                     if position_bouton <13:
@@ -142,9 +139,4 @@ def inventaire(fenetre,Joueur):
                         Joueur.action="precision"
                     Joueur.popo_actif()
                     
-                    
-
-
         pygame.display.flip()
-pygame.display.flip()
-inventaire(fenetre,Joueur)

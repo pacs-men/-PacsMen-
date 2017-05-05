@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import Carte.carte as carte
 import Carte.script as script
-#import Carte.inventaire as inventaire
+import Carte.inventaire as inventaire
 import combat.perso as perso
 import pygame
 from pygame.locals import *
@@ -30,7 +30,6 @@ mvt_perso = objet.obj_boug(mape, 2, 2)
 #creation d'une liste contenant tous les personnages jouable
 joueur = [perso.AssassinsMagique(),perso.AssassinsPhysique(),perso.Combattant(),perso.Mage(),perso.Soigneur(),perso.Archer()]
 j=0
-personnage=joueur[j].img.convert()
 
 #liste de tous les ennemis
 ennemi= [perso.Aigles(),perso.Araingnees(),perso.Rats(),perso.Geant(),perso.Gobelins(),perso.Golems(),perso.Slime(),perso.Carapateur(),perso.Centaures(),perso.Loup_garou(),perso.Treant(),perso.Nains(),perso.Elfs()]
@@ -42,10 +41,19 @@ for a in range (3):
     ennemi_combat.append(ennemi[e])
 
 #dialogues=script.script1(texte)
-font = pygame.font.SysFont('Calibri', 25, True, False)
 
+#creation des variables pour ecrire un texte
+font = pygame.font.SysFont('Calibri', 25, True, False)
+ecrire = font.render
+
+#creation de la vatiable permettant de dessiner des rectangles
+dessiner=pygame.draw.rect
+
+#initialisations de quelques variables utiles
 x=0
 y=0
+boucle = 1
+
 def affichercarte(x0,y0):
     for x in range(taille_fenetre):
         for y in range(taille_fenetre):
@@ -70,23 +78,72 @@ def ouvrir_map():
     
 #fonction pour l'affichage du menu de depart
 def start_menu(fenetre):
+    global j, boucle
     fenetre.fill(white)
-    img_menu = pygame.image.load("data/imagemenu")
+    position_bouton=0
+    img_menu = pygame.image.load("data/imagemenu.jpg")
     fenetre.blit(img_menu,[0,0])
-    text1 = font.render(joueur[0].nom,True,black)
-    text2 = font.render(joueur[1].nom,True,black)
-    text3 = font.render(joueur[2].nom,True,black)
-    text4 = font.render(joueur[3].nom,True,black)
-    text5 = font.render(joueur[4].nom,True,black)
-    text6 = font.render(joueur[5].nom,True,black)
-    fenetre.blit(text1, )
     
-
+    dessiner(fenetre, black, [170, 547, 300, 64], 1)
+    dessiner(fenetre, black, [170, 483, 300, 64], 1)
+    dessiner(fenetre, black, [170, 419, 300, 64], 1)
+    dessiner(fenetre, black, [170, 355, 300, 64], 1)
+    dessiner(fenetre, black, [170, 291, 300, 64], 1)
+    dessiner(fenetre, black, [170, 227, 300, 64], 1)
+    
+    while boucle == 1:
+        pygame.draw.rect(fenetre, white, [170, 227+64*(position_bouton-1), 300, 64], 3)
+        pygame.draw.rect(fenetre, white, [170, 227+64*(position_bouton+1), 300, 64], 3)
+        pygame.draw.rect(fenetre, black, [170, 227+64*position_bouton, 300, 64], 3)
+        
+        text1 = ecrire(joueur[0].nom,True,black)
+        text2 = ecrire(joueur[1].nom,True,black)
+        text3 = ecrire(joueur[2].nom,True,black)
+        text4 = ecrire(joueur[3].nom,True,black)
+        text5 = ecrire(joueur[4].nom,True,black)
+        text6 = ecrire(joueur[5].nom,True,black)
+        
+        fenetre.blit(text6, text6.get_rect(center=(fenetre.get_width()/2, 579)))
+        fenetre.blit(text5, text5.get_rect(center=(fenetre.get_width()/2, 515)))
+        fenetre.blit(text4, text4.get_rect(center=(fenetre.get_width()/2, 451)))
+        fenetre.blit(text3, text3.get_rect(center=(fenetre.get_width()/2, 387)))
+        fenetre.blit(text2, text2.get_rect(center=(fenetre.get_width()/2, 323)))
+        fenetre.blit(text1, text1.get_rect(center=(fenetre.get_width()/2, 259)))
+        
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                boucle = 0
+            if event.type == KEYDOWN:
+                if event.key == K_DOWN or event.key == K_RIGHT:
+                    if position_bouton <5:
+                        position_bouton += 1
+                if event.key == K_UP or event.key == K_LEFT:
+                    if position_bouton >0:
+                        position_bouton -= 1
+                if event.key == K_RETURN:
+                    if position_bouton == 0:
+                        j = 0
+                        boucle = 0
+                    if position_bouton == 1:
+                        j = 1
+                        boucle = 0
+                    if position_bouton == 2:
+                        j = 2
+                        boucle = 0
+                    if position_bouton == 3:
+                        j = 3
+                        boucle = 0
+                    if position_bouton == 4:
+                        j = 4
+                        boucle = 0
+                    if position_bouton == 5:
+                        j = 5
+                        boucle = 0    
+        pygame.display.flip()
+        
     
     
-
 continuer = 1
-
 affichercarte(x,y)
 #background_song.play()
 pygame.key.set_repeat(300,70)
@@ -94,6 +151,8 @@ pygame.key.set_repeat(300,70)
 while continuer:
     # prise en compte des evenements
     #background_song.play()
+    start_menu(fenetre)
+    personnage=joueur[j].img.convert()
     for event in pygame.event.get():
         if event.type == QUIT:
             continuer = 0
@@ -129,7 +188,7 @@ while continuer:
                     pygame.display.flip()
             
             if event.key == K_i:
-                 inventaire.inventaire
+                 inventaire.inventaire(fenetre,joueur[j])
 
     # affichage
     if mvt_perso.posx<10:
