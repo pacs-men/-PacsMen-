@@ -58,7 +58,10 @@ def ouvrir_map():
             if carte[x][y] == "Herbe":
                 carte[x][y]+= str(random.randrange(1, 5))
     return carte
-
+def start_menu(fenetre):
+    fenetre.fill(white)
+    img_menu = pygame.image.load("data/imagemenu")
+    fenetre.blit()
 
 continuer = 1
 
@@ -95,7 +98,7 @@ while continuer:
                     perso.avancer()
 
             if event.key == K_TAB:
-                combat.affiche_combat(fenetre,joueur,ennemi)
+                combat.affiche_combat(fenetre,joueur,ennemi[4])
 
             if event.key == K_s:
                 for a in range (len(sc.ls_page)):
