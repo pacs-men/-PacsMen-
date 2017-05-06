@@ -488,7 +488,7 @@ class Archer(perso):
 class Soigneur(perso):
     def __init__(self):
         perso.__init__(self)
-        self.nom="Clarisse La BG"
+        self.nom="Clarisse"
         self.jouable=True
         self.pv_max=175
         self.pv=175
