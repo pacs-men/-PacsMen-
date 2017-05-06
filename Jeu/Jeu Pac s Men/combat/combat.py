@@ -132,7 +132,7 @@ def affiche_combat(fenetre,joueur,ennemi):
 
 
 def select_ennemi(fenetre,joueur,ennemi):
-    pass
+    print "Pour Nassim"
 
 def attaque_type(fenetre,joueur,ennemi):
     global noir,blanc,font
