@@ -9,3 +9,5 @@ Jeu terminé jouable et battre le boss:
 - Menu principal (Nassim)
 - Gestion de l'écran de combat (Nassim)
 - Integration du script (Pierre-Antoine)
+- Integration de la musique (Martin)
+- Integration du PNG de rumix-cube (Sebastien)
