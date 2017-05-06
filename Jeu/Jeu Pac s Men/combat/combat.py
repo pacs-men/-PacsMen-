@@ -61,9 +61,9 @@ def affiche_combat(fenetre,joueur,ennemi):
     text6 = font.render("attaque magique",True,noir)
 
     background_image = pygame.image.load("data/background.jpg").convert()
-    #fenetre.blit(background_image, [0, 0])
+    fenetre.blit(background_image, [0, 0])
     
-    #fenetre.blit(joueur.img, [10, 50])
+    fenetre.blit(joueur.img, [10, 50])
     
     
     while continuer == 1:
