@@ -53,7 +53,6 @@ def combat_attaque(participant_vit):
 
         
 def affiche_combat(fenetre,joueur,ennemi):
-    global noir,blanc,font
     continuer = 1
     position_bouton=1
     text1 = font.render("attaque",True,noir)
@@ -135,7 +134,6 @@ def select_ennemi(fenetre,joueur,ennemi):
     print "Pour Nassim"
 
 def attaque_type(fenetre,joueur,ennemi):
-    global noir,blanc,font
     text1 = font.render(ennemi[1].nom,True,noir)
     text2 = font.render("attaque physique",True,noir)
     text3 = font.render("attaque magique",True,noir)
@@ -195,7 +193,6 @@ def attaque_type(fenetre,joueur,ennemi):
                         return "End"
 
 def potion_type(fenetre,joueur,ennemi):
-    global noir,blanc,font
     joueur.action_type = "potion"
     position_bouton = 0
     dessiner=pygame.draw.rect

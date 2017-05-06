@@ -46,7 +46,7 @@ class perso:
         self.force3=0
         self.force3fois=0
         self.critique1=0
-        self.critique1fois=0                
+        self.critique1fois=0
         self.critique2=0
         self.critique2fois=0         
         self.critique3=0
@@ -600,7 +600,7 @@ class Loup_garou(mobs):
 class Araingnees(mobs):
     def __init__(self):
         mobs.__init__(self)
-        self.nom="Araingnées"
+        self.nom="Araingnees"
         self.pv_max=20
         self.pv=20
         self.atk=0
@@ -639,7 +639,7 @@ class Golems(mobs):
 class Treant(mobs):
     def __init__(self):
         mobs.__init__(self)
-        self.nom="Tréant"
+        self.nom="Treant"
         self.pv_max=500
         self.pv=500
         self.atk=0
@@ -652,7 +652,7 @@ class Treant(mobs):
 class Geant(mobs):
     def __init__(self):
         mobs.__init__(self)
-        self.nom="Géant"
+        self.nom="Geant"
         self.pv_max=400
         self.pv=400
         self.atk=40
