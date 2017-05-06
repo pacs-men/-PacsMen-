@@ -4,6 +4,9 @@ from pygame.locals import*
 
 from cases import*
 from carte import*
+import sys
+sys.path.append("..")
+import combat.combat as combat
 
 
 class objet:
