@@ -4,7 +4,8 @@ Jeu pour L'isn
 A faire:
 
 Jeu terminé jouable et battre le boss:
-- Avoir toutes les textures
-- Map aléatoire
-- Menu principal
-- Gestion de l'écran de combat
+- Avoir toutes les textures (Clarisse)
+- Map aléatoire (Emeric)
+- Menu principal (Nassim)
+- Gestion de l'écran de combat (Nassim)
+- Integration du script (Pierre-Antoine)
