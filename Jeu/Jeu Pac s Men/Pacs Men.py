@@ -79,7 +79,7 @@ pygame.key.set_repeat(300,70)
 
 j=menu.start_menu(fenetre,joueur)
 if j == "End":
-    sys.exit(0)
+    sys.exit()
 personnage=joueur[j].img.convert()
 
 while True:
