@@ -25,7 +25,7 @@ pygame.display.set_caption('Programme Pygame de base')
 #creation de la carte et initialisation du deplacement
 mape = carte.carte(fichier = "carte.mp")
 taille_carte = mape.taille_mat[0]
-mvt_perso = objet.obj_boug(mape, 2, 2)
+mvt_perso = objet.perso(mape, 2, 3)
 
 #creation d'une liste contenant tous les personnages jouable
 joueur = [perso.AssassinsMagique(),perso.AssassinsPhysique(),perso.Combattant(),perso.Mage(),perso.Soigneur(),perso.Archer()]
@@ -156,25 +156,30 @@ while continuer:
     for event in pygame.event.get():
         if event.type == QUIT:
             continuer = 0
+            
         if event.type == KEYDOWN:
             if event.key == K_DOWN:
                 if mvt_perso.direction != "bas":
                     mvt_perso.ch_direction("bas")
+                    mvt_perso.avancer()
                 else:
                     mvt_perso.avancer()
             if event.key == K_UP:
                 if mvt_perso.direction != "haut":
                     mvt_perso.ch_direction("haut")
+                    mvt_perso.avancer()
                 else:
                     mvt_perso.avancer()
             if event.key == K_LEFT:
                 if mvt_perso.direction != "gauche":
                     mvt_perso.ch_direction("gauche")
+                    mvt_perso.avancer()
                 else:
                     mvt_perso.avancer()
             if event.key == K_RIGHT:
                 if mvt_perso.direction != "droite":
                     mvt_perso.ch_direction("droite")
+                    mvt_perso.avancer()
                 else:
                     mvt_perso.avancer()
 
@@ -206,5 +211,6 @@ while continuer:
     else:
         y0 = mvt_perso.posy-10
     affichercarte(x0,y0)
-    #fenetre.blit(personnage, [i, j])
     pygame.display.flip()
+    
+pygame.quit()
