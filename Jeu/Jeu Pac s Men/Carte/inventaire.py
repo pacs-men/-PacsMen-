@@ -2,7 +2,7 @@
 """
 Created on Fri Apr 14 11:24:09 2017
 
-@author: nassim.zaki
+@author: nassim.zaki et martin.abelard
 """
 import pygame
 from pygame.locals import *
