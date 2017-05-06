@@ -83,11 +83,12 @@ if j == "End":
     sys.exit()
 personnage=joueur[j].img.convert()
 
-while True:
+continuer = True
+while continuer:
     # prise en compte des evenements
     for event in pygame.event.get():
         if event.type == QUIT:
-            break
+            continuer = False
             
         if event.type == KEYDOWN:
             if event.key == K_DOWN:
