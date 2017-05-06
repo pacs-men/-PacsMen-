@@ -16,6 +16,7 @@ import random
 #definition des couleurs
 black=(0,0,0)
 white=(0xFF,0xFF,0xFF)
+jaune=(255, 255, 153)
 
 #initialisation de la fenetre
 taille_fenetre=20
