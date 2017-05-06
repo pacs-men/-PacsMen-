@@ -61,9 +61,9 @@ def affiche_combat(fenetre,joueur,ennemi):
     text6 = font.render("attaque magique",True,noir)
 
     background_image = pygame.image.load("data/background.jpg").convert()
-    fenetre.blit(background_image, [0, 0])
+    #fenetre.blit(background_image, [0, 0])
     
-    fenetre.blit(joueur.img, [10, 50])
+    #fenetre.blit(joueur.img, [10, 50])
     
     
     while continuer == 1:
@@ -91,9 +91,10 @@ def affiche_combat(fenetre,joueur,ennemi):
         
         for event in pygame.event.get():
 
+            if event.type == QUIT:
+                continuer = 0
+
             if event.type == KEYDOWN:
-                if event.type == QUIT:
-                    continuer = 0
 
                 if event.key == K_UP or event.key == K_RIGHT:
                     if position_bouton <3:
@@ -135,6 +136,7 @@ def affiche_combat(fenetre,joueur,ennemi):
                                     continuer = 0
 
                                 if event.type == KEYDOWN:
+
                                     if event.key == K_TAB:
                                         continuer = 1
 
@@ -155,6 +157,7 @@ def affiche_combat(fenetre,joueur,ennemi):
                                             joueur.action = "Magique"
 
                                         select_ennemi(fenetre,joueur,ennemi)
+                                        position_bouton = 1
 
                     if position_bouton == 2:
                         joueur.action_type = "potion"
@@ -236,18 +239,20 @@ def affiche_combat(fenetre,joueur,ennemi):
                             fenetre.blit(ecrire(str(joueur.potionvitesse),True,noir),(410,550))
         
                             dessiner(fenetre, noir,[20, 587, 450, 40],1)
-                            potionprecision=ecrire("Potion de précision",True, noir)
+                            potionprecision=ecrire("Potion de precision",True, noir)
                             fenetre.blit(potionprecision,(30,595))
                             fenetre.blit(ecrire(str(joueur.potionprecision),True,noir),(410,595))
         
                             for event in pygame.event.get():
-                                if event.type == KEYDOWN:
 
-                                    if event.type == QUIT:
-                                        continuer = 0
+                                if event.type == QUIT:
+                                    continuer = 0
+
+                                if event.type == KEYDOWN:
 
                                     if event.key == K_TAB:
                                         continuer = 1
+                                        position_bouton = 1
 
                                     if event.key == K_DOWN or event.key == K_RIGHT:
                                         if position_bouton <13:
@@ -296,10 +301,11 @@ def affiche_combat(fenetre,joueur,ennemi):
                         while continuer == 2:
 
                             for event in pygame.event.get():
-                                if event.type == KEYDOWN:
 
-                                    if event.type == QUIT:
-                                        continuer = 0
+                                if event.type == QUIT:
+                                    continuer = 0
+
+                                if event.type == KEYDOWN:
 
                                     if event.key == K_TAB:
                                         continuer = 1
