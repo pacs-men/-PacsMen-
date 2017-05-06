@@ -78,7 +78,7 @@ affichercarte(x,y)
 pygame.key.set_repeat(300,70)
 
 j=menu.start_menu(fenetre,joueur)
-if j == "end":
+if j == "End":
     sys.exit(0)
 personnage=joueur[j].img.convert()
 
