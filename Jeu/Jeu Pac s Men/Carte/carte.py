@@ -34,12 +34,9 @@ class carte:
         with open(self.fichier, "rb") as fichier:
             pick = pickle.Unpickler(fichier)
             double_mat = pick.load()
-        print double_mat
         mat_case = double_mat[0]
         self.matrice_case = mat_case
         mat_objet = double_mat[1]
-        print mat_case
-        print mat_objet
         
         for x in range(len(mat_case)):
             for y in range(len(mat_case[0])):
