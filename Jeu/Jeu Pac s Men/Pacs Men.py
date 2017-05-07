@@ -26,7 +26,7 @@ pygame.display.set_caption('Programme Pygame de base')
 #creation de la carte et initialisation du deplacement
 mape = carte.carte(fichier = "carte.mp")
 taille_carte = mape.taille_mat[0]
-mvt_perso = objet.perso(mape, 2, 3)
+
 
 #creation d'une liste contenant tous les personnages jouable
 joueur = [perso.AssassinsMagique(),perso.AssassinsPhysique(),perso.Combattant(),perso.Mage(),perso.Soigneur(),perso.Archer()]
@@ -81,7 +81,7 @@ j=menu.start_menu(fenetre,joueur)
 if j == "End":
     sys.exit()
 personnage=joueur[j].img.convert()
-
+mvt_perso = objet.perso(mape, 2, 2, J.ls_imagedir)
 continuer = True
 while continuer:
     # prise en compte des evenements
