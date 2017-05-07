@@ -12,6 +12,7 @@ import sys
 class carte:
     
     def __init__(self, fichier):
+        self.combat = False
         self.fichier = fichier
         self.recup_map()
         self.taille_mat = [len(self.matrice_case), len(self.matrice_case[0])]
