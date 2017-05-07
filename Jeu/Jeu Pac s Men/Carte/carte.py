@@ -32,7 +32,7 @@ class carte:
         
     def recup_map(self):
         double_mat = []
-        with open(self.fichier, "rb") as fichier:
+        with open(self.fichier, "r") as fichier:
             pick = pickle.Unpickler(fichier)
             double_mat = pick.load()
         mat_case = double_mat[0]
