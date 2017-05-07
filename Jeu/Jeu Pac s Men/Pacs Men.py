@@ -81,7 +81,9 @@ j=menu.start_menu(fenetre,joueur)
 if j == "End":
     sys.exit()
 personnage=joueur[j].img.convert()
-mvt_perso = objet.perso(mape, 2, 2, J.ls_imagedir)
+
+
+mvt_perso = objet.perso(mape, 2, 2, joueur[j].ls_imagedir)
 continuer = True
 while continuer:
     # prise en compte des evenements
