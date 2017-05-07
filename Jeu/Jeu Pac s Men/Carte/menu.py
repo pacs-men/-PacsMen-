@@ -85,7 +85,7 @@ def start_menu(fenetre,joueur):
     pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
     pygame.mixer.music.play(-1)
 
-def menupause(fenetre):
+def menupause(fenetre,joueur):
     pygame.mixer.music.stop()
     position_bouton = 0
     grandtitre=pygame.font.Font('data/fonts/old_london/OldLondon.ttf',55)
@@ -108,10 +108,17 @@ def menupause(fenetre):
             if event.type == QUIT:
                 return "End"
             if event.type == KEYDOWN:
+                if event.key == K_RETURN:
+                    if position_bouton == 0:
+                        return None
+                    if position_bouton == 1:
+                        return start_menu(fenetre,joueur)
+                    if position_bouton == 2:
+                        return "End"
                 if event.key == K_ESCAPE:
                     pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
                     pygame.mixer.music.play(-1)
-                    return 1
+                    return None
                 if event.key == K_DOWN or event.key == K_RIGHT:
                     if position_bouton <2:
                         position_bouton += 1
