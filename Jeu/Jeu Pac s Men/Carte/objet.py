@@ -49,10 +49,10 @@ class obj_boug(objet):
                 
 
 
-class perso(obj_boug):
+class perso(obj_boug, images):
     def __init__(self, carte, x, y):
         obj_boug.__init__(self, carte , x, y)
-        self.dict_images = {"gauche":pygame.image.load("data/perso.png"),"droite":pygame.image.load("data/perso.png"),"haut":pygame.image.load("data/perso.png"),"bas":pygame.image.load("data/perso.png")}
+        self.dict_images = {"gauche": images[0],"droite": images[1],"haut":images[2],"bas":images[3]}
 
     def avancer(self):
         if self.carte.est_marchable(self.posx+self.dict_dir[self.direction][0], self.posy+self.dict_dir[self.direction][1]) == True:
