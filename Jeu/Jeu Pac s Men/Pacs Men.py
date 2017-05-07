@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+#! /usr/bin/python
+
 import Carte.carte as carte
 import Carte.script as script
 import Carte.inventaire as inventaire
