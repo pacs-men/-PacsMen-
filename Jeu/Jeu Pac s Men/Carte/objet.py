@@ -49,8 +49,8 @@ class obj_boug(objet):
                 
 
 
-class perso(obj_boug, images):
-    def __init__(self, carte, x, y):
+class perso(obj_boug):
+    def __init__(self, carte, x, y, images):
         obj_boug.__init__(self, carte , x, y)
         self.dict_images = {"gauche": images[0],"droite": images[1],"haut":images[2],"bas":images[3]}
 
