@@ -32,6 +32,7 @@ class obj_boug(objet):
         self.direction = "gauche"
         self.dict_dir = {"gauche":(-1, 0), "droite":(1, 0), "haut":(0, -1), "bas":(0, 1)}
         self.image = pygame.image.load("data/perso.png")
+        
     def ch_direction(self, direction):
         if direction in ["haut", "bas", "gauche", "droite"]:
             self.direction = direction
@@ -63,6 +64,14 @@ class perso(obj_boug):
                 self.posy = self.posy+self.dict_dir[self.direction][1]
             else:
                 self.carte.matrice_objet[self.posx+self.dict_dir[self.direction][0]][self.posy+self.dict_dir[self.direction][1]].interagir()
+    
+    def ch_direction(self, direction):
+        if direction in ["haut", "bas", "gauche", "droite"]:
+            self.direction = direction
+            self.image = self.dict_images[self.direction]
+            return True
+        else:
+            return False
     
 class arbre(objet):
      def __init__(self, carte, x, y):
