@@ -29,9 +29,9 @@ def combat_attaque(participant_vit):
     '''
     for i in range (len(participant_vit)):
         participant_vit[i].passif_def(participant_vit)
-        if participant_vit[i].pv < 0:
+        if participant_vit[i].pv <= 0:
             if participant_vit[i].jouable==True:
-                break
+                return "Mort joueur"
             else:
                 pass
             
@@ -55,9 +55,10 @@ def combat_attaque(participant_vit):
 def affiche_combat(fenetre,joueur,ennemi):
     continuer = 1
     position_bouton=1
+    tour=1
     text1 = font.render("attaque",True,noir)
-    text2 =font.render("potion",True,noir)
-    text3 =font.render("fuite",True,noir)
+    text2 = font.render("potion",True,noir)
+    text3 = font.render("fuite",True,noir)
     text4 = font.render(ennemi[1].nom,True,noir)
 
     background_image = pygame.image.load("data/background.jpg").convert()
@@ -66,6 +67,8 @@ def affiche_combat(fenetre,joueur,ennemi):
     
     
     while continuer == 1:
+        text5 = font.render("tour "+str(tour),True,noir)
+        text6 = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
         fenetre.fill(blanc)
 
         if position_bouton == 1:
@@ -81,6 +84,9 @@ def affiche_combat(fenetre,joueur,ennemi):
         fenetre.blit(text2, [120, 600])
         fenetre.blit(text3, [230, 600])
         fenetre.blit(text4, [430, 600])
+        fenetre.blit(text5, [10, 10])
+        fenetre.blit(text6, [10, 500])
+
 
         pygame.draw.rect(fenetre, noir, [0, 590, 640, 50], 1)
         pygame.draw.line(fenetre, noir, [100, 590], [100, 640], 1)
@@ -106,14 +112,18 @@ def affiche_combat(fenetre,joueur,ennemi):
                 if event.key == K_RETURN:
 
                     if position_bouton == 1:
-
-                        if attaque_type(fenetre,joueur,ennemi) == "End":
+                        info = attaque_type(fenetre,joueur,ennemi)
+                        if info == "End":
                             continuer = 0
+                        if info == "Next":
+                            tour+=1
 
                     if position_bouton == 2:
-                        
-                        if potion_type(fenetre,joueur,ennemi) == "End":
+                        info = potion_type(fenetre,joueur,ennemi)
+                        if info == "End":
                             continuer = 0
+                        if info == "Next":
+                            tour+=1
 
                     if position_bouton == 3:
                         continuer = 2
@@ -189,8 +199,8 @@ def attaque_type(fenetre,joueur,ennemi):
                     if position_bouton == 2:
                         joueur.action = "Magique"
 
-                    if select_ennemi(fenetre,joueur,ennemi) == "End":
-                        return "End"
+                    return select_ennemi(fenetre,joueur,ennemi)
+    return "Retour"
 
 def potion_type(fenetre,joueur,ennemi):
     joueur.action_type = "potion"
@@ -309,6 +319,7 @@ def potion_type(fenetre,joueur,ennemi):
                     if position_bouton==12:
                         joueur.action="precision"
                     combat_start(joueur,ennemi)
-                    continuer = 0
+                    return "Next"
                     
         pygame.display.flip()
+    return "Retour"
