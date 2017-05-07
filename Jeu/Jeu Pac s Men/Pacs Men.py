@@ -77,7 +77,7 @@ def ouvrir_map():
 affichercarte(x,y)
 pygame.key.set_repeat(300,70)
 
-#déclanchement de la musique
+#declanchement de la musique
 pygame.mixer.music.load('data/01 - Where Do The Children Play.mp3')
 pygame.mixer.music.play(-1)
 
