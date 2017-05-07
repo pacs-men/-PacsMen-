@@ -16,7 +16,6 @@ import random
 #definition des couleurs
 black=(0,0,0)
 white=(0xFF,0xFF,0xFF)
-jaune=(255, 255, 153)
 
 #initialisation de la fenetre
 taille_fenetre=20
@@ -27,7 +26,7 @@ pygame.display.set_caption('Programme Pygame de base')
 #creation de la carte et initialisation du deplacement
 mape = carte.carte(fichier = "carte.mp")
 taille_carte = mape.taille_mat[0]
-mvt_perso = objet.perso(mape, 1, 1)
+mvt_perso = objet.perso(mape, 2, 3)
 
 #creation d'une liste contenant tous les personnages jouable
 joueur = [perso.AssassinsMagique(),perso.AssassinsPhysique(),perso.Combattant(),perso.Mage(),perso.Soigneur(),perso.Archer()]
@@ -119,6 +118,10 @@ while continuer:
             if event.key == K_TAB:
                 combat.affiche_combat(fenetre,joueur[j],ennemi_combat)
 
+            if event.key == K_ESCAPE:
+                if menu.menupause(fenetre) == "End":
+                    continuer = False
+
             if event.key == K_s:
                 for a in range (len(sc.ls_page)):
                     text = font.render(dialogues.ls_page[a],True,black)
@@ -127,11 +130,7 @@ while continuer:
             
             if event.key == K_i:
                  inventaire.inventaire(fenetre,joueur[j])
-    
-    # declenchement du combat
-    if mape.combat == True:
-        combat.affiche_combat(fenetre,joueur[j],ennemi_combat)
-        mape.combat = False
+
     # affichage
     if mvt_perso.posx<10:
         x0 = 0
