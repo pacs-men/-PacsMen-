@@ -349,9 +349,9 @@ class AssassinsMagique(perso):
         self.crit=10
         self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_gauche = pygame.image.load("data/seb.png").convert_alpha()
+        self.img_gauche = pygame.image.load("data/seb.jpg").convert_alpha()
         self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_haut = pygame.image.load("data/seb.png").convert_alpha()
+        self.img_haut = pygame.image.load("data/seb.jpg").convert_alpha()
         self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
         self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
         
