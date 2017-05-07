@@ -348,6 +348,12 @@ class AssassinsMagique(perso):
         self.prec=100
         self.crit=10
         self.img= pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
+        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
         
         def passif_attaque_def(self):
             self.pv += 5
@@ -368,6 +374,12 @@ class Mage(perso):
         self.prec=90
         self.crit=5
         self.img= pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
+        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
         
     def passif_attaque_def(self):
         if random.randrange(10)<1:
@@ -389,6 +401,12 @@ class AssassinsPhysique(perso):
         self.prec=100
         self.crit=10
         self.img= pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
+        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
         
      def passif_attaque_def(self):
         self.cible.saignement = 1
@@ -408,6 +426,12 @@ class Combattant(perso):
         self.prec=100
         self.crit=5
         self.img= pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
+        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
         
     def passif_def(self):
         if self.pv < 500*0.7 and self.passif == 0:
@@ -436,6 +460,12 @@ class Archer(perso):
         self.prec=95
         self.crit=20
         self.img= pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
+        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
         self.cible2=None
         
     def attaque2(self):
