@@ -122,8 +122,11 @@ while continuer:
                 combat.affiche_combat(fenetre,joueur[j],ennemi_combat)
 
             if event.key == K_ESCAPE:
-                if menu.menupause(fenetre) == "End":
+                info = menu.menupause(fenetre,joueur[j])
+                if info == "End":
                     continuer = False
+                if info != None:
+                    j=info
 
             if event.key == K_s:
                 for a in range (len(sc.ls_page)):
