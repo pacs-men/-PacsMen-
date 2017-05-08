@@ -148,7 +148,8 @@ def affiche_combat(fenetre,joueur,ennemi):
 
 def select_ennemi(fenetre,joueur,ennemi):
     print "Pour Nassim"
-    fenetre.blit(ennemi.img_combat)
+    nb_ennemis = ennemi.nombre
+    fenetre.blit(ennemi.img_combat, [center=(500, fenetre.get_width()/2])
     
 
 def attaque_type(fenetre,joueur,ennemi):
