@@ -530,6 +530,12 @@ class Soigneur(perso):
         self.prec=95
         self.crit=0
         self.img= pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
+        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
         
     def passif_def(self,adv):
         self.pv += 15
@@ -561,6 +567,8 @@ class Rats(mobs):
         self.res=10
         self.vit=20
         self.nombre=4
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         
 class Gobelins(mobs):
     def __init__(self):
@@ -574,6 +582,8 @@ class Gobelins(mobs):
         self.res=10
         self.vit=40
         self.nombre=4
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
                 
 class Aigles(mobs):
     def __init__(self):
@@ -586,7 +596,9 @@ class Aigles(mobs):
         self.defen=10
         self.res=0
         self.vit=100
-        self.nombre=2       
+        self.nombre=2
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         
 class Slime(mobs):
     def __init__(self):
@@ -599,7 +611,9 @@ class Slime(mobs):
         self.defen=10
         self.res=20
         self.vit=40
-        self.nombre=1         
+        self.nombre=1
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         
 class Centaures(mobs):
     def __init__(self):
@@ -612,7 +626,9 @@ class Centaures(mobs):
         self.defen=10
         self.res=20
         self.vit=70
-        self.nombre=3        
+        self.nombre=3
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
                
 class Loup_garou(mobs):
     def __init__(self):
@@ -625,7 +641,9 @@ class Loup_garou(mobs):
         self.defen=25
         self.res=15
         self.vit=70
-        self.nombre=1        
+        self.nombre=1
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         
 class Araingnees(mobs):
     def __init__(self):
@@ -638,8 +656,10 @@ class Araingnees(mobs):
         self.defen=5
         self.res=5
         self.vit=120
-        self.nombre=3       
-                
+        self.nombre=3
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+
 class Carapateur(mobs):
     def __init__(self):
         mobs.__init__(self)
@@ -652,6 +672,8 @@ class Carapateur(mobs):
         self.res=25
         self.vit=10
         self.nombre=1
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         
 class Golems(mobs):
     def __init__(self):
@@ -664,7 +686,9 @@ class Golems(mobs):
         self.defen=15
         self.res=25
         self.vit=20
-        self.nombre=2          
+        self.nombre=2
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         
 class Treant(mobs):
     def __init__(self):
@@ -677,7 +701,10 @@ class Treant(mobs):
         self.defen=20
         self.res=25
         self.vit=10
-        self.nombre=1  
+        self.nombre=1
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+
         
 class Geant(mobs):
     def __init__(self):
@@ -690,8 +717,9 @@ class Geant(mobs):
         self.defen=25
         self.res=20
         self.vit=10
-        self.nombre=1        
-        
+        self.nombre=1
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()       
         
 class Nains(mobs):
     def __init__(self):
@@ -705,6 +733,9 @@ class Nains(mobs):
         self.res=25
         self.vit=40
         self.nombre=3
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        
         
 class Elfs(mobs):
     def __init__(self):
@@ -718,3 +749,6 @@ class Elfs(mobs):
         self.res=30
         self.vit=90
         self.nombre=2
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        

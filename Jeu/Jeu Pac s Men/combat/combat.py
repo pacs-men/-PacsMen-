@@ -148,6 +148,8 @@ def affiche_combat(fenetre,joueur,ennemi):
 
 def select_ennemi(fenetre,joueur,ennemi):
     print "Pour Nassim"
+    fenetre.blit(ennemi.img_combat)
+    
 
 def attaque_type(fenetre,joueur,ennemi):
     text1 = font.render(ennemi[1].nom,True,noir)
