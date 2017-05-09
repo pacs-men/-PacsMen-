@@ -71,7 +71,6 @@ def affiche_combat(fenetre,joueur,ennemi):
         fenetre.fill(blanc)
         fenetre.blit(background_image, [0, 0])
         fenetre.blit(joueur.img, [10, 50])
-        select_ennemi(fenetre,joueur,ennemi)
 
         if position_bouton == 1:
             pygame.draw.rect(fenetre, noir, [0, 590, 100, 50], 3)
@@ -152,7 +151,7 @@ def select_ennemi(fenetre,joueur,ennemi):
     if nb_ennemis == 1:
         fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 196)))
     if nb_ennemis == 2:
-        fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, )))
+        fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, fenetre.get_width()/2)))
         fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, fenetre.get_width()/2)))
     if nb_ennemis == 3 :
         fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 20)))
@@ -164,6 +163,7 @@ def select_ennemi(fenetre,joueur,ennemi):
         fenetre.blit(ennemi[2].img_combat, ennemi[2].img_combat.get_rect(center=(500, 392)))
         fenetre.blit(ennemi[3].img_combat, ennemi[3].img_combat.get_rect(center=(500, 392)))
     while True:
+
         if nb_ennemis == 1:
             if position_bouton == 0 :
                 fenetre.blit(fleche, fleche.get_rect(center=(350, 196)))
@@ -188,6 +188,8 @@ def select_ennemi(fenetre,joueur,ennemi):
                 fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
             if position_bouton == 3 :
                 fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+
+        pygame.display.flip()
 
 
 

@@ -39,7 +39,7 @@ ennemi= [perso.Aigles(),perso.Araingnees(),perso.Rats(),perso.Geant(),perso.Gobe
 #choix de de l'ennemi
 e = random.randrange(0,12)
 ennemi_combat=[]
-for a in range (3): 
+for a in range (ennemi[e].nombre): 
     ennemi_combat.append(ennemi[e])
 
 #creation des variables pour ecrire un texte
