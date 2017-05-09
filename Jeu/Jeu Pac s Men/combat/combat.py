@@ -64,17 +64,14 @@ def affiche_combat(fenetre,joueur,ennemi):
     text4 = font.render(ennemi[1].nom,True,noir)
 
     background_image = pygame.image.load("data/background.jpg").convert()
-    fenetre.blit(background_image, [0, 0])
-    fenetre.blit(joueur.img, [10, 50])
-    
-    
-    
+
     while continuer == 1:
         text5 = font.render("tour "+str(tour),True,noir)
         text6 = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
         fenetre.fill(blanc)
         fenetre.blit(background_image, [0, 0])
         fenetre.blit(joueur.img, [10, 50])
+        select_ennemi(fenetre,joueur,ennemi)
 
         if position_bouton == 1:
             pygame.draw.rect(fenetre, noir, [0, 590, 100, 50], 3)
