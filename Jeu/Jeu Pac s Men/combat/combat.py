@@ -53,8 +53,8 @@ def combat_attaque(participant_vit):
 
         
 def affiche_combat(fenetre,joueur,ennemi):
-    pygame.mixer.music.load('data/05 - Le Voyage de Basile.mp3')
-    pygame.mixer.music.play(-1)
+    #pygame.mixer.music.load('data/05 - Le Voyage de Basile.mp3')
+    #pygame.mixer.music.play(-1)
     continuer = 1
     position_bouton=1
     tour=1
@@ -139,8 +139,8 @@ def affiche_combat(fenetre,joueur,ennemi):
 
                                     if event.key == K_TAB:
                                         continuer = 1
-    pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
-    pygame.mixer.music.play(-1)
+    #pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
+    ~#pygame.mixer.music.play(-1)
 
 
 def select_ennemi(fenetre,joueur,ennemi):
