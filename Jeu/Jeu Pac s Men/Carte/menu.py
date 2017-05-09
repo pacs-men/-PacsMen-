@@ -22,12 +22,12 @@ def start_menu(fenetre,joueur):
     fenetre.fill(white)
     position_bouton=0
     img_menu = pygame.image.load("data/imagemenu.jpg")
-    text1 = ecrire(joueur[0].nom,True,black)
-    text2 = ecrire(joueur[1].nom,True,black)
-    text3 = ecrire(joueur[2].nom,True,black)
-    text4 = ecrire(joueur[3].nom,True,black)
-    text5 = ecrire(joueur[4].nom,True,black)
-    text6 = ecrire(joueur[5].nom,True,black)
+    text1 = ecrire(joueur[0].nom+" "+joueur[0].classe,True,black)
+    text2 = ecrire(joueur[1].nom+" "+joueur[1].classe,True,black)
+    text3 = ecrire(joueur[2].nom+" "+joueur[2].classe,True,black)
+    text4 = ecrire(joueur[3].nom+" "+joueur[3].classe,True,black)
+    text5 = ecrire(joueur[4].nom+" "+joueur[4].classe,True,black)
+    text6 = ecrire(joueur[5].nom+" "+joueur[5].classe,True,black)
     
     while True:
         fenetre.blit(img_menu,[0,0])
