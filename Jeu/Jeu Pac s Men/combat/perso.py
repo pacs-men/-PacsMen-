@@ -337,6 +337,7 @@ class AssassinsMagique(perso):
     def __init__(self):
         perso.__init__(self)
         self.nom="Sebastien"
+        self.classe="Assassin Magique"
         self.jouable=True
         self.pv_max=200
         self.pv=200
@@ -363,6 +364,7 @@ class Mage(perso):
     def __init__(self):
         perso.__init__(self)
         self.nom="Emeric"
+        self.classe="Mage"
         self.jouable=True
         self.pv_max=100
         self.pv=100
@@ -390,6 +392,7 @@ class AssassinsPhysique(perso):
      def __init__(self):
         perso.__init__(self)
         self.nom="Nassim"
+        self.classe="Assassin Phyique"
         self.jouable=True
         self.pv_max=250
         self.pv=250
@@ -415,6 +418,7 @@ class Combattant(perso):
     def __init__(self):
         perso.__init__(self)
         self.nom="Pierre Antoine"
+        self.classe="Combatant"
         self.jouable=True
         self.pv_max=500
         self.pv=500
@@ -449,6 +453,7 @@ class Archer(perso):
     def __init__(self):
         perso.__init__(self)
         self.nom="Martin"
+        self.classe="Archer"
         self.jouable=True
         self.pv_max=100
         self.pv=100
@@ -519,6 +524,7 @@ class Soigneur(perso):
     def __init__(self):
         perso.__init__(self)
         self.nom="Clarisse"
+        self.classe="Soigneur"
         self.jouable=True
         self.pv_max=175
         self.pv=175
