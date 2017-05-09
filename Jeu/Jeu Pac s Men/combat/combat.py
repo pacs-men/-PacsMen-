@@ -150,19 +150,19 @@ def select_ennemi(fenetre,joueur,ennemi):
     position_bouton= 0
     fleche = pygame.image.load("data/background.jpg").convert_alpha()
     if nb_ennemis == 1:
-        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 196)))
+        fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 196)))
     if nb_ennemis == 2:
-        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, )))
-        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, fenetre.get_width()/2)))
+        fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, )))
+        fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, fenetre.get_width()/2)))
     if nb_ennemis == 3 :
-        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 20)))
-        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 196)))
-        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 392)))
+        fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 20)))
+        fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 196)))
+        fenetre.blit(ennemi[2].img_combat, ennemi[2].img_combat.get_rect(center=(500, 392)))
     if nb_ennemis == 4 :
-        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 20)))
-        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 196)))
-        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 392)))
-        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 392)))
+        fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 20)))
+        fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 196)))
+        fenetre.blit(ennemi[2].img_combat, ennemi[2].img_combat.get_rect(center=(500, 392)))
+        fenetre.blit(ennemi[3].img_combat, ennemi[3].img_combat.get_rect(center=(500, 392)))
     while True:
         if nb_ennemis == 1:
             if position_bouton == 0 :
