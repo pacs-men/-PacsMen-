@@ -160,18 +160,41 @@ def affiche_combat(fenetre,joueur,ennemi):
 
 def select_ennemi(fenetre,joueur,ennemi):
     nb_ennemis = ennemi[0].nombre
+    continuer = True
     position_bouton= 0
     fleche = pygame.image.load("data/fleche.png").convert_alpha()
-    
-    while True:
+    if nb_ennemis == 1:
+         while continuer:
+
+             fenetre.blit(fleche, fleche.get_rect(center=(350, 196)))
+
+             for event in pygame.event.get():
+
+                if event.type == QUIT:
+                    return "End"
+
+                if event.type == KEYDOWN:
+                    if event.key == K_TAB:
+                        continuer = False
+
+                    if event.key == K_RETURN:
+                        joueur.cible = ennemi[0]
+                        combat_start(joueur,ennemi)
+         pygame.display.flip()
+
+    return "Retour"
+'''
+    while continuer:
         if nb_ennemis == 1:
             if position_bouton == 0 :
                 fenetre.blit(fleche, fleche.get_rect(center=(350, 196)))
+
         if nb_ennemis == 2:
             if position_bouton == 0 :
                 fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
             if position_bouton == 1 :
                 fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+
         if nb_ennemis == 3:
             if position_bouton == 0 :
                 fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
@@ -179,6 +202,7 @@ def select_ennemi(fenetre,joueur,ennemi):
                 fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
             if position_bouton == 2 :
                 fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+
         if nb_ennemis == 4:
             if position_bouton == 0 :
                 fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
@@ -189,7 +213,25 @@ def select_ennemi(fenetre,joueur,ennemi):
             if position_bouton == 3 :
                 fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
 
-        pygame.display.flip()
+        for event in pygame.event.get():
+
+            if event.type == QUIT:
+                continuer = False
+
+            if event.type == KEYDOWN:
+
+                if event.key == K_RIGHT:
+                    if position_bouton <3:
+                        position_bouton += 1
+                if event.key == K_LEFT:
+                    if position_bouton >1:
+                        position_bouton -= 1
+
+                if event.key == K_RETURN:
+                    if nb_ennemis == 1:
+                        if position_bouton == 0 :
+'''
+
 
 
 
