@@ -148,7 +148,7 @@ def select_ennemi(fenetre,joueur,ennemi):
     print "Pour Nassim"
     nb_ennemis = ennemi[0].nombre
     position_bouton= 0
-    fleche = pygame.image.load("data/background.jpg").convert_alpha()
+    fleche = pygame.image.load("data/fleche.png").convert_alpha()
     if nb_ennemis == 1:
         fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 196)))
     if nb_ennemis == 2:
