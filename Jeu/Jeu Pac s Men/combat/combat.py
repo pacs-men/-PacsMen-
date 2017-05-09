@@ -61,7 +61,7 @@ def affiche_combat(fenetre,joueur,ennemi):
     text1 = font.render("attaque",True,noir)
     text2 = font.render("potion",True,noir)
     text3 = font.render("fuite",True,noir)
-    text4 = font.render(ennemi[1].nom,True,noir)
+    text4 = font.render(ennemi[0].nom,True,noir)
 
     background_image = pygame.image.load("data/background.jpg").convert()
 
@@ -195,7 +195,7 @@ def select_ennemi(fenetre,joueur,ennemi):
 
 
 def attaque_type(fenetre,joueur,ennemi):
-    text1 = font.render(ennemi[1].nom,True,noir)
+    text1 = font.render(ennemi[0].nom,True,noir)
     text2 = font.render("attaque physique",True,noir)
     text3 = font.render("attaque magique",True,noir)
     continuer = 1
