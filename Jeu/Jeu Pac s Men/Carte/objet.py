@@ -84,3 +84,4 @@ class ennemi(obj_boug):
          self.image = pygame.image.load("data/perso.png")
      def interagir(self):
          print("combat")
+         self.carte.combat = True

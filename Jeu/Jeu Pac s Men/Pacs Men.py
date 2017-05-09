@@ -137,6 +137,11 @@ while continuer:
             
             if event.key == K_i:
                  inventaire.inventaire(fenetre,joueur[j])
+    #Decle
+    if mape.combat == True:
+        combat.affiche_combat(fenetre,joueur[j],ennemi_combat)
+        mape.combat = False
+        
 
     # affichage
     if mvt_perso.posx<10:

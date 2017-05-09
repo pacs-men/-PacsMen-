@@ -17,16 +17,16 @@ pos_debut = (0, 0)
 pos_fin = (0, 0)
 
 # niv 1
-#dict_case = {"herbe":"green", "mur":"grey"}
-#dict_obj = {"coffre":"brown", "arbre" :"green", "ennemi":"red","porte":"black"}
+dict_case = {"herbe":"green", "mur":"grey"}
+dict_obj = {"coffre":"brown", "arbre" :"green", "ennemi":"red","porte":"black"}
 
 #niv 2
 #dict_case = {"herbe":"green", "murs":"blue", "sols":"grey", "trous":"black"}
 #dict_obj = {"coffre":"brown", "Stalagmites" :"cyan", "ennemi":"red","porte":"white"}
 
 # niv 3
-dict_case = {"herbe":"green", "murs":"blue", "sols":"grey", "trous":"black"}
-dict_obj = {"coffre":"brown", "Stalagmites" :"cyan", "ennemi":"red","porte":"white"}
+#dict_case = {"herbe":"green", "murs":"blue", "sols":"grey", "trous":"black"}
+#dict_obj = {"coffre":"brown", "Stalagmites" :"cyan", "ennemi":"red","porte":"white"}
 
 def petit(a, b):
     if a<b:
