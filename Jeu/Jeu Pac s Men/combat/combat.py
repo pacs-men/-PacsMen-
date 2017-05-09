@@ -68,6 +68,7 @@ def affiche_combat(fenetre,joueur,ennemi):
     fenetre.blit(joueur.img, [10, 50])
     
     
+    
     while continuer == 1:
         text5 = font.render("tour "+str(tour),True,noir)
         text6 = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
@@ -148,11 +149,11 @@ def affiche_combat(fenetre,joueur,ennemi):
 
 def select_ennemi(fenetre,joueur,ennemi):
     print "Pour Nassim"
-    nb_ennemis = ennemi.nombre
+    nb_ennemis = ennemi[0].nombre
+    position_bouton= 0
     fleche = pygame.image.load("data/background.jpg").convert_alpha()
     if nb_ennemis == 1:
-        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, fenetre.get_width()/2)))
-        fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 196)))
     if nb_ennemis == 2:
         fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, fenetre.get_width()/2)))
         fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, fenetre.get_width()/2)))
@@ -160,6 +161,34 @@ def select_ennemi(fenetre,joueur,ennemi):
         fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 20)))
         fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 196)))
         fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 392)))
+    while True:
+        if nb_ennemis == 1:
+            if position_bouton == 0 :
+                fenetre.blit(fleche, fleche.get_rect(center=(350, 196)))
+        if nb_ennemis == 2:
+            if position_bouton == 0 :
+                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+            if position_bouton == 1 :
+                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+        if nb_ennemis == 3:
+            if position_bouton == 0 :
+                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+            if position_bouton == 1 :
+                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+            if position_bouton == 2 :
+                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+        if nb_ennemis == 3:
+            if position_bouton == 0 :
+                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+            if position_bouton == 1 :
+                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+            if position_bouton == 2 :
+                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+            if position_bouton == 3 :
+                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+
+
+
 
 def attaque_type(fenetre,joueur,ennemi):
     text1 = font.render(ennemi[1].nom,True,noir)
