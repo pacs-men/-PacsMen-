@@ -105,11 +105,11 @@ def affiche_combat(fenetre,joueur,ennemi):
 
             if event.type == KEYDOWN:
 
-                if event.key == K_UP or event.key == K_RIGHT:
+                if event.key == K_RIGHT:
                     if position_bouton <3:
                         position_bouton += 1
 
-                if event.key == K_DOWN or event.key == K_LEFT:
+                if event.key == K_LEFT:
                     if position_bouton >1:
                         position_bouton -= 1
 
@@ -149,8 +149,17 @@ def affiche_combat(fenetre,joueur,ennemi):
 def select_ennemi(fenetre,joueur,ennemi):
     print "Pour Nassim"
     nb_ennemis = ennemi.nombre
-    fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, fenetre.get_width()/2)))
-    
+    fleche = pygame.image.load("data/background.jpg").convert_alpha()
+    if nb_ennemis == 1:
+        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, fenetre.get_width()/2)))
+        fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
+    if nb_ennemis == 2:
+        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, fenetre.get_width()/2)))
+        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, fenetre.get_width()/2)))
+    if nb_ennemis == 3 :
+        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 20)))
+        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 196)))
+        fenetre.blit(ennemi.img_combat, ennemi.img_combat.get_rect(center=(500, 392)))
 
 def attaque_type(fenetre,joueur,ennemi):
     text1 = font.render(ennemi[1].nom,True,noir)
