@@ -10,6 +10,7 @@ import pygame
 from pygame.locals import *
 import sys
 import Carte.objet as objet
+import Carte.scriptpa as script_pa
 import combat.combat as combat
 import pickle
 import random
@@ -91,6 +92,7 @@ pygame.key.set_repeat(300,70)
 j=menu.start_menu(fenetre,joueur)
 if j == "End":
     sys.exit()
+script_pa.script_pa(fenetre)
 
 mvt_perso = objet.perso(mape, 2, 2, joueur[j].ls_imagedir)
 continuer = True
