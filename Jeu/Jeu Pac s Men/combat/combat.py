@@ -281,11 +281,11 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                 if event.type == KEYDOWN:
                     
-                    if event.key == K_RIGHT:
+                    if event.key == K_UP:
                         if position_bouton <1:
                             position_bouton += 1
                             
-                    if event.key == K_LEFT:
+                    if event.key == K_DOWN:
                         if position_bouton >0:
                             position_bouton -= 1
                             
@@ -414,59 +414,6 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             pygame.display.flip()
 
     return "Retour"
-    
-'''
-    while continuer:
-        if nb_ennemis == 1:
-            if position_bouton == 0 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, 196)))
-
-        if nb_ennemis == 2:
-            if position_bouton == 0 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 1 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-
-        if nb_ennemis == 3:
-            if position_bouton == 0 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 1 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 2 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-
-        if nb_ennemis == 4:
-            if position_bouton == 0 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 1 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 2 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 3 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-
-        for event in pygame.event.get():
-
-            if event.type == QUIT:
-                continuer = False
-
-            if event.type == KEYDOWN:
-
-                if event.key == K_RIGHT:
-                    if position_bouton <3:
-                        position_bouton += 1
-                if event.key == K_LEFT:
-                    if position_bouton >1:
-                        position_bouton -= 1
-
-                if event.key == K_RETURN:
-                    if nb_ennemis == 1:
-                        if position_bouton == 0 :
-'''
-
-
-
-
 
 def attaque_type(fenetre,joueur,ennemi,tour):
     text1 = font.render(ennemi[0].nom,True,noir)
@@ -607,10 +554,10 @@ def potion_type(fenetre,joueur,ennemi):
                 if event.key == K_TAB:
                     continuer = 0
 
-                if event.key == K_DOWN or event.key == K_RIGHT:
+                if event.key == K_DOWN:
                     if position_bouton <13:
                         position_bouton += 1
-                if event.key == K_UP or event.key == K_LEFT:
+                if event.key == K_UP:
                     if position_bouton >0:
                         position_bouton -= 1
 
