@@ -65,7 +65,7 @@ def affiche_combat(fenetre,joueur,ennemi):
     position_bouton=1
     tour=1
     text_ennemi = font.render(ennemi[0].nom,True,noir)
-    background_image = pygame.image.load("data/background.jpg").convert()
+    background_image = pygame.image.load("data/fondcombatmap1.jpg").convert()
 
     while continuer == 1:
         
@@ -211,7 +211,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
     position_bouton= 0
     
     text_ennemi = font.render(ennemi[0].nom,True,noir)
-    background_image = pygame.image.load("data/background.jpg").convert()
+    background_image = pygame.image.load("data/fondcombatmap1.jpg").convert()
     fleche = pygame.image.load("data/fleche.png").convert_alpha()
     
     pygame.draw.rect(fenetre, blanc, [0, 585, 640, 55])
