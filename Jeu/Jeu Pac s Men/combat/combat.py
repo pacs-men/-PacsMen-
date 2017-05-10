@@ -5,6 +5,10 @@ pygame.init()
 noir=(0,0,0)
 blanc=(0xFF, 0xFF, 0xFF)
 font = pygame.font.SysFont('Calibri', 25, True, False)
+text_attaque = font.render("attaque",True,noir)
+text_potion = font.render("potion",True,noir)
+text_fuite = font.render("fuite",True,noir)
+
 
 
         
@@ -59,33 +63,67 @@ def affiche_combat(fenetre,joueur,ennemi):
     continuer = 1
     position_bouton=1
     tour=1
-    text1 = font.render("attaque",True,noir)
-    text2 = font.render("potion",True,noir)
-    text3 = font.render("fuite",True,noir)
-    text4 = font.render(ennemi[0].nom,True,noir)
-
+    text_ennemi = font.render(ennemi[0].nom,True,noir)
     background_image = pygame.image.load("data/background.jpg").convert()
+    print nb_ennemis
 
     while continuer == 1:
-        text5 = font.render("tour "+str(tour),True,noir)
-        text6 = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
+        
+        text_tour = font.render("tour "+str(tour),True,noir)
+        text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
+        
         fenetre.fill(blanc)
         fenetre.blit(background_image, [0, 0])
+        pygame.draw.rect(fenetre, blanc, [0, 585, 640, 55])
         fenetre.blit(joueur.img, [10, 50])
+        
         if nb_ennemis == 1:
-            fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 196)))
+            
+            text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_0, [500, 350])
+            fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 300)))
+            
         if nb_ennemis == 2:
-            fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, fenetre.get_width()/2)))
-            fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, fenetre.get_width()/2)))
+            
+            text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_0, [500, 250])
+            fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 200)))
+            
+            text_pv_ennemi_1 = font.render("Pv : "+str(ennemi[1].pv)+"/"+str(ennemi[1].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_1, [500, 450])
+            fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 400)))
+            
         if nb_ennemis == 3 :
-            fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 20)))
-            fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 196)))
-            fenetre.blit(ennemi[2].img_combat, ennemi[2].img_combat.get_rect(center=(500, 392)))
+            
+            text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_0, [500, 200])
+            fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 150)))
+            
+            text_pv_ennemi_1 = font.render("Pv : "+str(ennemi[1].pv)+"/"+str(ennemi[1].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_1, [500, 350])
+            fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 300)))
+            
+            text_pv_ennemi_2 = font.render("Pv : "+str(ennemi[2].pv)+"/"+str(ennemi[2].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_2, [500, 500])
+            fenetre.blit(ennemi[2].img_combat, ennemi[2].img_combat.get_rect(center=(500, 450)))
+            
         if nb_ennemis == 4 :
-            fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 20)))
-            fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 196)))
-            fenetre.blit(ennemi[2].img_combat, ennemi[2].img_combat.get_rect(center=(500, 392)))
-            fenetre.blit(ennemi[3].img_combat, ennemi[3].img_combat.get_rect(center=(500, 392)))
+            
+            text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_0, [500, 170])
+            fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 120)))
+            
+            text_pv_ennemi_1 = font.render("Pv : "+str(ennemi[1].pv)+"/"+str(ennemi[1].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_1, [500, 290])
+            fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 240)))
+            
+            text_pv_ennemi_2 = font.render("Pv : "+str(ennemi[2].pv)+"/"+str(ennemi[2].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_2, [500, 410])
+            fenetre.blit(ennemi[2].img_combat, ennemi[2].img_combat.get_rect(center=(500, 360)))
+            
+            text_pv_ennemi_3 = font.render("Pv : "+str(ennemi[3].pv)+"/"+str(ennemi[3].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_3, [500, 530])
+            fenetre.blit(ennemi[3].img_combat, ennemi[3].img_combat.get_rect(center=(500, 480)))
 
         if position_bouton == 1:
             pygame.draw.rect(fenetre, noir, [0, 590, 100, 50], 3)
@@ -96,12 +134,12 @@ def affiche_combat(fenetre,joueur,ennemi):
         if position_bouton == 3:
             pygame.draw.rect(fenetre, noir, [210, 590, 190, 50], 3)
 
-        fenetre.blit(text1, [10, 600])
-        fenetre.blit(text2, [120, 600])
-        fenetre.blit(text3, [230, 600])
-        fenetre.blit(text4, [430, 600])
-        fenetre.blit(text5, [10, 10])
-        fenetre.blit(text6, [10, 500])
+        fenetre.blit(text_attaque, [10, 600])
+        fenetre.blit(text_potion, [120, 600])
+        fenetre.blit(text_fuite, [230, 600])
+        fenetre.blit(text_ennemi, [430, 600])
+        fenetre.blit(text_tour, [10, 10])
+        fenetre.blit(text_pv_joueur, [10, 500])
 
 
         pygame.draw.rect(fenetre, noir, [0, 590, 640, 50], 1)
@@ -128,7 +166,7 @@ def affiche_combat(fenetre,joueur,ennemi):
                 if event.key == K_RETURN:
 
                     if position_bouton == 1:
-                        info = attaque_type(fenetre,joueur,ennemi)
+                        info = attaque_type(fenetre,joueur,ennemi,tour)
                         if info == "End":
                             continuer = 0
                         if info == "Next":
@@ -158,31 +196,222 @@ def affiche_combat(fenetre,joueur,ennemi):
     #pygame.mixer.music.play(-1)
 
 
-def select_ennemi(fenetre,joueur,ennemi):
+def select_ennemi(fenetre,joueur,ennemi,tour):
     nb_ennemis = ennemi[0].nombre
     continuer = True
     position_bouton= 0
+    
+    text_ennemi = font.render(ennemi[0].nom,True,noir)
+    background_image = pygame.image.load("data/background.jpg").convert()
     fleche = pygame.image.load("data/fleche.png").convert_alpha()
+    
+    pygame.draw.rect(fenetre, blanc, [0, 585, 640, 55])
+    fenetre.blit(text_ennemi, [430, 600])
+    
+    
     if nb_ennemis == 1:
          while continuer:
+            print position_bouton
+             
+            text_tour = font.render("tour "+str(tour),True,noir)
+            text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
+        
+            fenetre.blit(background_image, [0, 0])
+            fenetre.blit(text_tour, [10, 10])
+            fenetre.blit(text_pv_joueur, [10, 500])
+            fenetre.blit(joueur.img, [10, 50])
+            text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_0, [500, 350])
+            fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 300)))
+            
+            if position_bouton == 0:
+                fenetre.blit(fleche, fleche.get_rect(center=(350, 300)))
 
-             fenetre.blit(fleche, fleche.get_rect(center=(350, 196)))
-
-             for event in pygame.event.get():
+            for event in pygame.event.get():
 
                 if event.type == QUIT:
                     return "End"
 
                 if event.type == KEYDOWN:
+                            
                     if event.key == K_TAB:
                         continuer = False
 
                     if event.key == K_RETURN:
-                        joueur.cible = ennemi[0]
+                        joueur.cible = ennemi[position_bouton]
                         combat_start(joueur,ennemi)
+                        return "next"
+                        
+         pygame.display.flip()
+         
+    if nb_ennemis == 2:
+         while continuer:
+            print position_bouton
+             
+            text_tour = font.render("tour "+str(tour),True,noir)
+            text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
+        
+            fenetre.blit(background_image, [0, 0])
+            fenetre.blit(text_tour, [10, 10])
+            fenetre.blit(text_pv_joueur, [10, 500])
+            fenetre.blit(joueur.img, [10, 50])
+            
+            text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_0, [500, 250])
+            fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 200)))
+            
+            text_pv_ennemi_1 = font.render("Pv : "+str(ennemi[1].pv)+"/"+str(ennemi[1].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_1, [500, 450])
+            fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 400)))
+            
+            if position_bouton == 0:
+                fenetre.blit(fleche, fleche.get_rect(center=(350, 200)))
+            if position_bouton == 1:
+                fenetre.blit(fleche, fleche.get_rect(center=(350, 400)))
+
+            for event in pygame.event.get():
+
+                if event.type == QUIT:
+                    return "End"
+
+                if event.type == KEYDOWN:
+                    
+                    if event.key == K_RIGHT:
+                        if position_bouton <1:
+                            position_bouton += 1
+                            
+                    if event.key == K_LEFT:
+                        if position_bouton >0:
+                            position_bouton -= 1
+                            
+                    if event.key == K_TAB:
+                        continuer = False
+
+                    if event.key == K_RETURN:
+                        joueur.cible = ennemi[position_bouton]
+                        combat_start(joueur,ennemi)
+                        return "next"
+                        
+         pygame.display.flip()
+    if nb_ennemis == 3:
+         while continuer:
+            print position_bouton
+             
+            text_tour = font.render("tour "+str(tour),True,noir)
+            text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
+        
+            fenetre.blit(background_image, [0, 0])
+            fenetre.blit(text_tour, [10, 10])
+            fenetre.blit(text_pv_joueur, [10, 500])
+            fenetre.blit(joueur.img, [10, 50])
+            
+            text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_0, [500, 200])
+            fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 150)))
+            
+            text_pv_ennemi_1 = font.render("Pv : "+str(ennemi[1].pv)+"/"+str(ennemi[1].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_1, [500, 350])
+            fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 300)))
+            
+            text_pv_ennemi_2 = font.render("Pv : "+str(ennemi[2].pv)+"/"+str(ennemi[2].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_2, [500, 500])
+            fenetre.blit(ennemi[2].img_combat, ennemi[2].img_combat.get_rect(center=(500, 450)))
+            
+            if position_bouton == 0:
+                fenetre.blit(fleche, fleche.get_rect(center=(350, 150)))
+            if position_bouton == 1:
+                fenetre.blit(fleche, fleche.get_rect(center=(350, 300)))
+            if position_bouton == 2:
+                fenetre.blit(fleche, fleche.get_rect(center=(350, 450)))
+
+            for event in pygame.event.get():
+
+                if event.type == QUIT:
+                    return "End"
+
+                if event.type == KEYDOWN:
+                    
+                    if event.key == K_RIGHT:
+                        if position_bouton <2:
+                            position_bouton += 1
+                            
+                    if event.key == K_LEFT:
+                        if position_bouton >0:
+                            position_bouton -= 1
+                            
+                    if event.key == K_TAB:
+                        continuer = False
+
+                    if event.key == K_RETURN:
+                        joueur.cible = ennemi[position_bouton]
+                        combat_start(joueur,ennemi)
+                        return "next"
+                        
+         pygame.display.flip()
+    if nb_ennemis == 4:
+         while continuer:
+            print position_bouton
+             
+            text_tour = font.render("tour "+str(tour),True,noir)
+            text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
+        
+            fenetre.blit(background_image, [0, 0])
+            fenetre.blit(text_tour, [10, 10])
+            fenetre.blit(text_pv_joueur, [10, 500])
+            fenetre.blit(joueur.img, [10, 50])
+            
+            text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_0, [500, 170])
+            fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 120)))
+            
+            text_pv_ennemi_1 = font.render("Pv : "+str(ennemi[1].pv)+"/"+str(ennemi[1].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_1, [500, 290])
+            fenetre.blit(ennemi[1].img_combat, ennemi[1].img_combat.get_rect(center=(500, 240)))
+            
+            text_pv_ennemi_2 = font.render("Pv : "+str(ennemi[2].pv)+"/"+str(ennemi[2].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_2, [500, 410])
+            fenetre.blit(ennemi[2].img_combat, ennemi[2].img_combat.get_rect(center=(500, 360)))
+            
+            text_pv_ennemi_3 = font.render("Pv : "+str(ennemi[3].pv)+"/"+str(ennemi[3].pv_max),True,noir)
+            fenetre.blit(text_pv_ennemi_3, [500, 530])
+            fenetre.blit(ennemi[3].img_combat, ennemi[3].img_combat.get_rect(center=(500, 480)))
+            
+            if position_bouton == 0:
+                fenetre.blit(fleche, fleche.get_rect(center=(350, 120)))
+            if position_bouton == 1:
+                fenetre.blit(fleche, fleche.get_rect(center=(350, 240)))
+            if position_bouton == 2:
+                fenetre.blit(fleche, fleche.get_rect(center=(350, 360)))
+            if position_bouton == 3:
+                fenetre.blit(fleche, fleche.get_rect(center=(350, 480)))
+
+            for event in pygame.event.get():
+
+                if event.type == QUIT:
+                    return "End"
+
+                if event.type == KEYDOWN:
+                    
+                    if event.key == K_RIGHT:
+                        if position_bouton <3:
+                            position_bouton += 1
+                            
+                    if event.key == K_LEFT:
+                        if position_bouton >0:
+                            position_bouton -= 1
+                            
+                    if event.key == K_TAB:
+                        continuer = False
+
+                    if event.key == K_RETURN:
+                        joueur.cible = ennemi[position_bouton]
+                        combat_start(joueur,ennemi)
+                        return "next"
+                        
          pygame.display.flip()
 
     return "Retour"
+    
 '''
     while continuer:
         if nb_ennemis == 1:
@@ -236,7 +465,7 @@ def select_ennemi(fenetre,joueur,ennemi):
 
 
 
-def attaque_type(fenetre,joueur,ennemi):
+def attaque_type(fenetre,joueur,ennemi,tour):
     text1 = font.render(ennemi[0].nom,True,noir)
     text2 = font.render("attaque physique",True,noir)
     text3 = font.render("attaque magique",True,noir)
@@ -292,7 +521,7 @@ def attaque_type(fenetre,joueur,ennemi):
                     if position_bouton == 2:
                         joueur.action = "Magique"
 
-                    return select_ennemi(fenetre,joueur,ennemi)
+                    return select_ennemi(fenetre,joueur,ennemi,tour)
     return "Retour"
 
 def potion_type(fenetre,joueur,ennemi):
