@@ -223,10 +223,10 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
             fenetre.blit(text_pv_ennemi_0, [500, 350])
             fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 300)))
-            
+
             if position_bouton == 0:
                 fenetre.blit(fleche, fleche.get_rect(center=(350, 300)))
-
+            pygame.display.flip()
             for event in pygame.event.get():
 
                 if event.type == QUIT:
@@ -241,9 +241,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                         joueur.cible = ennemi[position_bouton]
                         combat_start(joueur,ennemi)
                         return "next"
-                        
-         pygame.display.flip()
-         
+                                 
     if nb_ennemis == 2:
          while continuer:
             print position_bouton
@@ -292,7 +290,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                         combat_start(joueur,ennemi)
                         return "next"
                         
-         pygame.display.flip()
+            pygame.display.flip()
     if nb_ennemis == 3:
          while continuer:
             print position_bouton
@@ -347,7 +345,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                         combat_start(joueur,ennemi)
                         return "next"
                         
-         pygame.display.flip()
+            pygame.display.flip()
     if nb_ennemis == 4:
          while continuer:
             print position_bouton
@@ -408,7 +406,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                         combat_start(joueur,ennemi)
                         return "next"
                         
-         pygame.display.flip()
+            pygame.display.flip()
 
     return "Retour"
     
