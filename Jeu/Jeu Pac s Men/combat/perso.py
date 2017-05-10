@@ -164,13 +164,13 @@ class perso:
     def popo_actif(self):
         potion=self.action
         if potion == "vie1" and self.potionvie1>0 and self.pv != self.pv_max:
-            self.pv += 50
+            self.pv += 100
             if self.pv > self.pv_max:
                 self.pv = self.pv_max
             self.potionvie1-=1
         
         if potion == "vie2"and self.potionvie2>0and self.pv != self.pv_max: 
-            self.pv += 100
+            self.pv += 150
             if self.pv > self.pv_max:
                 self.pv = self.pv_max
             self.potionvie2-=1
@@ -183,7 +183,7 @@ class perso:
         
         if potion == "force1"and self.potionforce1>0:
             self.atk += 50
-            self.mag += 50  
+            self.mag += 50
             self.force1 =2
             self.force1fois +=1
             self.potionforce1-=1
@@ -519,15 +519,13 @@ class Archer(perso):
             self.cible2.pv = 0
         
     def passif_def(self,adv):
-        print adv,self.cible2,len(adv)
-        while 1:
-            i=random.randrange(len(adv))
-            print i,adv[i],self.cible
-            if adv[i].jouable == False and adv[i] != self.cible:
-                print "test"
-                self.cible2=adv[i]
-                self.attaque2()
-                break
+        if len(adv) > 2:
+            while 1:
+                i=random.randrange(len(adv))
+                if adv[i].jouable == False and adv[i] != self.cible:
+                    self.cible2=adv[i]
+                    self.attaque2()
+                    break
                 
         
         

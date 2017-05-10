@@ -42,7 +42,6 @@ def combat_attaque(participant_vit):
             
         else:
             if participant_vit[i].jouable==True:
-                print participant_vit[i].type_action
                 if participant_vit[i].type_action == "potion":
                      participant_vit[i].popo_actif()
                 elif participant_vit[i].type_action == "attaque":
@@ -67,7 +66,6 @@ def affiche_combat(fenetre,joueur,ennemi):
     tour=1
     text_ennemi = font.render(ennemi[0].nom,True,noir)
     background_image = pygame.image.load("data/background.jpg").convert()
-    print nb_ennemis
 
     while continuer == 1:
         
@@ -149,6 +147,13 @@ def affiche_combat(fenetre,joueur,ennemi):
         pygame.draw.line(fenetre, noir, [210, 590], [210, 640], 1)
         pygame.draw.line(fenetre, noir, [400, 590], [400, 640], 1)
         pygame.display.flip()
+
+        pv_toto = 0
+        for i in range (nb_ennemis):
+            pv_toto += ennemi[0].pv
+        if pv_toto == 0:
+            return "fin"
+
         
         for event in pygame.event.get():
 
@@ -215,7 +220,6 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
     
     if nb_ennemis == 1:
          while continuer:
-            print position_bouton
              
             text_tour = font.render("tour "+str(tour),True,noir)
             text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
@@ -248,7 +252,6 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                                  
     if nb_ennemis == 2:
          while continuer:
-            print position_bouton
              
             text_tour = font.render("tour "+str(tour),True,noir)
             text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
@@ -297,7 +300,6 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             pygame.display.flip()
     if nb_ennemis == 3:
          while continuer:
-            print position_bouton
              
             text_tour = font.render("tour "+str(tour),True,noir)
             text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
@@ -352,7 +354,6 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             pygame.display.flip()
     if nb_ennemis == 4:
          while continuer:
-            print position_bouton
              
             text_tour = font.render("tour "+str(tour),True,noir)
             text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
