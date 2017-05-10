@@ -126,3 +126,4 @@ def script_pa(fenetre):
 
         pygame.display.flip()
 
+script_pa(fenetre)
