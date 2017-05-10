@@ -11,7 +11,6 @@ font = pygame.font.Font("data/fonts/old_london/OldLondon.ttf",25)
 
 image=pygame.image.load("data/livreintroisn.png")
 image1=pygame.image.load("data/imagepage1isn.jpg")
-image3=pygame.image.load("data/imagepage2isn.jpg")
 image2=pygame.image.load("data/page2isn.jpg")
 
 
