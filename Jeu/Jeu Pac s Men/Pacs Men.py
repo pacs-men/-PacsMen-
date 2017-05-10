@@ -38,9 +38,14 @@ ennemi= [perso.Aigles(),perso.Araingnees(),perso.Rats(),perso.Geant(),perso.Gobe
 
 #choix de de l'ennemi
 e = random.randrange(0,12)
-ennemi_combat=[]
-for a in range (ennemi[e].nombre): 
-    ennemi_combat.append(ennemi[e])
+if ennemi[e].nombre == 1:
+    ennemi_combat=[ennemi[e]]
+if ennemi[e].nombre == 2:
+    ennemi_combat=[ennemi[e],ennemi[e]]
+if ennemi[e].nombre == 3:
+    ennemi_combat=[ennemi[e],ennemi[e],ennemi[e]]
+if ennemi[e].nombre == 4:
+    ennemi_combat=[ennemi[e],ennemi[e],ennemi[e],ennemi[e]]
 
 #creation des variables pour ecrire un texte
 font = pygame.font.SysFont('Calibri', 25, True, False)
