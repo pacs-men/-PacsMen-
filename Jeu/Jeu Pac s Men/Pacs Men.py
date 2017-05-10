@@ -96,7 +96,7 @@ if j == "End":
     continuer = False
 else:
     mvt_perso = objet.perso(mape, 2, 2, joueur[j].ls_imagedir)
-script_pa.script_pa(fenetre)
+    script_pa.script_pa(fenetre)
 
 
 
