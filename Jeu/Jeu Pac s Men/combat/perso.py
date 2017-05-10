@@ -57,16 +57,16 @@ class perso:
         self.precisionfois=0
         
         #variable inventaire
-        self.potionvie1=0
+        self.potionvie1=5
         self.potionvie2=0
         self.potionvie3=0
-        self.potionarmure1=0
+        self.potionarmure1=2
         self.potionarmure2=0
         self.potionarmure3=0
-        self.potionforce1=0
+        self.potionforce1=1
         self.potionforce2=0
         self.potionforce3=0
-        self.potioncritique1=0
+        self.potioncritique1=1
         self.potioncritique2=0
         self.potioncritique3=0
         self.potionvitesse=0
@@ -163,7 +163,6 @@ class perso:
             self.pv += 50
             if self.pv > self.pv_max:
                 self.pv = self.pv_max
-                self.pv += 50
             self.potionvie1-=1
         
         if potion == "vie2"and self.potionvie2>0and self.pv != self.pv_max: 
@@ -200,21 +199,21 @@ class perso:
             self.potionforce3-=1
             
         if potion == "armure1"and self.potionarmure1>0: 
-            self.defend +=5
+            self.defen +=5
             self.res +=5
             self.armure1 =2 #"tour"
             self.armure1fois +=1
             self.potionarmure1-=1
             
         if potion == "armure2"and self.potionarmure2>0: 
-            self.defend +=10
+            self.defen +=10
             self.res +=10
             self.armure2 =2 #"tour"
             self.armure2fois +=1
             self.potionarmure2-=1
             
         if potion == "armure3"and self.potionarmure3>0: 
-            self.defend +=20
+            self.defen +=20
             self.res +=20
             self.armure3 =1 #"tour"
             self.armure3fois +=1
@@ -437,7 +436,7 @@ class Combattant(perso):
         self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
         self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
         
-    def passif_def(self):
+    def passif_def(self,adv):
         if self.pv < 500*0.7 and self.passif == 0:
             self.defen == self.defen*2
             self.res == self.res*2
@@ -512,11 +511,15 @@ class Archer(perso):
                 self.cible2.pv -= (self.mag+self.arme.mag)*(1-float(self.cible2.res+self.cible2.armure.res)/100)*2
         
     def passif_def(self,adv):
+        print adv,self.cible2,len(adv)
         while 1:
             i=random.randrange(len(adv))
+            print i,adv[i],self.cible
             if adv[i].jouable == False and adv[i] != self.cible:
+                print "test"
                 self.cible2=adv[i]
                 self.attaque2()
+                break
                 
         
         
@@ -545,6 +548,8 @@ class Soigneur(perso):
         
     def passif_def(self,adv):
         self.pv += 15
+        if self.pv>self.pv_max:
+            self.pv=self.pv_max
         
 
 class ennemi_test(perso):

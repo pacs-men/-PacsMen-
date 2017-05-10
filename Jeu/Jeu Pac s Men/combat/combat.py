@@ -41,11 +41,12 @@ def combat_attaque(participant_vit):
             
         else:
             if participant_vit[i].jouable==True:
-                 if participant_vit[i].type_action == "potion":
+                print participant_vit[i].type_action
+                if participant_vit[i].type_action == "potion":
                      participant_vit[i].popo_actif()
-                 elif participant_vit[i].type_action == "attaque":
+                elif participant_vit[i].type_action == "attaque":
                      participant_vit[i].attaque()
-                     participant_vit[i].popo_def()
+                participant_vit[i].popo_def()
             else:
                 participant_vit[i].cible_def(participant_vit)
                 participant_vit[i].attaque()
@@ -166,6 +167,7 @@ def affiche_combat(fenetre,joueur,ennemi):
                 if event.key == K_RETURN:
 
                     if position_bouton == 1:
+                        joueur.type_action = "attaque"
                         info = attaque_type(fenetre,joueur,ennemi,tour)
                         if info == "End":
                             continuer = 0
@@ -173,6 +175,7 @@ def affiche_combat(fenetre,joueur,ennemi):
                             tour+=1
 
                     if position_bouton == 2:
+                        joueur.type_action = "potion"
                         info = potion_type(fenetre,joueur,ennemi)
                         if info == "End":
                             continuer = 0
