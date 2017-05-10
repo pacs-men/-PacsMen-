@@ -14,11 +14,6 @@ image1=pygame.image.load("data/imagepage1isn.jpg")
 #image3=pygame.image.load("data/imagepage2isn.jpg")
 image2=pygame.image.load("data/page2isn.jpg")
 
-
-
-pygame.display.flip()
-
-
 def script_pa(fenetre):
     fenetre.fill(noir)
     continuer= True
