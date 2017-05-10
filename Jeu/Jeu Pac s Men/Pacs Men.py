@@ -36,7 +36,6 @@ joueur = [perso.AssassinsMagique(),perso.AssassinsPhysique(),perso.Combattant(),
 
 #liste de tous les ennemis
 ennemi = [[ perso.Rats(), perso.Rats(), perso.Rats(), perso.Rats() ],[ perso.Gobelins(), perso.Gobelins(), perso.Gobelins(), perso.Gobelins()],[ perso.Aigles(), perso.Aigles() ],[ perso.Slime() ],[perso.Centaures(), perso.Centaures(), perso.Centaures()],[perso.Loup_garou()],[perso.Araingnees(),perso.Araingnees(),perso.Araingnees()],[perso.Carapateur()],[perso.Golems(),perso.Golems()],[perso.Treant()],[perso.Geant()],[perso.Nains(),perso.Nains(),perso.Nains()],[perso.Elfs(),perso.Elfs()]]
-#ennemi = [perso.Aigles(),perso.Araingnees(),perso.Rats(),perso.Geant(),perso.Gobelins(),perso.Golems(),perso.Slime(),perso.Carapateur(),perso.Centaures(),perso.Loup_garou(),perso.Treant(),perso.Nains(),perso.Elfs()]
 
 #choix de de l'ennemi
 e = random.randrange(0,12)
@@ -82,7 +81,7 @@ def ouvrir_map():
             if carte[x][y] == "Herbe":
                 carte[x][y]+= str(random.randrange(1, 5))
     return carte
-    
+
 
 affichercarte(x,y)
 pygame.key.set_repeat(300,70)
@@ -97,7 +96,6 @@ if j == "End":
 else:
     mvt_perso = objet.perso(mape, 2, 2, joueur[j].ls_imagedir)
     script_pa.script_pa(fenetre)
-
 
 
 while continuer:
