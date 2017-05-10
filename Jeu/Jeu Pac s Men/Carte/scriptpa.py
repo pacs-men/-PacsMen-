@@ -1,4 +1,4 @@
-import pygame
+﻿import pygame
 from pygame import *
 
 pygame.init()
@@ -7,11 +7,11 @@ pygame.display.set_caption('Programme intro histoire')
 pygame.font.init()
 noir=(0,0,0)
 blanc=(0xFF, 0xFF, 0xFF)
-font = pygame.font.Font("data\fonts\old_london\OLondon_.otf",25)
+font = pygame.font.Font("data/fonts/old_london/OLondon_.otf",25)
 
 image=pygame.image.load("data/livreintroisn.png")
 image1=pygame.image.load("data/imagepage1isn.jpg")
-image3=pygame.image.load("data/imagepage2isn.jpg")
+#image3=pygame.image.load("data/imagepage2isn.jpg")
 image2=pygame.image.load("data/page2isn.jpg")
 
 
@@ -22,6 +22,9 @@ continuer= True
 page= 1
 
 def script_pa(fenetre):
+    fenetre.fill(noir)
+    continuer= True
+    page= 1
     while continuer:
         for event in pygame.event.get():
             if event.type == QUIT:
