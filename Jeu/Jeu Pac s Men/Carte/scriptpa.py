@@ -1,4 +1,4 @@
-import pygame
+﻿import pygame
 from pygame import *
 
 pygame.init()
@@ -18,8 +18,6 @@ image2=pygame.image.load("data/page2isn.jpg")
 
 pygame.display.flip()
 
-continuer= True
-page= 1
 
 def script_pa(fenetre):
     fenetre.fill(noir)
