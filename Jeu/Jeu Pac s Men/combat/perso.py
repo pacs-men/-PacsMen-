@@ -98,6 +98,8 @@ class perso:
                 self.cible.pv -= (self.atk+self.arme.atk)*(1-float(self.cible.defen+self.cible.armure.defen)/100)
             else:
                 self.cible.pv -= (self.atk+self.arme.atk)*(1-float(self.cible.defen+self.cible.armure.defen)/100)*2
+        if self.cible.pv < 0:
+            self.cible.pv = 0
             
             
             
@@ -111,6 +113,8 @@ class perso:
                 self.cible.pv -= (self.mag+self.arme.mag)*(1-float(self.cible.res+self.cible.armure.res)/100)
             else:
                 self.cible.pv -= (self.mag+self.arme.mag)*(1-float(self.cible.res+self.cible.armure.res)/100)*2
+        if self.cible.pv < 0:
+            self.cible.pv = 0
                 
                 
                 
@@ -496,6 +500,8 @@ class Archer(perso):
                 self.cible2.pv -= (self.atk+self.arme.atk)*(1-float(self.cible2.defen+self.cible2.armure.defen)/100)
             else:
                 self.cible2.pv -= (self.atk+self.arme.atk)*(1-float(self.cible2.defen+self.cible2.armure.defen)/100)*2
+        if self.cible2.pv < 0:
+            self.cible2.pv = 0
             
             
             
@@ -509,6 +515,8 @@ class Archer(perso):
                 self.cible2.pv -= (self.mag+self.arme.mag)*(1-float(self.cible2.res+self.cible2.armure.res)/100)
             else:
                 self.cible2.pv -= (self.mag+self.arme.mag)*(1-float(self.cible2.res+self.cible2.armure.res)/100)*2
+        if self.cible2.pv < 0:
+            self.cible2.pv = 0
         
     def passif_def(self,adv):
         print adv,self.cible2,len(adv)

@@ -24,6 +24,7 @@ def combat_start(joueur,participant):
     participant.sort(key=lambda v: v.vit)
     participant.reverse()
     combat_attaque(participant)
+    participant.reverse()
     participant.remove(joueur)
     
     
