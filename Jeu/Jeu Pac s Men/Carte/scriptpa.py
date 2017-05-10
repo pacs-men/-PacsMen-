@@ -7,7 +7,7 @@ pygame.display.set_caption('Programme intro histoire')
 pygame.font.init()
 noir=(0,0,0)
 blanc=(0xFF, 0xFF, 0xFF)
-font = pygame.font.Font("data\fonts\old_london\OLondon_.otf",25)
+font = pygame.font.Font("data/fonts/old_london/OldLondon.ttf",25)
 
 image=pygame.image.load("data/livreintroisn.png")
 image1=pygame.image.load("data/imagepage1isn.jpg")
