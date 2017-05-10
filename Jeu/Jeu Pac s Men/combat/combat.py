@@ -75,7 +75,7 @@ def affiche_combat(fenetre,joueur,ennemi):
         fenetre.fill(blanc)
         fenetre.blit(background_image, [0, 0])
         pygame.draw.rect(fenetre, blanc, [0, 585, 640, 55])
-        fenetre.blit(joueur.img, [10, 50])
+        fenetre.blit(joueur.img, joueur.img.get_rect(center=(100, 300)))
         
         if nb_ennemis == 1:
             
@@ -227,7 +227,8 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             fenetre.blit(background_image, [0, 0])
             fenetre.blit(text_tour, [10, 10])
             fenetre.blit(text_pv_joueur, [10, 500])
-            fenetre.blit(joueur.img, [10, 50])
+            fenetre.blit(joueur.img, joueur.img.get_rect(center=(100, 300)))
+
             text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
             fenetre.blit(text_pv_ennemi_0, [500, 350])
             fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 300)))
@@ -259,7 +260,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             fenetre.blit(background_image, [0, 0])
             fenetre.blit(text_tour, [10, 10])
             fenetre.blit(text_pv_joueur, [10, 500])
-            fenetre.blit(joueur.img, [10, 50])
+            fenetre.blit(joueur.img, joueur.img.get_rect(center=(100, 300)))
             
             text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
             fenetre.blit(text_pv_ennemi_0, [500, 250])
@@ -307,7 +308,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             fenetre.blit(background_image, [0, 0])
             fenetre.blit(text_tour, [10, 10])
             fenetre.blit(text_pv_joueur, [10, 500])
-            fenetre.blit(joueur.img, [10, 50])
+            fenetre.blit(joueur.img, joueur.img.get_rect(center=(100, 300)))
             
             text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
             fenetre.blit(text_pv_ennemi_0, [500, 200])
@@ -361,7 +362,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             fenetre.blit(background_image, [0, 0])
             fenetre.blit(text_tour, [10, 10])
             fenetre.blit(text_pv_joueur, [10, 500])
-            fenetre.blit(joueur.img, [10, 50])
+            fenetre.blit(joueur.img, joueur.img.get_rect(center=(100, 300)))
             
             text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
             fenetre.blit(text_pv_ennemi_0, [500, 170])
@@ -395,11 +396,11 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                 if event.type == KEYDOWN:
                     
-                    if event.key == K_RIGHT:
+                    if event.key == K_DOWN:
                         if position_bouton <3:
                             position_bouton += 1
                             
-                    if event.key == K_LEFT:
+                    if event.key == K_UP:
                         if position_bouton >0:
                             position_bouton -= 1
                             
