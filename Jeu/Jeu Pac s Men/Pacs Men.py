@@ -88,12 +88,16 @@ pygame.key.set_repeat(300,70)
 
 #declanchement de la musique
 
+continuer = True
+
 j=menu.start_menu(fenetre,joueur)
 if j == "End":
-    sys.exit()
+    continuer = False
+else:
+    mvt_perso = objet.perso(mape, 2, 2, joueur[j].ls_imagedir)
 
-mvt_perso = objet.perso(mape, 2, 2, joueur[j].ls_imagedir)
-continuer = True
+
+
 while continuer:
     # prise en compte des evenements
     for event in pygame.event.get():
