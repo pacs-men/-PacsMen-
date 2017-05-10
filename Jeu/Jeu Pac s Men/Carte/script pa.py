@@ -7,12 +7,12 @@ pygame.display.set_caption('Programme intro histoire')
 pygame.font.init()
 noir=(0,0,0)
 blanc=(0xFF, 0xFF, 0xFF)
-font = pygame.font.Font("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/OLondon_.otf",25)
+font = pygame.font.Font("data\fonts\old_london\OLondon_.otf",25)
 
-image=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/livreintroisn.png")
-image1=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/imagepage1isn.jpg")
-image3=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/imagepage2isn.jpg")
-image2=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/page2isn.jpg")
+image=pygame.image.load("data/livreintroisn.png")
+image1=pygame.image.load("data/imagepage1isn.jpg")
+image3=pygame.image.load("data/imagepage2isn.jpg")
+image2=pygame.image.load("data/page2isn.jpg")
 
 
 
@@ -21,20 +21,23 @@ pygame.display.flip()
 continuer= True
 page= 1
 
-
-while continuer:
-    for event in pygame.event.get():
-        if event.type == QUIT:
-                continuer = False
-        if event.type==KEYDOWN:
-            if event.key==K_RIGHT:
-                page +=1
-            if event.key==K_LEFT:
-                page -=1
+def script_pa(fenetre):
+    while continuer:
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                    continuer = False
+            if event.type == KEYDOWN:
+                if event.key == K_RIGHT:
+                    page +=1
+                if event.key == K_LEFT:
+                    page -=1
+                if event.key == K_ESCAPE:
+                    continuer = False
         if page>5:
-                page=5
+            page=5
         if page<1:
-                page=1
+            page=1
+
         if page== 1:
                 fenetre.blit(image,[0,110])
                 text1g1 = font.render("Vous etes un ancien membre ",True,noir)
@@ -125,5 +128,5 @@ while continuer:
 
 
 
-    pygame.display.flip()
+        pygame.display.flip()
 
