@@ -81,7 +81,7 @@ def inventaire(fenetre,Joueur):
         fenetre.blit(ecrire(str(Joueur.potionforce2),True,black),(410,325))
         
         dessiner(fenetre, black,[20, 362, 450, 40],1)
-        potionforce3=ecrire("Enorme potion de vie",True, black)
+        potionforce3=ecrire("Enorme potion de force",True, black)
         fenetre.blit(potionforce3,(80,370))
         fenetre.blit(charger("data/potiona2.png"),(40,362))
         fenetre.blit(ecrire(str(Joueur.potionforce3),True,black),(410,370))
@@ -133,17 +133,17 @@ def inventaire(fenetre,Joueur):
                         Joueur.action="vie2"
                     if position_bouton==2:
                         Joueur.action="vie3"
-                    if position_bouton==3:
-                        Joueur.action="force1"
-                    if position_bouton==4:
-                        Joueur.action="force2"
-                    if position_bouton==5:
-                        Joueur.action="force3"
                     if position_bouton==6:
-                        Joueur.action="armure1"
+                        Joueur.action="force1"
                     if position_bouton==7:
-                        Joueur.action="armure2"
+                        Joueur.action="force2"
                     if position_bouton==8:
+                        Joueur.action="force3"
+                    if position_bouton==3:
+                        Joueur.action="armure1"
+                    if position_bouton==4:
+                        Joueur.action="armure2"
+                    if position_bouton==6:
                         Joueur.action="armure3"
                     if position_bouton==9:
                         Joueur.action="critique1"
