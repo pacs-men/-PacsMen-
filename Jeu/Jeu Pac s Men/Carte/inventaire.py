@@ -115,6 +115,20 @@ def inventaire(fenetre,Joueur):
         fenetre.blit(potionprecision,(80,595))
         fenetre.blit(charger("data/perso.png"),(40,587))
         fenetre.blit(ecrire(str(Joueur.potionprecision),True,black),(410,595))
+
+		#affichage des stats du personnage
+		#affichage de la vie
+        pvperso=ecrire("Pv:"+str(Joueur.pv),True,black)
+        pvperso_rect=pvperso.get_rect()
+        pvperso_rect.right = 630
+        pvperso_rect.top = 10
+        fenetre.blit(pvperso,pvperso_rect)
+		#affichage de l'armure
+        armureperso=ecrire("Armure:"+str(Joueur.defen),True,black)
+        armureperso_rect=armureperso.get_rect()
+        armureperso_rect.right = 630
+        armureperso_rect.top = 35
+        fenetre.blit(armureperso,armureperso_rect)
         
         for event in pygame.event.get():
             if event.type == KEYDOWN:
