@@ -335,11 +335,11 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                 if event.type == KEYDOWN:
                     
-                    if event.key == K_RIGHT:
+                    if event.key == K_DOWN:
                         if position_bouton <2:
                             position_bouton += 1
                             
-                    if event.key == K_LEFT:
+                    if event.key == K_UP:
                         if position_bouton >0:
                             position_bouton -= 1
                             
@@ -455,11 +455,11 @@ def attaque_type(fenetre,joueur,ennemi,tour):
                 if event.key == K_TAB:
                     continuer = 0
 
-                if event.key == K_UP or event.key == K_RIGHT:
+                if event.key == K_DOWN:
                     if position_bouton <2:
                         position_bouton += 1
 
-                if event.key == K_DOWN or event.key == K_LEFT:
+                if event.key == K_UP:
                     if position_bouton >1:
                         position_bouton -= 1
 
