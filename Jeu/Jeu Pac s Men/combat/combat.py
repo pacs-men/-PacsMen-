@@ -149,7 +149,7 @@ def affiche_combat(fenetre,joueur,ennemi):
 
         pv_toto = 0
         for i in range (nb_ennemis):
-            pv_toto += ennemi[0].pv
+            pv_toto += ennemi[i].pv
         if pv_toto == 0:
             return "fin"
 
