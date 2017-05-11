@@ -422,7 +422,7 @@ def attaque_type(fenetre,joueur,ennemi,tour):
     continuer = 1
     position_bouton = 1
     joueur.action_type = "attaque"
-    pygame.draw.rect(fenetre, blanc, [0, 585, 640, 55])
+    pygame.draw.rect(fenetre, blanc, [0, 590, 640, 50])
     
 
 
