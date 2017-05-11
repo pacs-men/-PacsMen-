@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import pygame
+import pygame,random
 from pygame.locals import *
 pygame.init()
 noir=(0,0,0)
@@ -152,22 +152,34 @@ def affiche_combat(fenetre,joueur,ennemi):
         for i in range (nb_ennemis):
             pv_toto += ennemi[i].pv
         if pv_toto == 0:
-            for inv in range (nb_ennemis):
-                joueur.potionvie1 += ennemi[inv].potionvie1
-                joueur.potionvie2 += ennemi[inv].potionvie2
-                joueur.potionvie3 += ennemi[inv].potionvie3
-                joueur.potionarmure1 += ennemi[inv].potionarmure1
-                joueur.potionarmure2 += ennemi[inv].potionarmure2
-                joueur.potionarmure3 += ennemi[inv].potionarmure3
-                joueur.potionforce1 += ennemi[inv].potionforce1
-                joueur.potionforce2 += ennemi[inv].potionforce2
-                joueur.potionforce3 += ennemi[inv].potionforce3
-                joueur.potioncritique1 += ennemi[inv].potioncritique1
-                joueur.potioncritique2 += ennemi[inv].potioncritique2
-                joueur.potioncritique3 += ennemi[inv].potioncritique3
-                joueur.potionvitesse += ennemi[inv].potionvitesse
-                joueur.potionprecision += ennemi[inv].precision
-
+            if random.randrange(0,1) == 1:
+                joueur.potionvie1+=random.randrange(0,3)
+            if random.randrange(0,5) == 1:
+                joueur.potionvie2 += 1
+            if random.randrange(0,10) == 1:
+                joueur.potionvie3 += 1
+            if random.randrange(0,5) == 1:
+                joueur.potionarmure1 += 1
+            if random.randrange(0,10) == 1:
+                joueur.potionarmure2 += 1
+            if random.randrange(0,20) == 1:
+                joueur.potionarmure3 += 1
+            if random.randrange(0,5) == 1:
+                joueur.potionforce1 += 1
+            if random.randrange(0,10) == 1:
+                joueur.potionforce2 += 1
+            if random.randrange(0,20) == 1:
+                joueur.potionforce3 += 1
+            if random.randrange(0,5) == 1:
+                joueur.potioncritique1 += 1
+            if random.randrange(0,10) == 1:
+                joueur.potioncritique2 += 1
+            if random.randrange(0,20) == 1:
+                joueur.potioncritique3 += 1
+            if random.randrange(0,10) == 1:
+                joueur.potionvitesse += 1
+            if random.randrange(0,10) == 1:
+                joueur.potionprecision += 1
             return "fin"
 
         

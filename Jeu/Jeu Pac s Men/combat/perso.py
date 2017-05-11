@@ -57,8 +57,8 @@ class perso:
         self.precisionfois=0
         
         #variable inventaire
-        self.potionvie1=5
-        self.potionvie2=0
+        self.potionvie1=3
+        self.potionvie2=2
         self.potionvie3=0
         self.potionarmure1=2
         self.potionarmure2=0
@@ -164,13 +164,13 @@ class perso:
     def popo_actif(self):
         potion=self.action
         if potion == "vie1" and self.potionvie1>0 and self.pv != self.pv_max:
-            self.pv += 100
+            self.pv += 50
             if self.pv > self.pv_max:
                 self.pv = self.pv_max
             self.potionvie1-=1
         
         if potion == "vie2"and self.potionvie2>0 and self.pv != self.pv_max: 
-            self.pv += 150
+            self.pv += 100
             if self.pv > self.pv_max:
                 self.pv = self.pv_max
             self.potionvie2-=1
@@ -573,34 +573,6 @@ class mobs(perso):
         perso.__init__(self)
         self.nombre=1
 
-        if random.randrange(0,1) == 1:
-            self.potionvie1=random.randrange(0,3)
-        if random.randrange(0,5) == 1:
-            self.potionvie2 = 1
-        if random.randrange(0,10) == 1:
-            self.potionvie3 = 1
-        if random.randrange(0,5) == 1:
-            self.potionarmure1 = 1
-        if random.randrange(0,10) == 1:
-            self.potionarmure2 = 1
-        if random.randrange(0,20) == 1:
-            self.potionarmure3 = 1
-        if random.randrange(0,5) == 1:
-            self.potionforce1 = 1
-        if random.randrange(0,10) == 1:
-            self.potionforce2 = 1
-        if random.randrange(0,20) == 1:
-            self.potionforce3 = 1
-        if random.randrange(0,5) == 1:
-            self.potioncritique1 = 1
-        if random.randrange(0,10) == 1:
-            self.potioncritique2 = 1
-        if random.randrange(0,20) == 1:
-            self.potioncritique3 = 1
-        if random.randrange(0,10) == 1:
-            self.potionvitesse = 1
-        if random.randrange(0,10) == 1:
-            self.potionprecision = 1
 
         
 class Rats(mobs):
