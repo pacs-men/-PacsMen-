@@ -94,11 +94,10 @@ pygame.key.set_repeat(300,70)
 
 continuer = True
 
-j=menu.start_menu(fenetre,joueur)
-if j == "End":
+joueur=menu.start_menu(fenetre,joueur)
+if joueur == "End":
     continuer = False
 else:
-    joueur[j]()
     mvt_perso = objet.perso(mape, 2, 2, joueur.ls_imagedir)
     script_pa.script_pa(fenetre)
 

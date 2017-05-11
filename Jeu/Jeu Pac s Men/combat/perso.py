@@ -395,7 +395,7 @@ class AssassinsPhysique(perso):
      def __init__(self):
         perso.__init__(self)
         self.nom="Nassim"
-        self.classe="Assassin Phyique"
+        self.classe="Assassin Physique"
         self.jouable=True
         self.pv_max=250
         self.pv=250
@@ -421,7 +421,7 @@ class Combattant(perso):
     def __init__(self):
         perso.__init__(self)
         self.nom="Pierre Antoine"
-        self.classe="Combatant"
+        self.classe="Combattant"
         self.jouable=True
         self.pv_max=500
         self.pv=500

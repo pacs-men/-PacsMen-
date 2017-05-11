@@ -17,17 +17,18 @@ dessiner=pygame.draw.rect
 
 
 def start_menu(fenetre,joueur):
+    
     #pygame.mixer.music.load('data/01 - Where Do The Children Play.mp3')
     #pygame.mixer.music.play(-1)
     fenetre.fill(white)
     position_bouton=0
     img_menu = pygame.image.load("data/imagemenu.jpg")
-    text1 = ecrire(joueur[0].nom+" "+joueur[0].classe,True,black)
-    text2 = ecrire(joueur[1].nom+" "+joueur[1].classe,True,black)
-    text3 = ecrire(joueur[2].nom+" "+joueur[2].classe,True,black)
-    text4 = ecrire(joueur[3].nom+" "+joueur[3].classe,True,black)
-    text5 = ecrire(joueur[4].nom+" "+joueur[4].classe,True,black)
-    text6 = ecrire(joueur[5].nom+" "+joueur[5].classe,True,black)
+    text1 = ecrire("Sebastien"+" "+"Assassin Magique",True,black)
+    text2 = ecrire("Nassim"+" "+"Assassin Physique",True,black)
+    text3 = ecrire("Pierre Antoine"+" "+"Combattant",True,black)
+    text4 = ecrire("Emeric"+" "+"Mage",True,black)
+    text5 = ecrire("Clarisse"+" "+"Soigneur",True,black)
+    text6 = ecrire("Martin"+" "+"Archer",True,black)
     
     while True:
         fenetre.blit(img_menu,[0,0])
@@ -60,27 +61,27 @@ def start_menu(fenetre,joueur):
                     if position_bouton == 0:
                         pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
                         #pygame.mixer.music.play(-1)
-                        return 0
+                        return joueur[0]()
                     if position_bouton == 1:
                         pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
                         #pygame.mixer.music.play(-1)
-                        return 1
+                        return joueur[1]()
                     if position_bouton == 2:
                         pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
                         #pygame.mixer.music.play(-1)
-                        return 2
+                        return joueur[2]()
                     if position_bouton == 3:
                         pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
                         #pygame.mixer.music.play(-1)
-                        return 3
+                        return joueur[3]()
                     if position_bouton == 4:
                         pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
                         #pygame.mixer.music.play(-1)
-                        return 4
+                        return joueur[4]()
                     if position_bouton == 5:
                         pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
                         #pygame.mixer.music.play(-1)
-                        return 5
+                        return joueur[5]()
         pygame.display.flip()
     pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
     #pygame.mixer.music.play(-1)
