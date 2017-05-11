@@ -477,11 +477,11 @@ def attaque_type(fenetre,joueur,ennemi,tour):
                 if event.key == K_TAB:
                     continuer = 0
 
-                if event.key == K_DOWN:
+                if event.key == K_RIGHT:
                     if position_bouton <2:
                         position_bouton += 1
 
-                if event.key == K_UP:
+                if event.key == K_LEFT:
                     if position_bouton >1:
                         position_bouton -= 1
 
