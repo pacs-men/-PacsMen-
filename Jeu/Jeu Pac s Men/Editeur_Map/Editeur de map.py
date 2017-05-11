@@ -18,7 +18,7 @@ pos_fin = (0, 0)
 
 # niv 1
 dict_case = {"herbe":"green", "mur":"grey"}
-dict_obj = {"coffre":"brown", "arbre" :"green", "ennemi":"red","porte":"black"}
+dict_obj = {"coffre":"brown", "arbre" :"green", "ennemi":"red","porte":"black", "porte":"grey"}
 
 #niv 2
 #dict_case = {"herbe":"green", "murs":"blue", "sols":"grey", "trous":"black"}

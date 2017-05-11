@@ -141,6 +141,7 @@ while continuer:
         a = combat.affiche_combat(fenetre,joueur, mape.combat[1].ls_ennemi)
         if a == "fin":
             print mape.combat[1]
+            
             mape.combat[1].effacer()
         elif a == "Fuite":
             pass
