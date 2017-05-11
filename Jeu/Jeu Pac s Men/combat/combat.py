@@ -14,7 +14,7 @@ text_fuite = font.render("fuite",True,noir)
         
 def combat_start(joueur,participant):
     ''' 
-        fonction principale du combat 
+        fonction principale du combat
         parametre: class joueur , liste des participants
         
         appelle la fonction secondaire en ajoutant joueur a la liste des participant
@@ -415,59 +415,6 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
     return "Retour"
     
-'''
-    while continuer:
-        if nb_ennemis == 1:
-            if position_bouton == 0 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, 196)))
-
-        if nb_ennemis == 2:
-            if position_bouton == 0 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 1 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-
-        if nb_ennemis == 3:
-            if position_bouton == 0 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 1 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 2 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-
-        if nb_ennemis == 4:
-            if position_bouton == 0 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 1 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 2 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-            if position_bouton == 3 :
-                fenetre.blit(fleche, fleche.get_rect(center=(350, fenetre.get_width()/2)))
-
-        for event in pygame.event.get():
-
-            if event.type == QUIT:
-                continuer = False
-
-            if event.type == KEYDOWN:
-
-                if event.key == K_RIGHT:
-                    if position_bouton <3:
-                        position_bouton += 1
-                if event.key == K_LEFT:
-                    if position_bouton >1:
-                        position_bouton -= 1
-
-                if event.key == K_RETURN:
-                    if nb_ennemis == 1:
-                        if position_bouton == 0 :
-'''
-
-
-
-
-
 def attaque_type(fenetre,joueur,ennemi,tour):
     text1 = font.render(ennemi[0].nom,True,noir)
     text2 = font.render("attaque physique",True,noir)
