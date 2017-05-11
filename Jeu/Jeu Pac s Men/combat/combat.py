@@ -152,6 +152,22 @@ def affiche_combat(fenetre,joueur,ennemi):
         for i in range (nb_ennemis):
             pv_toto += ennemi[i].pv
         if pv_toto == 0:
+            for inv in range (nb_ennemis):
+                joueur.potionvie1 += ennemi[inv].potionvie1
+                joueur.potionvie2 += ennemi[inv].potionvie2
+                joueur.potionvie3 += ennemi[inv].potionvie3
+                joueur.potionarmure1 += ennemi[inv].potionarmure1
+                joueur.potionarmure2 += ennemi[inv].potionarmure2
+                joueur.potionarmure3 += ennemi[inv].potionarmure3
+                joueur.potionforce1 += ennemi[inv].potionforce1
+                joueur.potionforce2 += ennemi[inv].potionforce2
+                joueur.potionforce3 += ennemi[inv].potionforce3
+                joueur.potioncritique1 += ennemi[inv].potioncritique1
+                joueur.potioncritique2 += ennemi[inv].potioncritique2
+                joueur.potioncritique3 += ennemi[inv].potioncritique3
+                joueur.potionvitesse += ennemi[inv].potionvitesse
+                joueur.potionprecision += ennemi[inv].precision
+
             return "fin"
 
         
