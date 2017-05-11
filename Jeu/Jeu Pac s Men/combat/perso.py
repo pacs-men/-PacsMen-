@@ -572,6 +572,36 @@ class mobs(perso):
     def __init__(self):
         perso.__init__(self)
         self.nombre=1
+
+        if random.randrange(0,1) == 1:
+            self.potionvie1=random.randrange(0,3)
+        if random.randrange(0,5) == 1:
+            self.potionvie2 = 1
+        if random.randrange(0,10) == 1:
+            self.potionvie3 = 1
+        if random.randrange(0,5) == 1:
+            self.potionarmure1 = 1
+        if random.randrange(0,10) == 1:
+            self.potionarmure2 = 1
+        if random.randrange(0,20) == 1:
+            self.potionarmure3 = 1
+        if random.randrange(0,5) == 1:
+            self.potionforce1 = 1
+        if random.randrange(0,10) == 1:
+            self.potionforce2 = 1
+        if random.randrange(0,20) == 1:
+            self.potionforce3 = 1
+        if random.randrange(0,5) == 1:
+            self.potioncritique1 = 1
+        if random.randrange(0,10) == 1:
+            self.potioncritique2 = 1
+        if random.randrange(0,20) == 1:
+            self.potioncritique3 = 1
+        if random.randrange(0,10) == 1:
+            self.potionvitesse = 1
+        if random.randrange(0,10) == 1:
+            self.potionprecision = 1
+
         
 class Rats(mobs):
     def __init__(self):
