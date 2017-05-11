@@ -274,11 +274,11 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                 if event.type == KEYDOWN:
                     
-                    if event.key == K_UP:
+                    if event.key == K_DOWN:
                         if position_bouton <1:
                             position_bouton += 1
                             
-                    if event.key == K_DOWN:
+                    if event.key == K_UP:
                         if position_bouton >0:
                             position_bouton -= 1
                             
