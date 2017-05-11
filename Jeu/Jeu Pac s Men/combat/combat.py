@@ -72,9 +72,8 @@ def affiche_combat(fenetre,joueur,ennemi):
         text_tour = font.render("tour "+str(tour),True,noir)
         text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
         
-        fenetre.fill(blanc)
         fenetre.blit(background_image, [0, 0])
-        pygame.draw.rect(fenetre, blanc, [0, 585, 640, 55])
+        pygame.draw.rect(fenetre, blanc, [0, 590, 640, 50])
         fenetre.blit(joueur.img, joueur.img.get_rect(center=(100, 300)))
         
         if nb_ennemis == 1:
