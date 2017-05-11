@@ -16,7 +16,7 @@ import combat.perso as perso
 class carte:
     
     def __init__(self, fichier):
-        self.ls_ennemi = [[ perso.Rats(), perso.Rats(), perso.Rats(), perso.Rats() ],[ perso.Gobelins(), perso.Gobelins(), perso.Gobelins(), perso.Gobelins()],[ perso.Aigles(), perso.Aigles() ],[ perso.Slime() ],[perso.Centaures(), perso.Centaures(), perso.Centaures()],[perso.Loup_garou()],[perso.Araingnees(),perso.Araingnees(),perso.Araingnees()],[perso.Carapateur()],[perso.Golems(),perso.Golems()],[perso.Treant()],[perso.Geant()],[perso.Nains(),perso.Nains(),perso.Nains()],[perso.Elfs(),perso.Elfs()]]
+        self.ls_ennemi = [[perso.Rats, perso.Rats, perso.Rats, perso.Rats ],[ perso.Gobelins, perso.Gobelins, perso.Gobelins, perso.Gobelins],[perso.Aigles, perso.Aigles ],[ perso.Slime ],[perso.Centaures, perso.Centaures, perso.Centaures],[perso.Loup_garou],[perso.Araingnees,perso.Araingnees,perso.Araingnees],[perso.Carapateur],[perso.Golems,perso.Golems],[perso.Treant],[perso.Geant],[perso.Nains,perso.Nains,perso.Nains],[perso.Elfs,perso.Elfs]]
         self.combat = [False]
         self.fichier = fichier
         self.recup_map()
@@ -58,9 +58,11 @@ class carte:
                         exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
                     else:
                         e = random.randrange(12)
-                        print "self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y, "+str(e) +", "+ "self.ls_ennemi["+str(e)+"][0].img)"
-                        print self.ls_ennemi[e][0].img                        
-                        exec("self.matrice_objet[x][y] = ennemi(self, x, y, "+str(e) +", "+ "self.ls_ennemi["+str(e)+"][0].img)")
+                        ls_en = []
+                        for a in self.ls_ennemi[e]:
+                            ls_en.append(a())
+                        self.matrice_objet[x][y] = ennemi(self, x, y, ls_en)                    
+                        
     
     def get_image_case(self, x, y):
         return self.dict_cases[self.matrice_case[x][y]].image

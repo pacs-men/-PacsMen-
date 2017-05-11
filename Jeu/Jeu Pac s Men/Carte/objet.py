@@ -81,10 +81,10 @@ class arbre(objet):
          self.image = pygame.image.load("data/sprite_01.png")
 
 class ennemi(obj_boug):
-     def __init__(self, carte, x, y, num, image):
+     def __init__(self, carte, x, y, ls_ennemi):
          objet.__init__(self, carte, x, y)
-         self.image = image
-         self.num = num
+         self.ls_ennemi = ls_ennemi
+         self.image = ls_ennemi[0].img
 
      def interagir(self):
          print("combat")
