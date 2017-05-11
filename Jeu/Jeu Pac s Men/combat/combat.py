@@ -11,7 +11,7 @@ text_fuite = font.render("fuite",True,noir)
 
 
 
-        
+
 def combat_start(joueur,participant):
     ''' 
         fonction principale du combat
@@ -23,9 +23,10 @@ def combat_start(joueur,participant):
     participant.append(joueur)
     participant.sort(key=lambda v: v.vit)
     participant.reverse()
-    combat_attaque(participant)
+    statut = combat_attaque(participant)
     participant.reverse()
     participant.remove(joueur)
+    return statut
     
     
 def combat_attaque(participant_vit):
@@ -176,6 +177,8 @@ def affiche_combat(fenetre,joueur,ennemi):
                         info = attaque_type(fenetre,joueur,ennemi,tour)
                         if info == "End":
                             continuer = 0
+                        if info == "Mort joueur":
+                            return "Mort joueur"
                         if info == "Next":
                             tour+=1
 
@@ -188,18 +191,8 @@ def affiche_combat(fenetre,joueur,ennemi):
                             tour+=1
 
                     if position_bouton == 3:
-                        continuer = 2
-                        while continuer == 2:
+                        return "Fuite"
 
-                            for event in pygame.event.get():
-
-                                if event.type == QUIT:
-                                    continuer = 0
-
-                                if event.type == KEYDOWN:
-
-                                    if event.key == K_TAB:
-                                        continuer = 1
     #pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
     #pygame.mixer.music.play(-1)
 
@@ -408,7 +401,8 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
-                        combat_start(joueur,ennemi)
+                        if combat_start(joueur,ennemi) == "Mort joueur":
+                            return "Mort joueur"
                         return "next"
                         
             pygame.display.flip()
