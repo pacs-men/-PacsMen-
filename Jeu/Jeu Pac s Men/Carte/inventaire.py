@@ -35,7 +35,7 @@ def inventaire(fenetre,Joueur):
         dessiner(fenetre, black,[20, 2, 450, 40],1)
         potionvie1=ecrire("Petite potion de vie",True, black)
         fenetre.blit(potionvie1,(80,10))
-        fenetre.blit(charger("data/potionv2_40"),(40,2))
+        fenetre.blit(charger("data/potionv2_40.png"),(40,2))
         fenetre.blit(ecrire(str(Joueur.potionvie1),True,black),(410,10))
         
         dessiner(fenetre, black,[20, 47, 450, 40],1)
