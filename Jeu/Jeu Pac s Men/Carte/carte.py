@@ -9,11 +9,15 @@ from objet import*
 import random
 import pickle
 import sys
+sys.path.append("..")
+import combat.perso as perso
+
 
 class carte:
     
     def __init__(self, fichier):
-        self.combat = False
+        self.ls_ennemi = [[ perso.Rats(), perso.Rats(), perso.Rats(), perso.Rats() ],[ perso.Gobelins(), perso.Gobelins(), perso.Gobelins(), perso.Gobelins()],[ perso.Aigles(), perso.Aigles() ],[ perso.Slime() ],[perso.Centaures(), perso.Centaures(), perso.Centaures()],[perso.Loup_garou()],[perso.Araingnees(),perso.Araingnees(),perso.Araingnees()],[perso.Carapateur()],[perso.Golems(),perso.Golems()],[perso.Treant()],[perso.Geant()],[perso.Nains(),perso.Nains(),perso.Nains()],[perso.Elfs(),perso.Elfs()]]
+        self.combat = [False]
         self.fichier = fichier
         self.recup_map()
         self.taille_mat = [len(self.matrice_case), len(self.matrice_case[0])]
@@ -50,11 +54,17 @@ class carte:
         for x in range(len(mat_objet)):
             for y in range(len(mat_objet[0])):
                 if mat_objet[x][y] != "":
-                    exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
-          
-        
+                    if mat_objet[x][y] != "ennemi":
+                        exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
+                    else:
+                        e = random.randrange(12)
+                        print "self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y, "+str(e) +", "+ "self.ls_ennemi["+str(e)+"][0].img)"
+                        print self.ls_ennemi[e][0].img                        
+                        exec("self.matrice_objet[x][y] = ennemi(self, x, y, "+str(e) +", "+ "self.ls_ennemi["+str(e)+"][0].img)")
+    
     def get_image_case(self, x, y):
         return self.dict_cases[self.matrice_case[x][y]].image
+        
     def get_image_obj(self, x, y):
         return self.matrice_objet[x][y].image
         
@@ -73,6 +83,8 @@ class carte:
     def placer_obj(self,objet, x, y):
         self.matrice_objet[x][y] = objet
         
+    def effacer_obj(self, x, y):
+        self.matrice_objet[x][y] = None
     def est_marchable(self, x, y):
         return self.dict_cases[self.matrice_case[x][y]].marchable
        
