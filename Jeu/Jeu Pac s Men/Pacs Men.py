@@ -38,21 +38,6 @@ taille_carte = mape.taille_mat[0]
 #creation d'une liste contenant tous les personnages jouable
 joueur = [perso.AssassinsMagique,perso.AssassinsPhysique,perso.Combattant,perso.Mage,perso.Soigneur,perso.Archer]
 
-#liste de tous les ennemis
-ennemi = [[ perso.Rats(), perso.Rats(), perso.Rats(), perso.Rats() ],[ perso.Gobelins(), perso.Gobelins(), perso.Gobelins(), perso.Gobelins()],[ perso.Aigles(), perso.Aigles() ],[ perso.Slime() ],[perso.Centaures(), perso.Centaures(), perso.Centaures()],[perso.Loup_garou()],[perso.Araingnees(),perso.Araingnees(),perso.Araingnees()],[perso.Carapateur()],[perso.Golems(),perso.Golems()],[perso.Treant()],[perso.Geant()],[perso.Nains(),perso.Nains(),perso.Nains()],[perso.Elfs(),perso.Elfs()]]
-
-#choix de de l'ennemi
-e = random.randrange(0,12)
-'''
-if ennemi[e].nombre == 1:
-    ennemi_combat=[ennemi[e]]
-if ennemi[e].nombre == 2:
-    ennemi_combat=[ennemi[e],ennemi[e]]
-if ennemi[e].nombre == 3:
-    ennemi_combat=[ennemi[e],ennemi[e],ennemi[e]]
-if ennemi[e].nombre == 4:
-    ennemi_combat=[ennemi[e],ennemi[e],ennemi[e],ennemi[e]]
-'''
 #creation des variables pour ecrire un texte
 font = pygame.font.SysFont('Calibri', 25, True, False)
 ecrire = font.render
@@ -134,8 +119,6 @@ while continuer:
                 else:
                     mvt_perso.avancer()
 
-            if event.key == K_TAB:
-                combat.affiche_combat(fenetre,joueur,ennemi[e])
 
             if event.key == K_ESCAPE:
                 info = menu.menupause(fenetre,joueur)
