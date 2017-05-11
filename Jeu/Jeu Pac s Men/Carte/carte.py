@@ -19,6 +19,7 @@ class carte:
         self.joueur = joueur
         self.ls_ennemi = [[perso.Rats, perso.Rats, perso.Rats, perso.Rats ],[ perso.Gobelins, perso.Gobelins, perso.Gobelins, perso.Gobelins],[perso.Aigles, perso.Aigles ],[ perso.Slime ],[perso.Centaures, perso.Centaures, perso.Centaures],[perso.Loup_garou],[perso.Araingnees,perso.Araingnees,perso.Araingnees],[perso.Carapateur],[perso.Golems,perso.Golems],[perso.Treant],[perso.Geant],[perso.Nains,perso.Nains,perso.Nains],[perso.Elfs,perso.Elfs]]
         self.combat = [False]
+        self.carte_changee = False
         self.fichier = fichier
         self.recup_map()
         self.taille_mat = [len(self.matrice_case), len(self.matrice_case[0])]
@@ -64,14 +65,18 @@ class carte:
                     
                     elif mat_objet[x][y] == "coffre":
                         contenu = self.potions_aleatoires()
-                                    
-                        
                         self.matrice_objet[x][y] = coffre(self, x, y, contenu)
-                        
-                    else:
-                        
+                    
+                    elif mat_objet[x][y] == "porte_boss":
+                        self.matrice_objet[x][y] = porte_boss(self, x, y, "carte2.mp")                                                
+                    else:                        
                         exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
-                        
+                
+    def changer_carte(self, nom_carte):
+        self.fichier = nom_carte        
+        self.recup_map()
+        self.carte_changee = True        
+        
     def potions_aleatoires(self):
         ls_potions = [
             "potionvie1",

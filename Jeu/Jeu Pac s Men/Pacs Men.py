@@ -149,7 +149,11 @@ while continuer:
             print("Afficher Mort A faire")
         mape.combat = [False]
         
-
+    if mape.carte_changee:
+        print mape.matrice_case
+        mvt_perso = objet.perso(mape, 2, 2, joueur.ls_imagedir)
+        mape.carte_changee = False       
+    
     # affichage
     if mvt_perso.posx<10:
         x0 = 0

@@ -110,3 +110,14 @@ class porte(objet):
     
     def interagir(self):
         self.effacer()
+        
+class porte_boss(objet):
+    def __init__(self, carte, x, y, nom_carte):
+        objet.__init__(self, carte, x, y)
+        self.nom_carte = nom_carte
+        self.image = pygame.image.load("data/sprite_05.png")
+    
+    def interagir(self):
+        self.carte.changer_carte(self.nom_carte)
+    
+        
