@@ -8,21 +8,21 @@ pygame.font.init()
 noir=(0,0,0)
 bleu=(0,0,160)
 blanc=(0xFF, 0xFF, 0xFF)
-font = pygame.font.Font("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/OLondon_.otf",25)
+font = pygame.font.Font("data/OLondon_.otf",25)
 font2=pygame.font.SysFont('Calibri',20,True)
 font3=pygame.font.SysFont('Calibri',20,True,True)
 
 
-image=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/livreintroisn.png")
-image1=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/imagepage1isn.jpg")
-image3=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/taverne.jpg")
-image2=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/page2isn.jpg")
-noire=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/noir.png")
-image4=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/devanttaverne.jpg")
-image5=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/femmeauberge.jpg")
-image6=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/hood.jpg")
-image7=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/blancdialogue.jpg")
-image8=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/plaine.png")
+image=pygame.image.load("data/livreintroisn.png")
+image1=pygame.image.load("data/imagepage1isn.jpg")
+image3=pygame.image.load("data/taverne.jpg")
+image2=pygame.image.load("data/page2isn.jpg")
+noire=pygame.image.load("data/noir.png")
+image4=pygame.image.load("data/devanttaverne.jpg")
+image5=pygame.image.load("data/femmeauberge.jpg")
+image6=pygame.image.load("data/hood.jpg")
+image7=pygame.image.load("data/blancdialogue.jpg")
+image8=pygame.image.load("data/plaine.png")
 
 def script_pa(fenetre):
     fenetre.fill(noir)
@@ -282,5 +282,3 @@ def script_pa(fenetre):
                 
                 
         pygame.display.flip()
-
-script_pa(fenetre)
