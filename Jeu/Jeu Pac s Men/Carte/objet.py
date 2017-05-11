@@ -25,6 +25,8 @@ class objet:
     
     def interagir(self):
         pass
+    def effacer(self):
+        self.carte.effacer_obj(self.posx, self.posy)
                 
 class obj_boug(objet):
     def __init__(self, carte, x, y):
@@ -79,9 +81,11 @@ class arbre(objet):
          self.image = pygame.image.load("data/sprite_01.png")
 
 class ennemi(obj_boug):
-     def __init__(self, carte, x, y):
+     def __init__(self, carte, x, y, num, image):
          objet.__init__(self, carte, x, y)
-         self.image = pygame.image.load("data/perso.png")
+         self.image = image
+         self.num = num
+
      def interagir(self):
          print("combat")
-         self.carte.combat = True
+         self.carte.combat = [True, self]

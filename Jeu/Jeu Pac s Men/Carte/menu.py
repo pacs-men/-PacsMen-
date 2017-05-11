@@ -101,8 +101,8 @@ def menupause(fenetre,joueur):
         dessiner(fenetre, black, [170, 547, 300, 64], 1)
         fenetre.blit(titre1, titre1.get_rect(center=(fenetre.get_width()/2, 60)))
         fenetre.blit(text1, text1.get_rect(center=(fenetre.get_width()/2, 411)))
-        fenetre.blit(text2, text2.get_rect(center=(fenetre.get_width()/2, 485)))
-        fenetre.blit(text3, text3.get_rect(center=(fenetre.get_width()/2, 587)))
+        fenetre.blit(text2, text2.get_rect(center=(fenetre.get_width()/2, 495)))
+        fenetre.blit(text3, text3.get_rect(center=(fenetre.get_width()/2, 579)))
         
         for event in pygame.event.get():
             if event.type == QUIT:

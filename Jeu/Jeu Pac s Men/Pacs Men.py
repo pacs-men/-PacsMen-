@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
 #! /usr/bin/python
 
+import pygame
+pygame.init()
+fenetre=pygame.display.set_mode((640,640))
+pygame.display.set_caption('Programme Pygame de base')
+
 import Carte.carte as carte
 import Carte.script as script
 import Carte.inventaire as inventaire
 import combat.perso as perso
 import Carte.menu as menu
-import pygame
+
 from pygame.locals import *
 import sys
 import Carte.objet as objet
@@ -22,9 +27,8 @@ white=(0xFF,0xFF,0xFF)
 
 #initialisation de la fenetre
 taille_fenetre=20
-pygame.init()
-fenetre=pygame.display.set_mode((640,640))
-pygame.display.set_caption('Programme Pygame de base')
+
+
 
 #creation de la carte et initialisation du deplacement
 mape = carte.carte(fichier = "carte.mp")
@@ -148,10 +152,14 @@ while continuer:
             
             if event.key == K_i:
                  inventaire.inventaire(fenetre,joueur[j])
-    #Decle
-    if mape.combat == True:
-        combat.affiche_combat(fenetre,joueur[j],ennemi[e])
-        mape.combat = False
+    #Decleclenchement du combat
+    if mape.combat[0] == True:
+        combat.affiche_combat(fenetre,joueur[j],ennemi[mape.combat[1].num])
+        a = True
+        if a:
+            print mape.combat[1]
+            mape.combat[1].effacer()
+        mape.combat = [False]
         
 
     # affichage

@@ -72,10 +72,9 @@ def affiche_combat(fenetre,joueur,ennemi):
         text_tour = font.render("tour "+str(tour),True,noir)
         text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
         
-        fenetre.fill(blanc)
         fenetre.blit(background_image, [0, 0])
-        pygame.draw.rect(fenetre, blanc, [0, 585, 640, 55])
-        fenetre.blit(joueur.img, [10, 50])
+        pygame.draw.rect(fenetre, blanc, [0, 590, 640, 50])
+        fenetre.blit(joueur.img, joueur.img.get_rect(center=(100, 300)))
         
         if nb_ennemis == 1:
             
@@ -150,7 +149,7 @@ def affiche_combat(fenetre,joueur,ennemi):
 
         pv_toto = 0
         for i in range (nb_ennemis):
-            pv_toto += ennemi[0].pv
+            pv_toto += ennemi[i].pv
         if pv_toto == 0:
             return "fin"
 
@@ -227,7 +226,8 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             fenetre.blit(background_image, [0, 0])
             fenetre.blit(text_tour, [10, 10])
             fenetre.blit(text_pv_joueur, [10, 500])
-            fenetre.blit(joueur.img, [10, 50])
+            fenetre.blit(joueur.img, joueur.img.get_rect(center=(100, 300)))
+
             text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
             fenetre.blit(text_pv_ennemi_0, [500, 350])
             fenetre.blit(ennemi[0].img_combat, ennemi[0].img_combat.get_rect(center=(500, 300)))
@@ -259,7 +259,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             fenetre.blit(background_image, [0, 0])
             fenetre.blit(text_tour, [10, 10])
             fenetre.blit(text_pv_joueur, [10, 500])
-            fenetre.blit(joueur.img, [10, 50])
+            fenetre.blit(joueur.img, joueur.img.get_rect(center=(100, 300)))
             
             text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
             fenetre.blit(text_pv_ennemi_0, [500, 250])
@@ -281,11 +281,11 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                 if event.type == KEYDOWN:
                     
-                    if event.key == K_RIGHT:
+                    if event.key == K_UP:
                         if position_bouton <1:
                             position_bouton += 1
                             
-                    if event.key == K_LEFT:
+                    if event.key == K_DOWN:
                         if position_bouton >0:
                             position_bouton -= 1
                             
@@ -307,7 +307,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             fenetre.blit(background_image, [0, 0])
             fenetre.blit(text_tour, [10, 10])
             fenetre.blit(text_pv_joueur, [10, 500])
-            fenetre.blit(joueur.img, [10, 50])
+            fenetre.blit(joueur.img, joueur.img.get_rect(center=(100, 300)))
             
             text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
             fenetre.blit(text_pv_ennemi_0, [500, 200])
@@ -361,7 +361,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             fenetre.blit(background_image, [0, 0])
             fenetre.blit(text_tour, [10, 10])
             fenetre.blit(text_pv_joueur, [10, 500])
-            fenetre.blit(joueur.img, [10, 50])
+            fenetre.blit(joueur.img, joueur.img.get_rect(center=(100, 300)))
             
             text_pv_ennemi_0 = font.render("Pv : "+str(ennemi[0].pv)+"/"+str(ennemi[0].pv_max),True,noir)
             fenetre.blit(text_pv_ennemi_0, [500, 170])
@@ -395,11 +395,11 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                 if event.type == KEYDOWN:
                     
-                    if event.key == K_RIGHT:
+                    if event.key == K_DOWN:
                         if position_bouton <3:
                             position_bouton += 1
                             
-                    if event.key == K_LEFT:
+                    if event.key == K_UP:
                         if position_bouton >0:
                             position_bouton -= 1
                             
@@ -414,7 +414,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
             pygame.display.flip()
 
     return "Retour"
-    
+
 def attaque_type(fenetre,joueur,ennemi,tour):
     text1 = font.render(ennemi[0].nom,True,noir)
     text2 = font.render("attaque physique",True,noir)
@@ -422,7 +422,7 @@ def attaque_type(fenetre,joueur,ennemi,tour):
     continuer = 1
     position_bouton = 1
     joueur.action_type = "attaque"
-    pygame.draw.rect(fenetre, blanc, [0, 585, 640, 55])
+    pygame.draw.rect(fenetre, blanc, [0, 590, 640, 50])
     
 
 
@@ -521,7 +521,7 @@ def potion_type(fenetre,joueur,ennemi):
         fenetre.blit(ecrire(str(joueur.potionforce2),True,noir),(410,325))
         
         dessiner(fenetre, noir,[20, 362, 450, 40],1)
-        fenetre.blit(ecrire("Enorme potion de vie",True, noir),(30,370))
+        fenetre.blit(ecrire("Enorme potion de force",True, noir),(30,370))
         fenetre.blit(ecrire(str(joueur.potionforce3),True,noir),(410,370))
         
         dessiner(fenetre, noir,[20, 407, 450, 40],1)
@@ -554,10 +554,10 @@ def potion_type(fenetre,joueur,ennemi):
                 if event.key == K_TAB:
                     continuer = 0
 
-                if event.key == K_DOWN or event.key == K_RIGHT:
+                if event.key == K_DOWN:
                     if position_bouton <13:
                         position_bouton += 1
-                if event.key == K_UP or event.key == K_LEFT:
+                if event.key == K_UP:
                     if position_bouton >0:
                         position_bouton -= 1
 
@@ -568,17 +568,17 @@ def potion_type(fenetre,joueur,ennemi):
                         joueur.action="vie2"
                     if position_bouton==2:
                         joueur.action="vie3"
-                    if position_bouton==3:
-                        joueur.action="force1"
-                    if position_bouton==4:
-                        joueur.action="force2"
-                    if position_bouton==5:
-                        joueur.action="force3"
                     if position_bouton==6:
-                        joueur.action="armure1"
+                        joueur.action="force1"
                     if position_bouton==7:
-                        joueur.action="armure2"
+                        joueur.action="force2"
                     if position_bouton==8:
+                        joueur.action="force3"
+                    if position_bouton==3:
+                        joueur.action="armure1"
+                    if position_bouton==4:
+                        joueur.action="armure2"
+                    if position_bouton==5:
                         joueur.action="armure3"
                     if position_bouton==9:
                         joueur.action="critique1"
