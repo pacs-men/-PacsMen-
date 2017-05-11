@@ -154,11 +154,14 @@ while continuer:
                  inventaire.inventaire(fenetre,joueur[j])
     #Decleclenchement du combat
     if mape.combat[0] == True:
-        combat.affiche_combat(fenetre,joueur[j],ennemi[mape.combat[1].num])
-        a = True
-        if a:
+        a = combat.affiche_combat(fenetre,joueur[j], mape.combat[1].ls_ennemi)
+        if a == "fin":
             print mape.combat[1]
             mape.combat[1].effacer()
+        elif a == "Fuite":
+            pass
+        elif a == "Joueur mort joueur":
+            print("Afficher Mort A faire")
         mape.combat = [False]
         
 
