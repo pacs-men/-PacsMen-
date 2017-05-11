@@ -89,3 +89,12 @@ class ennemi(obj_boug):
      def interagir(self):
          print("combat")
          self.carte.combat = [True, self]
+
+class coffre(objet):
+    def __init__(self, carte, x, y, contenu):
+        objet.__init__(self, carte, x, y)
+        self.contenu = contenu
+        self.image = pygame.image.load("data/sprite_08.png")
+    
+    def interagir(self):
+        pass

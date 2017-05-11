@@ -29,12 +29,6 @@ white=(0xFF,0xFF,0xFF)
 taille_fenetre=20
 
 
-
-#creation de la carte et initialisation du deplacement
-mape = carte.carte(fichier = "carte.mp")
-taille_carte = mape.taille_mat[0]
-
-
 #creation d'une liste contenant tous les personnages jouable
 joueur = [perso.AssassinsMagique,perso.AssassinsPhysique,perso.Combattant,perso.Mage,perso.Soigneur,perso.Archer]
 
@@ -72,7 +66,6 @@ def ouvrir_map():
     return carte
 
 
-affichercarte(x,y)
 pygame.key.set_repeat(300,70)
 
 #declanchement de la musique
@@ -80,11 +73,18 @@ pygame.key.set_repeat(300,70)
 continuer = True
 
 joueur=menu.start_menu(fenetre,joueur)
+
+#creation de la carte et initialisation du deplacement
+mape = carte.carte("carte.mp", joueur)
+taille_carte = mape.taille_mat[0]
+
+
 if joueur == "End":
     continuer = False
 else:
     mvt_perso = objet.perso(mape, 2, 2, joueur.ls_imagedir)
     script_pa.script_pa(fenetre)
+
 
 
 while continuer:
@@ -135,6 +135,7 @@ while continuer:
             
             if event.key == K_i:
                  inventaire.inventaire(fenetre,joueur)
+                 
     #Decleclenchement du combat
     if mape.combat[0] == True:
         a = combat.affiche_combat(fenetre,joueur, mape.combat[1].ls_ennemi)

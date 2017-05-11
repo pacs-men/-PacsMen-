@@ -15,7 +15,8 @@ import combat.perso as perso
 
 class carte:
     
-    def __init__(self, fichier):
+    def __init__(self, fichier, joueur):
+        self.joueur = joueur
         self.ls_ennemi = [[perso.Rats, perso.Rats, perso.Rats, perso.Rats ],[ perso.Gobelins, perso.Gobelins, perso.Gobelins, perso.Gobelins],[perso.Aigles, perso.Aigles ],[ perso.Slime ],[perso.Centaures, perso.Centaures, perso.Centaures],[perso.Loup_garou],[perso.Araingnees,perso.Araingnees,perso.Araingnees],[perso.Carapateur],[perso.Golems,perso.Golems],[perso.Treant],[perso.Geant],[perso.Nains,perso.Nains,perso.Nains],[perso.Elfs,perso.Elfs]]
         self.combat = [False]
         self.fichier = fichier
@@ -54,14 +55,20 @@ class carte:
         for x in range(len(mat_objet)):
             for y in range(len(mat_objet[0])):
                 if mat_objet[x][y] != "":
-                    if mat_objet[x][y] != "ennemi":
-                        exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
-                    else:
+                    if mat_objet[x][y] == "ennemi":
                         e = random.randrange(12)
                         ls_en = []
                         for a in self.ls_ennemi[e]:
                             ls_en.append(a())
-                        self.matrice_objet[x][y] = ennemi(self, x, y, ls_en)                    
+                        self.matrice_objet[x][y] = ennemi(self, x, y, ls_en)
+                    
+                    elif mat_objet[x][y] == "coffre":
+                        contenu = []
+                        self.matrice_objet[x][y] = coffre(self, x, y,  contenu)
+                        
+                    else:
+                        
+                        exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
                         
     
     def get_image_case(self, x, y):
