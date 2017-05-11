@@ -97,4 +97,6 @@ class coffre(objet):
         self.image = pygame.image.load("data/sprite_08.png")
     
     def interagir(self):
-        pass
+        for potion in self.contenu:
+            exec("self.carte.joueur."+potion+" += 1")
+        self.contenu = []
