@@ -214,7 +214,7 @@ def script_pa(fenetre):
             fenetre.blit(image6,[0,490])
             text6d1 = font3.render("Vous connaissez ce chateau souterrain",True,noir)
             fenetre.blit(text6d1,[150,495])
-            text6d2 = font3.render("vous y ete deja alle avec votre guilde.",True,noir)
+            text6d2 = font3.render("vous y etes deja aller avec votre guilde.",True,noir)
             fenetre.blit(text6d2,[150,515])
             text6d3 = font3.render("Peut-etre certains y sont retournes.",True,noir)
             fenetre.blit(text6d3,[150,535])            
