@@ -63,14 +63,38 @@ class carte:
                         self.matrice_objet[x][y] = ennemi(self, x, y, ls_en)
                     
                     elif mat_objet[x][y] == "coffre":
-                        contenu = []
-                        self.matrice_objet[x][y] = coffre(self, x, y,  contenu)
+                        contenu = self.potions_aleatoires()
+                                    
+                        
+                        self.matrice_objet[x][y] = coffre(self, x, y, contenu)
                         
                     else:
                         
                         exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
                         
-    
+    def potions_aleatoires(self):
+        ls_potions = [
+            "potionvie1",
+            "potionvie2",
+            "potionvie3",
+            "potionarmure1",
+            "potionarmure2",
+            "potionarmure3",
+            "potionforce1",
+            "potionforce2",
+            "potionforce3",
+            "potioncritique1",
+            "potioncritique2",
+            "potioncritique3",
+            "potionvitesse",
+            "potionprecision"]
+            
+        potions_renvoi = []
+        
+        for i in range(2):
+            potions_renvoi.append(ls_potions[random.randrange(len(ls_potions))])
+        
+        return potions_renvoi
     def get_image_case(self, x, y):
         return self.dict_cases[self.matrice_case[x][y]].image
         
