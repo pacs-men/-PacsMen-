@@ -6,13 +6,23 @@ fenetre=pygame.display.set_mode((640,640))
 pygame.display.set_caption('Programme intro histoire')
 pygame.font.init()
 noir=(0,0,0)
+bleu=(0,0,160)
 blanc=(0xFF, 0xFF, 0xFF)
-font = pygame.font.Font("data/fonts/old_london/Olondon_.otf",25)
+font = pygame.font.Font("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/OLondon_.otf",25)
+font2=pygame.font.SysFont('Calibri',20,True)
+font3=pygame.font.SysFont('Calibri',20,True,True)
 
-image=pygame.image.load("data/livreintroisn.png")
-image1=pygame.image.load("data/imagepage1isn.jpg")
-#image3=pygame.image.load("data/imagepage2isn.jpg")
-image2=pygame.image.load("data/page2isn.jpg")
+
+image=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/livreintroisn.png")
+image1=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/imagepage1isn.jpg")
+image3=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/taverne.jpg")
+image2=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/page2isn.jpg")
+noire=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/noir.png")
+image4=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/devanttaverne.jpg")
+image5=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/femmeauberge.jpg")
+image6=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/hood.jpg")
+image7=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/blancdialogue.jpg")
+image8=pygame.image.load("C:\Users\paaub\Downloads\-PacsMen--master\-PacsMen--master\Jeu\Jeu Pac s Men\data/plaine.png")
 
 def script_pa(fenetre):
     fenetre.fill(noir)
@@ -29,12 +39,13 @@ def script_pa(fenetre):
                     page -=1
                 if event.key == K_ESCAPE:
                     continuer = False
-        if page>5:
-            page=5
+        if page>9:
+            page=9
         if page<1:
             page=1
 
         if page== 1:
+                fenetre.blit(noire,[0,0])
                 fenetre.blit(image,[0,110])
                 text1g1 = font.render("Vous etes un ancien membre ",True,noir)
                 fenetre.blit(text1g1,[45,145])
@@ -77,7 +88,7 @@ def script_pa(fenetre):
                 
                 
         if page== 2:
-                
+                fenetre.blit(noire,[0,0])                
                 fenetre.blit(image,[0,110])
                 
                 text2g1 = font.render("Ville d'Esthar",True,noir)
@@ -117,13 +128,159 @@ def script_pa(fenetre):
                 
                 
         if page== 3:
+                fenetre.blit(noire,[0,0])
                 fenetre.blit(image,[0,110])
-                text3 = font.render("jhgfd",True,noir)
-                fenetre.blit(text3,[45,145])
+                text3g1 = font.render("Une jeune femme les larmes ",True,noir)
+                fenetre.blit(text3g1,[45,145])
+                text3g2 = font.render("aux yeux vient demander de",True,noir)
+                fenetre.blit(text3g2,[45,165])
+                text3g3 = font.render("l'aide dans la taverne, son",True,noir)
+                fenetre.blit(text3g3,[45,185])
+                text3g4 = font.render("ami Scrap, un petit golem ",True,noir)
+                fenetre.blit(text3g4,[45,205])                
+                text3g5 = font.render("de fer ne grace a la magie et ",True,noir)
+                fenetre.blit(text3g5,[45,225])                
+                text3g6 = font.render("possedant des capacites a ete ",True,noir)
+                fenetre.blit(text3g6,[45,245])              
+                text3g7 = font.render("capture par les sbires de ",True,noir)
+                fenetre.blit(text3g7,[45,265]) 
+                text3g8 = font.render("Thunderlord, un savant fou",True,noir)
+                fenetre.blit(text3g8,[45,285]) 
+                text3g9 = font.render("connu pour creer des mon-",True,noir)
+                fenetre.blit(text3g9,[45,305]) 
+                text3g10 = font.render("truosites. Les autres ",True,noir)
+                fenetre.blit(text3g10,[45,325])                 
+                text3g11 = font.render("mercenaires l'ecoute a peine ",True,noir)
+                fenetre.blit(text3g11,[45,345]) 
+                text3g12 = font.render("mais a un moment elle parle",True,noir)
+                fenetre.blit(text3g12,[45,365])
+                text3g13 = font.render("d'un chateau, celui de Gorfath",True,noir)
+                fenetre.blit(text3g13,[45,385]) 
+                text3g14 = font.render("dont elle a entendu les sbires ",True,noir)
+                fenetre.blit(text3g14,[45,405])
+                text3g15 = font.render("Page 5 ",True,noir)
+                fenetre.blit(text3g15,[150,445])
+                
+                text3d1 = font.render("parler. Entendant cela vous ",True,noir)
+                fenetre.blit(text3d1,[350,145])
+                text3d2 = font.render("vous levez et allez la voir.",True,noir)
+                fenetre.blit(text3d2,[350,165])
+
+                text3d4 = font.render("Taverne des Cavaliers",True,noir)
+                fenetre.blit(text3d4,[355,195])
+                text3d5 = font.render("Page 6 ",True,noir)
+                fenetre.blit(text3d5,[450,445])             
+                fenetre.blit(image4,[365,225])
+                
+                
+        if page== 4:
+            fenetre.blit(image3,[0,0])
+            fenetre.blit(image7,[0,490])
+            fenetre.blit(image5,[520,490])
+            fenetre.blit(image6,[0,490])
+            text4d1 = font2.render("-Savez vous pourquoi il a capture ",True,noir)
+            fenetre.blit(text4d1,[150,495])
+            text4d2 = font2.render("votre ami ?",True,noir)
+            fenetre.blit(text4d2,[150,515])
+            text4d3 = font2.render("-Les hommes m'ont dit que",True,bleu)
+            fenetre.blit(text4d3,[235,545])
+            text4d4 = font2.render("Thunderlord voulait recuperer les",True,bleu)
+            fenetre.blit(text4d4,[235,565])            
+            text4d5 = font2.render("pouvoirs de Scrap pour pouvoir",True,bleu)
+            fenetre.blit(text4d5,[235,585]) 
+            text4d6 = font2.render("donner vie a ses creatures.",True,bleu)
+            fenetre.blit(text4d6,[235,605])            
+            
+        if page== 5:
+            fenetre.blit(image3,[0,0])
+            fenetre.blit(image7,[0,490])
+            fenetre.blit(image5,[520,490])
+            fenetre.blit(image6,[0,490])
+            text5d1 = font2.render("Vous avez parle du chateau de Gorfath ",True,noir)
+            fenetre.blit(text5d1,[150,495])
+            text4d2 = font2.render("que savez-vous de ce chateau ? ",True,noir)
+            fenetre.blit(text4d2,[150,515])
+            text4d3 = font2.render("-J'ai entendu les sbires parler",True,bleu)
+            fenetre.blit(text4d3,[235,545])
+            text4d4 = font2.render("d'une caverne sur le chemin.",True,bleu)
+            fenetre.blit(text4d4,[235,565])            
+            text4d5 = font2.render("Pouvez-vous m'aider ? ",True,bleu)
+            fenetre.blit(text4d5,[235,585]) 
+           
+        if page== 6:
+            fenetre.blit(image3,[0,0])
+            fenetre.blit(image7,[0,490])
+            fenetre.blit(image5,[520,490])
+            fenetre.blit(image6,[0,490])
+            text6d1 = font3.render("Vous connaissez ce chateau souterrain",True,noir)
+            fenetre.blit(text6d1,[150,495])
+            text6d2 = font3.render("vous y ete deja alle avec votre guilde.",True,noir)
+            fenetre.blit(text6d2,[150,515])
+            text6d3 = font3.render("Peut-etre certains y sont retournes.",True,noir)
+            fenetre.blit(text6d3,[150,535])            
+            text6d4 = font3.render("Vous decidez de tenter l'aventure. ",True,noir)
+            fenetre.blit(text6d4,[150,555])
+            
+        if page== 7:
+            fenetre.blit(image3,[0,0])
+            fenetre.blit(image7,[0,490])
+            fenetre.blit(image5,[520,490])
+            fenetre.blit(image6,[0,490])
+            text7d1 = font2.render("-Je vais y aller. ",True,noir)
+            fenetre.blit(text7d1,[150,495])
+            text7d2 = font2.render("-Merci beaucoup ! Je vais vous",True,bleu)
+            fenetre.blit(text7d2,[235,525])
+            text7d3 = font2.render("vous donner votre argent.",True,bleu)
+            fenetre.blit(text7d3,[235,545])
+            text7d4 = font2.render("-Vous me paierez si je reviens ",True,noir)
+            fenetre.blit(text7d4,[150,575])
+            text7d5 = font2.render("avec Scrap.",True,noir)
+            fenetre.blit(text7d5,[150,595])
+            
+        if page== 8:
+            fenetre.blit(image3,[0,0])
+            fenetre.blit(image7,[0,490])
+            fenetre.blit(image5,[520,490])
+            fenetre.blit(image6,[0,490])
+            text8d1 = font2.render("-D'accord si vous le voulez.",True,bleu)
+            fenetre.blit(text8d1,[235,495])
+            text8d2 = font2.render("-Je partirai demain a l'aube. ",True,noir)
+            fenetre.blit(text8d2,[150,525])
 
 
-
-
+        if page== 9:
+                fenetre.blit(noire,[0,0])
+                fenetre.blit(image,[0,110])
+                text9g1 = font.render("Vous vous reveillez le",True,noir)
+                fenetre.blit(text9g1,[45,145])
+                text9g2 = font.render("lendemain vous allez aux",True,noir)
+                fenetre.blit(text9g2,[45,165])
+                text9g3 = font.render("portes de la ville. Vous",True,noir)
+                fenetre.blit(text9g3,[45,185])
+                text9g4 = font.render("partez vers le Nord en",True,noir)
+                fenetre.blit(text9g4,[45,205])                
+                text9g5 = font.render("direction de la caverne par la ",True,noir)
+                fenetre.blit(text9g5,[45,225])                
+                text9g6 = font.render("plaine de Briliance, le chemin",True,noir)
+                fenetre.blit(text9g6,[45,245])              
+                text9g7 = font.render("sera long et probablement",True,noir)
+                fenetre.blit(text9g7,[45,265]) 
+                text9g8 = font.render("seme d'ennemis ...",True,noir)
+                fenetre.blit(text9g8,[45,285])
+                     
+                fenetre.blit(image8,[365,245])
+                text9d9 = font.render("Plaine de Briliance",True,noir)
+                fenetre.blit(text9d9,[375,215])
+                
+                text3g15 = font.render("Page 7 ",True,noir)
+                fenetre.blit(text3g15,[150,445])
+                
+                text3d5 = font.render("Page 8 ",True,noir)
+                fenetre.blit(text3d5,[450,445])                
+                
+                
+                
+                
         pygame.display.flip()
 
-#script_pa(fenetre)
+script_pa(fenetre)
