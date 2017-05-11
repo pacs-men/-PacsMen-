@@ -521,7 +521,7 @@ def potion_type(fenetre,joueur,ennemi):
         fenetre.blit(ecrire(str(joueur.potionforce2),True,noir),(410,325))
         
         dessiner(fenetre, noir,[20, 362, 450, 40],1)
-        fenetre.blit(ecrire("Enorme potion de vie",True, noir),(30,370))
+        fenetre.blit(ecrire("Enorme potion de force",True, noir),(30,370))
         fenetre.blit(ecrire(str(joueur.potionforce3),True,noir),(410,370))
         
         dessiner(fenetre, noir,[20, 407, 450, 40],1)
@@ -568,17 +568,17 @@ def potion_type(fenetre,joueur,ennemi):
                         joueur.action="vie2"
                     if position_bouton==2:
                         joueur.action="vie3"
-                    if position_bouton==3:
-                        joueur.action="force1"
-                    if position_bouton==4:
-                        joueur.action="force2"
-                    if position_bouton==5:
-                        joueur.action="force3"
                     if position_bouton==6:
-                        joueur.action="armure1"
+                        joueur.action="force1"
                     if position_bouton==7:
-                        joueur.action="armure2"
+                        joueur.action="force2"
                     if position_bouton==8:
+                        joueur.action="force3"
+                    if position_bouton==3:
+                        joueur.action="armure1"
+                    if position_bouton==4:
+                        joueur.action="armure2"
+                    if position_bouton==5:
                         joueur.action="armure3"
                     if position_bouton==9:
                         joueur.action="critique1"
