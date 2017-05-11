@@ -36,7 +36,7 @@ taille_carte = mape.taille_mat[0]
 
 
 #creation d'une liste contenant tous les personnages jouable
-joueur = [perso.AssassinsMagique(),perso.AssassinsPhysique(),perso.Combattant(),perso.Mage(),perso.Soigneur(),perso.Archer()]
+joueur = [perso.AssassinsMagique,perso.AssassinsPhysique,perso.Combattant,perso.Mage,perso.Soigneur,perso.Archer]
 
 #liste de tous les ennemis
 ennemi = [[ perso.Rats(), perso.Rats(), perso.Rats(), perso.Rats() ],[ perso.Gobelins(), perso.Gobelins(), perso.Gobelins(), perso.Gobelins()],[ perso.Aigles(), perso.Aigles() ],[ perso.Slime() ],[perso.Centaures(), perso.Centaures(), perso.Centaures()],[perso.Loup_garou()],[perso.Araingnees(),perso.Araingnees(),perso.Araingnees()],[perso.Carapateur()],[perso.Golems(),perso.Golems()],[perso.Treant()],[perso.Geant()],[perso.Nains(),perso.Nains(),perso.Nains()],[perso.Elfs(),perso.Elfs()]]
@@ -98,7 +98,8 @@ j=menu.start_menu(fenetre,joueur)
 if j == "End":
     continuer = False
 else:
-    mvt_perso = objet.perso(mape, 2, 2, joueur[j].ls_imagedir)
+    joueur[j]()
+    mvt_perso = objet.perso(mape, 2, 2, joueur.ls_imagedir)
     script_pa.script_pa(fenetre)
 
 
@@ -135,7 +136,7 @@ while continuer:
                     mvt_perso.avancer()
 
             if event.key == K_TAB:
-                combat.affiche_combat(fenetre,joueur[j],ennemi[e])
+                combat.affiche_combat(fenetre,joueur,ennemi[e])
 
             if event.key == K_ESCAPE:
                 info = menu.menupause(fenetre,joueur)
@@ -151,10 +152,10 @@ while continuer:
                     pygame.display.flip()
             
             if event.key == K_i:
-                 inventaire.inventaire(fenetre,joueur[j])
+                 inventaire.inventaire(fenetre,joueur)
     #Decleclenchement du combat
     if mape.combat[0] == True:
-        a = combat.affiche_combat(fenetre,joueur[j], mape.combat[1].ls_ennemi)
+        a = combat.affiche_combat(fenetre,joueur, mape.combat[1].ls_ennemi)
         if a == "fin":
             print mape.combat[1]
             mape.combat[1].effacer()
