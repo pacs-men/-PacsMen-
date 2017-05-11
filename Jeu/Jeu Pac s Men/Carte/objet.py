@@ -80,6 +80,7 @@ class arbre(objet):
          objet.__init__(self, carte, x, y)
          self.image = pygame.image.load("data/sprite_01.png")
 
+
 class ennemi(obj_boug):
      def __init__(self, carte, x, y, ls_ennemi):
          objet.__init__(self, carte, x, y)
@@ -89,6 +90,7 @@ class ennemi(obj_boug):
      def interagir(self):
          print("combat")
          self.carte.combat = [True, self]
+
 
 class coffre(objet):
     def __init__(self, carte, x, y, contenu):
@@ -100,3 +102,11 @@ class coffre(objet):
         for potion in self.contenu:
             exec("self.carte.joueur."+potion+" += 1")
         self.contenu = []
+
+class porte(objet):
+    def __init__(self, carte, x, y):
+        objet.__init__(self, carte, x, y)
+        self.image = pygame.image.load("data/sprite_07.png")
+    
+    def interagir(self):
+        self.effacer()
