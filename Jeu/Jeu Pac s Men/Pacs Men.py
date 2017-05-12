@@ -24,6 +24,7 @@ import random
 #definition des couleurs
 black=(0,0,0)
 white=(0xFF,0xFF,0xFF)
+red=(255,0,0)
 
 #initialisation de la fenetre
 taille_fenetre=20
@@ -43,6 +44,17 @@ dessiner=pygame.draw.rect
 x=0
 y=0
 
+
+
+
+pygame.key.set_repeat(300,70)
+
+#declanchement de la musique
+
+continuer = True
+
+joueur=menu.start_menu(fenetre,joueur)
+
 def affichercarte(x0,y0):
     for x in range(taille_fenetre):
         for y in range(taille_fenetre):
@@ -52,7 +64,14 @@ def affichercarte(x0,y0):
         for y in range(taille_fenetre):
             if mape.matrice_objet[x+x0][y+y0] != None:
                 fenetre.blit(mape.get_image_obj(x+x0, y+y0),(x*32, y*32))
+    affiche_pv(joueur,fenetre)
 
+def affiche_pv(joueur,fenetre):
+    prct_pv=(joueur.pv/joueur.pv_max)*100
+    dessiner(fenetre,black,(9,9,101,11),1)
+    dessiner(fenetre,red,(10,10,prct_pv,10))
+    
+               
 def ouvrir_map():
     carte = ""
     with open("carte.mp", "rb") as fichier:
@@ -64,15 +83,6 @@ def ouvrir_map():
             if carte[x][y] == "Herbe":
                 carte[x][y]+= str(random.randrange(1, 5))
     return carte
-
-
-pygame.key.set_repeat(300,70)
-
-#declanchement de la musique
-
-continuer = True
-
-joueur=menu.start_menu(fenetre,joueur)
 
 #creation de la carte et initialisation du deplacement
 mape = carte.carte("carte.mp", joueur)
