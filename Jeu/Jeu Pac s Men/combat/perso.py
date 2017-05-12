@@ -95,9 +95,15 @@ class perso:
         if random.randrange(100)<self.prec:
             self.passif_attaque_def()
             if random.randrange(100)>self.crit:
-                self.cible.pv -= (self.atk+self.arme.atk)*(1-float(self.cible.defen+self.cible.armure.defen)/100)
+                if self.cible.defen+self.cible.armure.defen > 90:
+                    self.cible.pv -= (self.atk+self.arme.atk)*(1-float(90)/100)
+                else:
+                    self.cible.pv -= (self.atk+self.arme.atk)*(1-float(self.cible.defen+self.cible.armure.defen)/100)
             else:
-                self.cible.pv -= (self.atk+self.arme.atk)*(1-float(self.cible.defen+self.cible.armure.defen)/100)*2
+                if self.cible.defen+self.cible.armure.defen > 90:
+                    self.cible.pv -= (self.atk+self.arme.atk)*(1-float(90)/100)*2
+                else:
+                    self.cible.pv -= (self.atk+self.arme.atk)*(1-float(self.cible.defen+self.cible.armure.defen)/100)*2
         if self.cible.pv < 0:
             self.cible.pv = 0
             
@@ -110,9 +116,16 @@ class perso:
         if random.randrange(100)<self.prec:
             self.passif_attaque_def()
             if random.randrange(100)>self.crit:
-                self.cible.pv -= (self.mag+self.arme.mag)*(1-float(self.cible.res+self.cible.armure.res)/100)
+                if self.cible.res+self.cible.armure.res > 90:
+                    self.cible.pv -= (self.mag+self.arme.mag)*(1-float(90)/100)
+                else:
+                    self.cible.pv -= (self.mag+self.arme.mag)*(1-float(self.cible.res+self.cible.armure.res)/100)
+                
             else:
-                self.cible.pv -= (self.mag+self.arme.mag)*(1-float(self.cible.res+self.cible.armure.res)/100)*2
+                if self.cible.res+self.cible.armure.res > 90:
+                    self.cible.pv -= (self.mag+self.arme.mag)*(1-float(90)/100)*2
+                else:
+                    self.cible.pv -= (self.mag+self.arme.mag)*(1-float(self.cible.res+self.cible.armure.res)/100)*2
         if self.cible.pv < 0:
             self.cible.pv = 0
                 
@@ -209,6 +222,7 @@ class perso:
             self.armure1fois +=1
             self.potionarmure1-=1
             
+            
         if potion == "armure2"and self.potionarmure2>0: 
             self.defen +=10
             self.res +=10
@@ -255,28 +269,28 @@ class perso:
     
     def popo_def(self):
         
-        if self.critique3fois > 0:
+        if self.critique3fois >= 0:
             if self.critique3 == 0:
                 self.crit -= 15
                 self.critique3fois -= 1
             else:
                 self.critique3 -=1
     
-        if self.critique2fois > 0:
+        if self.critique2fois >= 0:
             if self.critique2 == 0:
                 self.crit -= 10
                 self.critique2fois -= 1
             else:
                 self.critique2 -=1    
     
-        if self.critique1fois > 0:
+        if self.critique1fois >= 0:
             if self.critique1 == 0:
                 self.crit -= 5
                 self.critique1fois -= 1
             else:
                 self.critique1 -=1     
 
-        if self.armure1fois > 0:
+        if self.armure1fois >= 0:
             if self.armure1 == 0:
                 self.defen -= 5
                 self.res -=5
@@ -284,7 +298,7 @@ class perso:
             else:
                 self.armure1 -=1  
 
-        if self.armure2fois > 0:
+        if self.armure2fois >= 0:
             if self.armure2 == 0:
                 self.defen -= 5
                 self.res -=5
@@ -292,7 +306,7 @@ class perso:
             else:
                 self.armure2 -=1      
 
-        if self.armure3fois > 0:
+        if self.armure3fois >= 0:
             if self.armure3 == 0:
                 self.defen -= 5
                 self.res -=5
@@ -300,7 +314,7 @@ class perso:
             else:
                 self.armure3 -=1     
     
-        if self.force3fois > 0:
+        if self.force3fois >= 0:
             if self.force3 == 0:
                 self.atk -= 150
                 self.mag -= 150
@@ -308,7 +322,7 @@ class perso:
             else:
                 self.force3 -=1       
      
-        if self.force2fois > 0:
+        if self.force2fois >= 0:
             if self.force2 == 0:
                 self.atk -= 100
                 self.mag -= 100
@@ -316,7 +330,7 @@ class perso:
             else:
                 self.force2 -=1      
     
-        if self.force1fois > 0:
+        if self.force1fois >= 0:
             if self.force1 == 0:
                 self.atk -= 50
                 self.mag -= 50
