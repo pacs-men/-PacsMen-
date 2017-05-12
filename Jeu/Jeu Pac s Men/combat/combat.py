@@ -35,7 +35,7 @@ def combat_attaque(participant_vit):
     '''
     for i in range (len(participant_vit)):
         participant_vit[i].passif_def(participant_vit)
-        if participant_vit[i].pv <= 0:
+        if participant_vit[i].pv == 0:
             if participant_vit[i].jouable==True:
                 return "Mort joueur"
             else:
@@ -69,6 +69,8 @@ def affiche_combat(fenetre,joueur,ennemi):
     background_image = pygame.image.load("data/fondcombatmap1.jpg").convert()
 
     while continuer == 1:
+        if joueur.pv == 0:
+            return "Mort joueur"
         
         text_tour = font.render("tour "+str(tour),True,noir)
         text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
@@ -268,7 +270,8 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
-                        combat_start(joueur,ennemi)
+                        if combat_start(joueur,ennemi) == "Mort joueur":
+                            return "Mort joueur"
                         return "next"
                                  
     if nb_ennemis == 2:
@@ -315,7 +318,8 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
-                        combat_start(joueur,ennemi)
+                        if combat_start(joueur,ennemi) == "Mort joueur":
+                            return "Mort joueur"
                         return "next"
                         
             pygame.display.flip()
@@ -369,7 +373,8 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
-                        combat_start(joueur,ennemi)
+                        if combat_start(joueur,ennemi) == "Mort joueur":
+                            return "Mort joueur"
                         return "next"
                         
             pygame.display.flip()
