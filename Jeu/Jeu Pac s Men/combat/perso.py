@@ -440,12 +440,12 @@ class AssassinsPhysique(perso):
         self.crit=10
         self.arme_total=[armes.Dagues,armes.LamesD,armes.Hachettes]
         self.armure_total=[armure.Tenue,armure.Manteau,armure.Armureco]
-        self.img= pygame.image.load("data/perso.png").convert_alpha()
+        self.img= pygame.image.load("data/Nassim/AssassinPhysiqueFace.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_gauche = pygame.image.load("data/Nassim/AssassinPhysiqueGauche.png").convert_alpha()
+        self.img_droite = pygame.image.load("data/Nassim/AssassinPhysiqueDroite.png").convert_alpha()
+        self.img_haut = pygame.image.load("data/Nassim/AssassinPhysiqueDos.png").convert_alpha()
+        self.img_bas = pygame.image.load("data/Nassim/AssassinPhysiqueFace.png").convert_alpha()
         self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
         
      def passif_attaque_def(self):
