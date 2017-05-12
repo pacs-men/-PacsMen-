@@ -68,8 +68,9 @@ def affichercarte(x0,y0):
 
 def affiche_pv(joueur,fenetre):
     prct_pv=(joueur.pv/joueur.pv_max)*100
-    dessiner(fenetre,black,(9,9,101,11),1)
+    dessiner(fenetre,black,(9,9,102,12),1)
     dessiner(fenetre,red,(10,10,prct_pv,10))
+    fenetre.blit(ecrire(str(joueur.pv)+"/"+str(joueur.pv_max),True,black),(120,10))
     
                
 def ouvrir_map():
