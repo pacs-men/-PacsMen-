@@ -118,20 +118,56 @@ def inventaire(fenetre,Joueur):
 
 		#affichage des stats du personnage
 		#affichage de la vie
-        pvperso=ecrire("Pv:"+str(Joueur.pv),True,black)
+        pvperso=ecrire("Pv: "+str(Joueur.pv),True,black)
         pvperso_rect=pvperso.get_rect()
         pvperso_rect.right = 630
         pvperso_rect.top = 10
         fenetre.blit(pvperso,pvperso_rect)
 		#affichage de l'armure
         if Joueur.defen > 90:
-            armureperso=ecrire("Defense:"+str(90),True,black)
+            armureperso=ecrire("Defense: "+str(90),True,black)
         else:
-            armureperso=ecrire("Defense:"+str(Joueur.defen),True,black)
+            armureperso=ecrire("Defense: "+str(Joueur.defen),True,black)
         armureperso_rect=armureperso.get_rect()
         armureperso_rect.right = 630
         armureperso_rect.top = 35
         fenetre.blit(armureperso,armureperso_rect)
+        #affichage de l'attaque
+        atkperso=ecrire("Attaque: "+str(Joueur.atk),True,black)
+        atkperso_rect=atkperso.get_rect()
+        atkperso_rect.right = 630
+        atkperso_rect.top = 60
+        fenetre.blit(atkperso,atkperso_rect)
+        #affichage de la magie
+        magperso=ecrire("Magie: "+str(Joueur.mag),True,black)
+        magperso_rect=magperso.get_rect()
+        magperso_rect.right = 630
+        magperso_rect.top = 85
+        fenetre.blit(magperso,magperso_rect)
+        #affichage de la resistance
+        resperso=ecrire("Resistance: "+str(Joueur.res),True,black)
+        resperso_rect=resperso.get_rect()
+        resperso_rect.right = 630
+        resperso_rect.top = 110
+        fenetre.blit(resperso,resperso_rect)        
+        #affichage de la vitesse
+        vitperso=ecrire("Vitesse: "+str(Joueur.vit),True,black)
+        vitperso_rect=vitperso.get_rect()
+        vitperso_rect.right = 630
+        vitperso_rect.top = 135
+        fenetre.blit(vitperso,vitperso_rect)        
+        #affichage de la precision
+        precperso=ecrire("Precision: "+str(Joueur.prec),True,black)
+        precperso_rect=precperso.get_rect()
+        precperso_rect.right = 630
+        precperso_rect.top = 160
+        fenetre.blit(precperso,precperso_rect)        
+        #affichage des critique
+        critperso=ecrire("Critique: "+str(Joueur.crit),True,black)
+        critperso_rect=critperso.get_rect()
+        critperso_rect.right = 630
+        critperso_rect.top = 185
+        fenetre.blit(critperso,critperso_rect)
         
         for event in pygame.event.get():
             if event.type == KEYDOWN:

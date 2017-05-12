@@ -8,7 +8,7 @@ pygame.font.init()
 noir=(0,0,0)
 bleu=(0,0,160)
 blanc=(0xFF, 0xFF, 0xFF)
-font = pygame.font.Font("data/OLondon_.otf",25)
+font = pygame.font.Font("data/Olondon_.otf",25)
 font2=pygame.font.SysFont('Calibri',20,True)
 font3=pygame.font.SysFont('Calibri',20,True,True)
 
