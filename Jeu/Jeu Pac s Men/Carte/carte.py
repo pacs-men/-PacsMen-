@@ -69,6 +69,13 @@ class carte:
                     
                     elif mat_objet[x][y] == "porte_boss":
                         self.matrice_objet[x][y] = porte_boss(self, x, y, "carte2.mp")                                                
+                    
+                    elif mat_objet[x][y] == "boss1":
+                        e = 12
+                        ls_en = []
+                        for a in self.ls_ennemi[e]:
+                            ls_en.append(a())
+                        self.matrice_objet[x][y] = ennemi(self, x, y, ls_en)
                     else:                        
                         exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
                 

@@ -119,5 +119,36 @@ class porte_boss(objet):
     
     def interagir(self):
         self.carte.changer_carte(self.nom_carte)
-    
+
+class boss1(obj_boug):
+    def __init__(self, carte, x, y, ls_ennemi):
+         objet.__init__(self, carte, x, y)
+         self.ls_ennemi = ls_ennemi
+         self.image = ls_ennemi[0].img
+
+    def interagir(self):
+         print("combat")
+         self.carte.combat = [True, self]
+
+class coffre_boss1(objet):
+    def __init__(self, carte, x, y):
+        objet.__init__(self, carte, x, y)
+        self.image = pygame.image.load("data/sprite_08.png")
+    def interagir(self):        
+        self.carte.joueur.upgrade(1)
+        
+class coffre_boss2(objet):
+    def __init__(self, carte, x, y):
+        objet.__init__(self, carte, x, y)
+        self.image = pygame.image.load("data/sprite_08.png")
+    def interagir(self):        
+        self.carte.joueur.upgrade(2)
+
+class coffre_boss2(objet):
+    def __init__(self, carte, x, y):
+        objet.__init__(self, carte, x, y)
+        self.image = pygame.image.load("data/sprite_08.png")
+    def interagir(self):        
+        self.carte.joueur.upgrade(2)
+
         
