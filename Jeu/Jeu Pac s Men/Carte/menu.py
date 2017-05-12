@@ -18,8 +18,6 @@ dessiner=pygame.draw.rect
 
 def start_menu(fenetre,joueur):
     
-    #pygame.mixer.music.load('data/01 - Where Do The Children Play.mp3')
-    #pygame.mixer.music.play(-1)
     fenetre.fill(white)
     position_bouton=0
     img_menu = pygame.image.load("data/imagemenu.jpg")
@@ -83,11 +81,10 @@ def start_menu(fenetre,joueur):
                         #pygame.mixer.music.play(-1)
                         return joueur[5]()
         pygame.display.flip()
-    pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
-    #pygame.mixer.music.play(-1)
+    
 
 def menupause(fenetre,joueur):
-    #pygame.mixer.music.stop()
+    pygame.mixer.music.stop()
     position_bouton = 0
     grandtitre=pygame.font.Font('data/fonts/old_london/OldLondon.ttf',55)
     text1 = ecrire("Reprendre",True,black)
@@ -117,8 +114,8 @@ def menupause(fenetre,joueur):
                     if position_bouton == 2:
                         return "End"
                 if event.key == K_ESCAPE:
-                    pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
-                    #pygame.mixer.music.play(-1)
+                    pygame.mixer.music.load('data/compo 1.wav')
+                    pygame.mixer.music.play(-1)
                     return None
                 if event.key == K_DOWN or event.key == K_RIGHT:
                     if position_bouton <2:

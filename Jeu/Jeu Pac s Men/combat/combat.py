@@ -59,8 +59,8 @@ def combat_attaque(participant_vit):
 
         
 def affiche_combat(fenetre,joueur,ennemi):
-    #pygame.mixer.music.load('data/05 - Le Voyage de Basile.mp3')
-    #pygame.mixer.music.play(-1)
+    pygame.mixer.music.load('data/05 - Le Voyage de Basile.mp3')
+    pygame.mixer.music.play(-1)
     nb_ennemis = ennemi[0].nombre
     continuer = 1
     position_bouton=1
@@ -182,6 +182,8 @@ def affiche_combat(fenetre,joueur,ennemi):
                 joueur.potionvitesse += 1
             if random.randrange(0,10) == 1:
                 joueur.potionprecision += 1
+            pygame.mixer.music.load('data/compo 1.wav')
+            pygame.mixer.music.play(-1)
             return "fin"
 
         
@@ -221,10 +223,11 @@ def affiche_combat(fenetre,joueur,ennemi):
                             tour+=1
 
                     if position_bouton == 3:
+                        pygame.mixer.music.load('data/compo 1.wav')
+                        pygame.mixer.music.play(-1)
                         return "Fuite"
 
-    #pygame.mixer.music.load('data/01 - Chanson Pour l Auvergnat.mp3')
-    #pygame.mixer.music.play(-1)
+    
 
 
 def select_ennemi(fenetre,joueur,ennemi,tour):

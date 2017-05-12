@@ -50,6 +50,8 @@ y=0
 pygame.key.set_repeat(300,70)
 
 #declanchement de la musique
+pygame.mixer.music.load('data/Linconnue V4 Pont.wav')
+pygame.mixer.music.play(-1)
 
 continuer = True
 
@@ -95,6 +97,8 @@ if joueur == "End":
 else:
     mvt_perso = objet.perso(mape, 2, 2, joueur.ls_imagedir)
     script_pa.script_pa(fenetre)
+    pygame.mixer.music.load('data/compo 1.wav')
+    pygame.mixer.music.play(-1)
 
 
 
