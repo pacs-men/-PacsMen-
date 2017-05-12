@@ -71,8 +71,12 @@ class perso:
         self.potioncritique3=0
         self.potionvitesse=0
         self.potionprecision=0
-        self.arme_total=[]
-        self.armure_total=[]
+        self.arme_total=[armes.arme,armes.arme,armes.arme]
+        self.armure_total=[armure.armure,armure.armure,armure.armure]
+        
+    def upgrade(self,niveau):
+        self.arme = self.arme_total[niveau]()
+        self.armure = self.armure_total[niveau]()
 
     def attaque(self):
         '''
@@ -82,10 +86,11 @@ class perso:
             self.stun = False
             pass
         elif self.action == "Physique":
+            self.passif_attaque_def()
             self.AttaquePhysique()
         elif self.action == "Magique":
+            self.passif_attaque_def()
             self.AttaqueMagique()
-        
         
         
     def AttaquePhysique(self):
@@ -365,6 +370,8 @@ class AssassinsMagique(perso):
         self.vit=80
         self.prec=100
         self.crit=10
+        self.arme_total=[armes.LamesE,armes.Fouet,armes.Crescent]
+        self.armure_total=[armure.Gilet,armure.Veste,armure.Armurean]
         self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         self.img_gauche = pygame.image.load("data/seb.jpg").convert_alpha()
@@ -392,6 +399,8 @@ class Mage(perso):
         self.vit=80
         self.prec=90
         self.crit=5
+        self.arme_total=[armes.Livre,armes.Parchemin,armes.Grimoire]
+        self.armure_total=[armure.Robe,armure.TuniqueI,armure.TogeI]
         self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
@@ -420,6 +429,8 @@ class AssassinsPhysique(perso):
         self.vit=80
         self.prec=100
         self.crit=10
+        self.arme_total=[armes.Dagues,armes.LamesD,armes.Hachettes]
+        self.armure_total=[armure.Tenue,armure.Manteau,armure.Armureco]
         self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
@@ -446,6 +457,8 @@ class Combattant(perso):
         self.vit=50
         self.prec=100
         self.crit=5
+        self.arme_total=[armes.Epee,armes.Hache,armes.EpeeRL]
+        self.armure_total=[armure.Armurecu,armure.Plastron,armure.Cuirasse]
         self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
@@ -481,6 +494,8 @@ class Archer(perso):
         self.vit=100
         self.prec=95
         self.crit=20
+        self.arme_total=[armes.ArcL,armes.Arbalete,armes.ArcA]
+        self.armure_total=[armure.Cape,armure.Justaucorps,armure.Cote]
         self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
@@ -558,6 +573,8 @@ class Soigneur(perso):
         self.vit=30
         self.prec=95
         self.crit=0
+        self.arme_total=[armes.Baton,armes.Orbe,armes.Sceptre]
+        self.armure_total=[armure.TuniqueH,armure.TogeA,armure.Corset]
         self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
