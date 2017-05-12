@@ -124,7 +124,10 @@ def inventaire(fenetre,Joueur):
         pvperso_rect.top = 10
         fenetre.blit(pvperso,pvperso_rect)
 		#affichage de l'armure
-        armureperso=ecrire("Armure:"+str(Joueur.defen),True,black)
+        if Joueur.defen > 90:
+            armureperso=ecrire("Defense:"+str(90),True,black)
+        else:
+            armureperso=ecrire("Defense:"+str(Joueur.defen),True,black)
         armureperso_rect=armureperso.get_rect()
         armureperso_rect.right = 630
         armureperso_rect.top = 35
@@ -147,18 +150,18 @@ def inventaire(fenetre,Joueur):
                         Joueur.action="vie2"
                     if position_bouton==2:
                         Joueur.action="vie3"
+                    if position_bouton==3:
+                        Joueur.action="armure1"
+                    if position_bouton==4:
+                        Joueur.action="armure2"
+                    if position_bouton==5:
+                        Joueur.action="armure3"
                     if position_bouton==6:
                         Joueur.action="force1"
                     if position_bouton==7:
                         Joueur.action="force2"
                     if position_bouton==8:
                         Joueur.action="force3"
-                    if position_bouton==3:
-                        Joueur.action="armure1"
-                    if position_bouton==4:
-                        Joueur.action="armure2"
-                    if position_bouton==6:
-                        Joueur.action="armure3"
                     if position_bouton==9:
                         Joueur.action="critique1"
                     if position_bouton==10:
@@ -167,7 +170,7 @@ def inventaire(fenetre,Joueur):
                         Joueur.action="critique3"
                     if position_bouton==12:
                         Joueur.action="vitesse"
-                    if position_bouton==12:
+                    if position_bouton==13:
                         Joueur.action="precision"
                     Joueur.popo_actif()
                     
