@@ -273,6 +273,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
+                        anim_joueur(fenetre,joueur)
                         if combat_start(joueur,ennemi) == "Mort joueur":
                             return "Mort joueur"
                         return "next"
@@ -321,6 +322,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
+                        anim_joueur(fenetre,joueur)
                         if combat_start(joueur,ennemi) == "Mort joueur":
                             return "Mort joueur"
                         return "next"
@@ -376,6 +378,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
+                        anim_joueur(fenetre,joueur)
                         if combat_start(joueur,ennemi) == "Mort joueur":
                             return "Mort joueur"
                         return "next"
@@ -437,6 +440,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
 
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
+                        anim_joueur(fenetre,joueur)
                         if combat_start(joueur,ennemi) == "Mort joueur":
                             return "Mort joueur"
                         return "next"
@@ -625,3 +629,10 @@ def potion_type(fenetre,joueur,ennemi):
                     
         pygame.display.flip()
     return "Retour"
+
+def anim_joueur(fenetre,joueur):
+    imganim = joueur.img_combat
+    for p in range(0,12):
+        fenetre.blit(imganim,(150,250),(64*20,64*p,64,64))
+        pygame.display.flip()
+# x=20 y il y en a 13

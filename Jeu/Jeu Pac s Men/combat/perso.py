@@ -506,7 +506,7 @@ class Archer(perso):
         self.arme_total=[armes.ArcL,armes.Arbalete,armes.ArcA]
         self.armure_total=[armure.Cape,armure.Justaucorps,armure.Cote]
         self.img= pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/Martin/complet.png").convert_alpha()
         self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
         self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
         self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
