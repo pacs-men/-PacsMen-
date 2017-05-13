@@ -716,8 +716,8 @@ class Araingnees(mobs):
         self.res=5
         self.vit=120
         self.nombre=3
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img = pygame.image.load("data/Ennemi/araignee_carte.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/Ennemi/araignee_combat.png").convert_alpha()
 
 class Carapateur(mobs):
     def __init__(self):
@@ -777,8 +777,8 @@ class Geant(mobs):
         self.res=20
         self.vit=10
         self.nombre=1
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()       
+        self.img = pygame.image.load("data/Ennemi/geant_carte.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/Ennemi/geant_combat.png").convert_alpha()       
         
 class Nains(mobs):
     def __init__(self):
