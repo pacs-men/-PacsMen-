@@ -96,12 +96,16 @@ class coffre(objet):
     def __init__(self, carte, x, y, contenu):
         objet.__init__(self, carte, x, y)
         self.contenu = contenu
-        self.image = pygame.image.load("data/sprite_08.png")
-    
+        self.image_complet = pygame.image.load("data/chest2.png")
+        self.image_fermee = self.image_complet.subsurface((0, 0, 32, 32))
+        self.image_ouverte = self.image_complet.subsurface((32, 0, 32, 32))
+        self.image = self.image_fermee
+        
     def interagir(self):
         for potion in self.contenu:
             exec("self.carte.joueur."+potion+" += 1")
         self.contenu = []
+        self.image = self.image_ouverte
 
 class porte(objet):
     def __init__(self, carte, x, y):
