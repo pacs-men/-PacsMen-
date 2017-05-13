@@ -468,12 +468,12 @@ class Combattant(perso):
         self.crit=5
         self.arme_total=[armes.Epee,armes.Hache,armes.EpeeRL]
         self.armure_total=[armure.Armurecu,armure.Plastron,armure.Cuirasse]
-        self.img= pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
+        self.img= pygame.image.load("data/PA/face.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/PA/face.png").convert_alpha()
+        self.img_gauche = pygame.image.load("data/PA/gauche.png").convert_alpha()
+        self.img_droite = pygame.image.load("data/PA/droite.png").convert_alpha()
+        self.img_haut = pygame.image.load("data/PA/dos.png").convert_alpha()
+        self.img_bas = pygame.image.load("data/PA/face.png").convert_alpha()
         self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
         
     def passif_def(self,adv):
