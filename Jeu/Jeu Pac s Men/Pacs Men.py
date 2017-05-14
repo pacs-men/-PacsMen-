@@ -144,7 +144,7 @@ def afficher_ecran():
     affiche_pv(joueur,fenetre)
 
 #creation de la carte et initialisation du deplacement
-mape = carte.carte("carte.mp", joueur)
+mape = carte.carte(joueur)
 taille_carte = mape.taille_mat[0]
 
 

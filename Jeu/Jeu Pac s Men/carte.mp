@@ -2672,7 +2672,7 @@ ag69
 ag69
 aa(lp72
 g67
-aS'coffre_boss1'
+aS'coffre_boss'
 p73
 ag67
 ag67
@@ -2728,7 +2728,7 @@ aa(lp76
 g67
 ag67
 ag67
-aS'boss1'
+aS'boss'
 p77
 ag67
 ag67

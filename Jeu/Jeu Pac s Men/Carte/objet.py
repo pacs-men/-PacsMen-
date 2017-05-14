@@ -126,35 +126,24 @@ class porte(objet):
         self.effacer()
         
 class porte_boss(objet):
-    def __init__(self, carte, x, y, nom_carte):
+    def __init__(self, carte, x, y):
         objet.__init__(self, carte, x, y)
-        self.nom_carte = nom_carte
         self.image = pygame.image.load("data/castledoors32.png")
     
     def interagir(self):
-        self.carte.changer_carte(self.nom_carte)
+        self.carte.changer_carte()
 
-class boss1(obj_boug):
+class boss(obj_boug):
     def __init__(self, carte, x, y, ls_ennemi):
          objet.__init__(self, carte, x, y)
          self.ls_ennemi = ls_ennemi
          self.image = ls_ennemi[0].img
 
     def interagir(self):
-         print("combat")
          self.carte.combat = [True, self]
 
-class boss2(obj_boug):
-    def __init__(self, carte, x, y, ls_ennemi):
-         objet.__init__(self, carte, x, y)
-         self.ls_ennemi = ls_ennemi
-         self.image = ls_ennemi[0].img
 
-    def interagir(self):
-         print("combat")
-         self.carte.combat = [True, self]
-
-class coffre_boss1(objet):
+class coffre_boss(objet):
     def __init__(self, carte, x, y):
         objet.__init__(self, carte, x, y)
         self.image_complet = pygame.image.load("data/chest2.png")
@@ -162,19 +151,9 @@ class coffre_boss1(objet):
         self.image_ouverte = self.image_complet.subsurface((32, 0, 32, 32))
         self.image = self.image_fermee
     def interagir(self):        
-        self.carte.joueur.upgrade(1)
+        self.carte.joueur.upgrade(self.carte.niv_carte+1)
         self.image = self.image_ouverte
 
-class coffre_boss2(objet):
-    def __init__(self, carte, x, y):
-        objet.__init__(self, carte, x, y)
-        self.image_complet = pygame.image.load("data/chest2.png")
-        self.image_fermee = self.image_complet.subsurface((0, 0, 32, 32))
-        self.image_ouverte = self.image_complet.subsurface((32, 0, 32, 32))
-        self.image = self.image_fermee
-    def interagir(self):        
-        self.carte.joueur.upgrade(2)
-        self.image = self.image_ouverte
 
 class Stalagmites(objet):
      def __init__(self, carte, x, y):

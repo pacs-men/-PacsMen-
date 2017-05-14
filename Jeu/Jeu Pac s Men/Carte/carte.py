@@ -15,7 +15,7 @@ import combat.perso as perso
 
 class carte:
     
-    def __init__(self, fichier, joueur):
+    def __init__(self,  joueur):
         self.joueur = joueur
         self.mob_niv1 = [[perso.Rats, perso.Rats, perso.Rats, perso.Rats ],[ perso.Gobelins, perso.Gobelins, perso.Gobelins, perso.Gobelins],[perso.Aigles, perso.Aigles ],[ perso.Slime ], [perso.Carapateur]]
         self.mob_niv2 = [[perso.Centaures, perso.Centaures, perso.Centaures],[perso.Loup_garou],[perso.Araingnees,perso.Araingnees,perso.Araingnees], [perso.Carapateur],[perso.Golems,perso.Golems]]
@@ -26,7 +26,7 @@ class carte:
         self.cartes = ["carte.mp", "carten2.mp", "carten3.mp"]       
         self.combat = [False]
         self.carte_changee = False
-        self.fichier = fichier
+        self.fichier = self.cartes[self.niv_carte]
         self.recup_map()
         self.taille_mat = [len(self.matrice_case), len(self.matrice_case[0])]
          
@@ -78,10 +78,8 @@ class carte:
                         contenu = self.potions_aleatoires()
                         self.matrice_objet[x][y] = coffre(self, x, y, contenu)
                     
-                    elif mat_objet[x][y] == "porte_boss":
-                        self.matrice_objet[x][y] = porte_boss(self, x, y, "carten2.mp")                                                
                     
-                    elif mat_objet[x][y] == "boss1":
+                    elif mat_objet[x][y] == "boss":
                         e = 0
                         ls_en = []
                         for a in self.ls_ennemi[0][e]:
@@ -90,7 +88,7 @@ class carte:
                     else:                        
                         exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
                 
-    def changer_carte(self, nom_carte):
+    def changer_carte(self):
         self.niv_carte += 1 
         self.recup_map()
         self.carte_changee = True        
