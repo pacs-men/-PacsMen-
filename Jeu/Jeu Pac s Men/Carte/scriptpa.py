@@ -40,8 +40,8 @@ def script_pa(fenetre):
                     page -=1
                 if event.key == K_ESCAPE:
                     continuer = False
-        if page>9:
-            page=9
+        if page>10:
+            page=10
         if page<1:
             page=1
 
