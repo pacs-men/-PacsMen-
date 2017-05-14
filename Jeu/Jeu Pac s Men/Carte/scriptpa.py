@@ -301,3 +301,5 @@ def script_pa(fenetre):
                 
                 
         pygame.display.flip()
+if _name_ == "__main__":
+    script_pa(fenetre)
