@@ -355,8 +355,8 @@ class AssassinsMagique(perso):
         self.nom="Sebastien"
         self.classe="Assassin Magique"
         self.jouable=True
-        self.pv_max=200
-        self.pv=200
+        self.pv_max=250
+        self.pv=250
         self.atk=10
         self.mag=100
         self.defen=5
@@ -389,7 +389,7 @@ class Mage(perso):
         self.nom="Emeric"
         self.classe="Mage"
         self.jouable=True
-        self.pv_max=100
+        self.pv_max=150
         self.pv=100
         self.atk=10
         self.mag=125
