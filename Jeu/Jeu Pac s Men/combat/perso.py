@@ -171,7 +171,7 @@ class perso:
                 self.pv = self.pv_max
             self.potionvie1-=1
         
-        if potion == "vie2"and self.potionvie2>0 and self.pv != self.pv_max: 
+        if potion == "vie2" and self.potionvie2>0 and self.pv != self.pv_max: 
             self.pv += 100
             if self.pv > self.pv_max:
                 self.pv = self.pv_max
@@ -183,28 +183,28 @@ class perso:
                 self.pv = self.pv_max
             self.potionvie3-=1
         
-        if potion == "force1"and self.potionforce1>0:
+        if potion == "force1" and self.potionforce1>0:
             self.atk += 50
             self.mag += 50
             self.force1 =2
             self.force1fois +=1
             self.potionforce1-=1
         
-        if potion == "force2"and self.potionforce2>0: 
+        if potion == "force2" and self.potionforce2>0: 
             self.atk +=100
             self.mag +=100
             self.force1 =2
             self.force2fois +=1
             self.potionforce2-=1
         
-        if potion == "force3"and self.potionforce3>0: 
+        if potion == "force3" and self.potionforce3>0: 
             self.atk +=150
             self.mag +=150
             self.force3 =1  #"tour"
             self.force3fois +=1
             self.potionforce3-=1
             
-        if potion == "armure1"and self.potionarmure1>0: 
+        if potion == "armure1" and self.potionarmure1>0: 
             self.defen +=5
             self.res +=5
             self.armure1 =2 #"tour"
@@ -212,44 +212,44 @@ class perso:
             self.potionarmure1-=1
             
             
-        if potion == "armure2"and self.potionarmure2>0: 
+        if potion == "armure2" and self.potionarmure2>0: 
             self.defen +=10
             self.res +=10
             self.armure2 =2 #"tour"
             self.armure2fois +=1
             self.potionarmure2-=1
             
-        if potion == "armure3"and self.potionarmure3>0: 
+        if potion == "armure3" and self.potionarmure3>0: 
             self.defen +=20
             self.res +=20
             self.armure3 =1 #"tour"
             self.armure3fois +=1
             self.potionarmure3-=1
             
-        if potion == "critique1"and self.potioncritique1>0: 
+        if potion == "critique1" and self.potioncritique1>0: 
             self.crit += 5
             self.critique1 =4 #"tour"
             self.critique1fois +=1
             self.potioncritique1-=1
             
-        if potion == "critique2"and self.potioncritique2>0: 
+        if potion == "critique2" and self.potioncritique2>0: 
             self.crit += 10
             self.critique2 =3#"tour"
             self.critique2fois +=1
             self.potioncritique2-=1
             
-        if potion == "critique3"and self.potioncritique3>0: 
+        if potion == "critique3" and self.potioncritique3>0: 
             self.crit += 15
             self.critique3 =2 #"tour"
             self.potioncritique3-=1
         
-        if potion == "vitesse"and self.potionvitesse>0: 
+        if potion == "vitesse" and self.potionvitesse>0: 
             self.vit += 100
             self.vitesse =1 #"combat"
             self.vitessefois +=1
             self.potionvitesse-=1
             
-        if potion == "precision"and self.potionprecision>0: 
+        if potion == "precision" and self.potionprecision>0: 
             self.prec += 15
             self.precision =1 #"combat"
             self.precisionfois +=1
