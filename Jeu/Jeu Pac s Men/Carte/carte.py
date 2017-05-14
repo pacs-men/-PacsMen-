@@ -29,7 +29,10 @@ class carte:
                             "herbe2": herbe2(),
                             "herbe3": herbe3(),
                             "herbe4": herbe4(),
-                            "mur": mur()
+                            "mur": mur(),
+                            "murs": murs(),
+                            "sols": sols(),
+                            "trous":trous()
                           }
         #self.matrice_case = [[[] for a in range(self.taille_mat[1])] for a in range(self.taille_mat[0])]
         

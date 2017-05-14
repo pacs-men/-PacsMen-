@@ -156,7 +156,7 @@ def ouvrir_map():
     return carte
 
 #creation de la carte et initialisation du deplacement
-mape = carte.carte("carte.mp", joueur)
+mape = carte.carte("carten2.mp", joueur)
 taille_carte = mape.taille_mat[0]
 
 
@@ -209,7 +209,8 @@ while continuer:
             mape.combat[1].effacer()
         elif a == "Fuite":
             pass
-        elif a == "Joueur mort joueur":
+        elif a == "Mort joueur":
+            continuer = 0
             print("Afficher Mort A faire")
         mape.combat = [False]
         

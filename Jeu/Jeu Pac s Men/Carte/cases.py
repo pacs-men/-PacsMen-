@@ -68,3 +68,28 @@ class herbe4(case):
       self.rep = "H"
       self.chemin_image = "data/Grass02.png"
       self.load_image()
+
+class murs(case):
+    def __init__(self):
+      case.__init__(self)
+      self.type = "murs"
+      self.rep = "M"
+      self.chemin_image = "data/Mur.png"
+      self.load_image()
+
+class sols(case):
+    def __init__(self):
+      case.__init__(self)
+      self.type = "sols"
+      self.rep = "S"
+      self.chemin_image = "data/Grass01.png"
+      self.load_image()
+    
+
+class trous(case):
+    def __init__(self):
+      case.__init__(self)
+      self.type = "trous"
+      self.rep = "T"
+      self.chemin_image = "data/trous.png"
+      self.load_image()
