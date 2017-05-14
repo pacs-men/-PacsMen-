@@ -241,6 +241,7 @@ class perso:
         if potion == "critique3" and self.potioncritique3>0: 
             self.crit += 15
             self.critique3 =2 #"tour"
+            self.critique3fois +=1
             self.potioncritique3-=1
         
         if potion == "vitesse" and self.potionvitesse>0: 
