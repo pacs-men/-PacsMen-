@@ -47,11 +47,11 @@ def combat_attaque(participant_vit):
                      participant_vit[i].popo_actif()
                 elif participant_vit[i].type_action == "attaque":
                      participant_vit[i].attaque()
-                participant_vit[i].popo_def()
             else:
                 participant_vit[i].cible_def(participant_vit)
                 participant_vit[i].attaque()
-                participant_vit[i].popo_def()
+            participant_vit[i].popo_def()
+            participant_vit[i].effet_def()
             
             
     

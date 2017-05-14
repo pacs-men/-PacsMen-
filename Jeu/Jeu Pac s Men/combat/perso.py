@@ -84,7 +84,6 @@ class perso:
         '''
         if self.stun == True:
             self.stun = False
-            pass
         elif self.action == "Physique":
             self.passif_attaque_def()
             self.AttaquePhysique()
@@ -163,21 +162,6 @@ class perso:
             else:
                 self.effet=False
     
-    
-    
-    def cible_def(self, participant):
-        '''        
-            IA basique pour definir le type d'attaque
-            des enemis envers le joueur            
-        '''
-        if self.jouable==False:
-            if self.atk > self.mag:
-                self.action="Physique"
-            else:
-                self.action="Magique"
-            for i in range (len(participant)):
-                if participant[i].jouable==True:
-                    self.cible=participant[i]
                     
     def popo_actif(self):
         potion=self.action
@@ -625,20 +609,25 @@ class Soigneur(perso):
             self.pv=self.pv_max
         
 
-class ennemi_test(perso):
-    def __init__(self):
-        perso.__init__(self)
-        self.nom="test"
-        self.pv_max=100
-        self.pv=100
-        self.atk=10
-        self.vit=10
-        self.img= pygame.image.load("data/perso.png").convert_alpha()
 
 class mobs(perso):
     def __init__(self):
         perso.__init__(self)
         self.nombre=1
+
+    def cible_def(self, participant):
+        '''        
+            IA basique pour definir le type d'attaque
+            des ennemis envers le joueur            
+        '''
+        if self.jouable==False:
+            if self.atk > self.mag:
+                self.action="Physique"
+            else:
+                self.action="Magique"
+            for i in range (len(participant)):
+                if participant[i].jouable==True:
+                    self.cible=participant[i]
 
 
         
