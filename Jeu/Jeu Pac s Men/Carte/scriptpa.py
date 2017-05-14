@@ -301,5 +301,3 @@ def script_pa(fenetre):
                 
                 
         pygame.display.flip()
-        
-
