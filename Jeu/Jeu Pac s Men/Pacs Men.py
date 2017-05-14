@@ -143,18 +143,6 @@ def afficher_ecran():
     afficher_joueur(x0, y0, x_mvt_carte, y_mvt_carte)               
     affiche_pv(joueur,fenetre)
 
-def ouvrir_map():
-    carte = ""
-    with open("carte.mp", "rb") as fichier:
-        depick = pickle.Unpickler(fichier)
-        carte = depick.load()
-
-    for x in range(len(carte)):
-        for y in range(len(carte)):
-            if carte[x][y] == "Herbe":
-                carte[x][y]+= str(random.randrange(1, 5))
-    return carte
-
 #creation de la carte et initialisation du deplacement
 mape = carte.carte("carte.mp", joueur)
 taille_carte = mape.taille_mat[0]
@@ -209,13 +197,13 @@ while continuer:
             mape.combat[1].effacer()
         elif a == "Fuite":
             pass
-        elif a == "Joueur mort joueur":
+        elif a == "Mort joueur":
+            continuer = 0
             print("Afficher Mort A faire")
         mape.combat = [False]
         
     if mape.carte_changee:
-        print mape.matrice_case
-        mvt_perso = objet.perso(mape, 48, 47, joueur.ls_images)
+        mvt_perso = objet.perso(mape, 47, 47, joueur.ls_images)
         mape.carte_changee = False       
     
     

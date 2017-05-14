@@ -29,7 +29,10 @@ class carte:
                             "herbe2": herbe2(),
                             "herbe3": herbe3(),
                             "herbe4": herbe4(),
-                            "mur": mur()
+                            "mur": mur(),
+                            "murs": murs(),
+                            "sols": sols(),
+                            "trous":trous()
                           }
         #self.matrice_case = [[[] for a in range(self.taille_mat[1])] for a in range(self.taille_mat[0])]
         
@@ -68,7 +71,7 @@ class carte:
                         self.matrice_objet[x][y] = coffre(self, x, y, contenu)
                     
                     elif mat_objet[x][y] == "porte_boss":
-                        self.matrice_objet[x][y] = porte_boss(self, x, y, "carte2.mp")                                                
+                        self.matrice_objet[x][y] = porte_boss(self, x, y, "carten2.mp")                                                
                     
                     elif mat_objet[x][y] == "boss1":
                         e = 12
