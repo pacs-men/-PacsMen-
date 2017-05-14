@@ -3,7 +3,7 @@ from pygame import *
 
 pygame.init()
 fenetre=pygame.display.set_mode((640,640))
-pygame.display.set_caption('Programme intro histoire')
+
 pygame.font.init()
 noir=(0,0,0)
 bleu=(0,0,160)
