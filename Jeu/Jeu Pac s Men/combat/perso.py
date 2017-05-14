@@ -293,8 +293,8 @@ class perso:
 
         if self.armure2fois >= 0:
             if self.armure2 == 0:
-                self.defen -= 5
-                self.res -=5
+                self.defen -= 10
+                self.res -= 10
                 self.armure2fois -= 1
                 self.armure2 -=1      
             else:
@@ -302,8 +302,8 @@ class perso:
 
         if self.armure3fois >= 0:
             if self.armure3 == 0:
-                self.defen -= 5
-                self.res -=5
+                self.defen -= 20
+                self.res -= 20
                 self.armure3fois -= 1
                 self.armure3 -=1
             else:
