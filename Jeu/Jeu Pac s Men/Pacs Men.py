@@ -185,17 +185,7 @@ while continuer:
                         mvt_perso.avancer()
                     else:
                         mvt_perso.avancer()
-                elif direction_sauvegardee in [K_DOWN, K_UP, K_LEFT, K_RIGHT]:
-                    if mvt_perso.direction != dict_fleche[direction_sauvegardee]:
-                        mvt_perso.ch_direction(dict_fleche[direction_sauvegardee])
-                        mvt_perso.avancer()
-                    else:
-                        mvt_perso.avancer()
-                    
-            else:
-                if event.key in [K_DOWN, K_UP, K_LEFT, K_RIGHT]:
-                    direction_sauvegardee = event.key
-
+             
                                  
             if event.key == K_ESCAPE:
                 info = menu.menupause(fenetre,joueur)
