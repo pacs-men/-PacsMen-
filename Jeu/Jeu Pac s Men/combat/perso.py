@@ -641,8 +641,8 @@ class Rats(mobs):
         self.res=10
         self.vit=20
         self.nombre=4
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img = pygame.image.load("data/Ennemi/rat_carte.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/Ennemi/rat_combat.png").convert_alpha()
         
 class Gobelins(mobs):
     def __init__(self):
@@ -656,8 +656,8 @@ class Gobelins(mobs):
         self.res=10
         self.vit=40
         self.nombre=4
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img = pygame.image.load("data/Ennemi/goblin_carte.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/Ennemi/goblin_combat.png").convert_alpha()
                 
 class Aigles(mobs):
     def __init__(self):
@@ -671,8 +671,8 @@ class Aigles(mobs):
         self.res=0
         self.vit=100
         self.nombre=2
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img = pygame.image.load("data/Ennemi/aigle_carte.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/Ennemi/aigle_combat.png").convert_alpha()
         
 class Slime(mobs):
     def __init__(self):
@@ -686,8 +686,8 @@ class Slime(mobs):
         self.res=20
         self.vit=40
         self.nombre=1
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img = pygame.image.load("data/Ennemi/slime_carte.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/Ennemi/slime_combat.png").convert_alpha()
         
 class Centaures(mobs):
     def __init__(self):
@@ -716,8 +716,8 @@ class Loup_garou(mobs):
         self.res=15
         self.vit=70
         self.nombre=1
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img = pygame.image.load("data/Ennemi/loupgarou_carte.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/Ennemi/loupgarou_combat.png").convert_alpha()
         
 class Araingnees(mobs):
     def __init__(self):
@@ -746,8 +746,8 @@ class Carapateur(mobs):
         self.res=25
         self.vit=10
         self.nombre=1
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img = pygame.image.load("data/Ennemi/carapateur_carte.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/Ennemi/carapateur_combat.png").convert_alpha()
         
 class Golems(mobs):
     def __init__(self):
@@ -776,8 +776,8 @@ class Treant(mobs):
         self.res=25
         self.vit=10
         self.nombre=1
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img = pygame.image.load("data/Ennemi/treant_carte.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/Ennemi/treant_combat.png").convert_alpha()
 
         
 class Geant(mobs):
