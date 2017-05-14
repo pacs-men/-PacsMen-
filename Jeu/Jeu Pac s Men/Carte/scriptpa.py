@@ -3,7 +3,7 @@ from pygame import *
 
 pygame.init()
 fenetre=pygame.display.set_mode((640,640))
-pygame.display.set_caption('Programme intro histoire')
+
 pygame.font.init()
 noir=(0,0,0)
 bleu=(0,0,160)
@@ -23,6 +23,7 @@ image5=pygame.image.load("data/femmeauberge.jpg")
 image6=pygame.image.load("data/hood.jpg")
 image7=pygame.image.load("data/blancdialogue.jpg")
 image8=pygame.image.load("data/plaine.png")
+image9=pygame.image.load("data/clavier.jpg")
 
 def script_pa(fenetre):
     fenetre.fill(noir)
@@ -39,8 +40,8 @@ def script_pa(fenetre):
                     page -=1
                 if event.key == K_ESCAPE:
                     continuer = False
-        if page>9:
-            page=9
+        if page>10:
+            page=10
         if page<1:
             page=1
 
@@ -253,7 +254,7 @@ def script_pa(fenetre):
                 fenetre.blit(image,[0,110])
                 text9g1 = font.render("Vous vous reveillez le",True,noir)
                 fenetre.blit(text9g1,[45,145])
-                text9g2 = font.render("lendemain vous allez aux",True,noir)
+                text9g2 = font.render("lendemain et vous allez aux",True,noir)
                 fenetre.blit(text9g2,[45,165])
                 text9g3 = font.render("portes de la ville. Vous",True,noir)
                 fenetre.blit(text9g3,[45,185])
@@ -278,7 +279,28 @@ def script_pa(fenetre):
                 text3d5 = font.render("Page 8 ",True,noir)
                 fenetre.blit(text3d5,[450,445])                
                 
-                
+        if page== 10:
+                 fenetre.blit(noire,[0,0])                
+                 fenetre.blit(image,[0,110])
+                 
+                 text10g1 = font.render("Controles",True,noir)
+                 fenetre.blit(text10g1,[125,145])
+                 text10g2 = font.render("Deplacement",True,noir)
+                 fenetre.blit(text10g2,[45,175])
+                 fenetre.blit(image9,[35,205])
+                 
+                   
+                 text10d1 = font.render("Inventaire: I ",True,noir)
+                 fenetre.blit(text10d1,[350,165])
+                 text10d2 = font.render("Retour: Tab",True,noir)
+                 fenetre.blit(text10d2,[350,195])
+                 text10d3 = font.render("Pause: Echap",True,noir)
+                 fenetre.blit(text10d3,[350,225])
+                 text10d4 = font.render("Selectionner: Entree ",True,noir)
+                 fenetre.blit(text10d4,[350,255])                
                 
                 
         pygame.display.flip()
+        
+        
+script_pa(fenetre)
