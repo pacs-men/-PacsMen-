@@ -17,12 +17,19 @@ class carte:
     
     def __init__(self, fichier, joueur):
         self.joueur = joueur
-        self.ls_ennemi = [[perso.Rats, perso.Rats, perso.Rats, perso.Rats ],[ perso.Gobelins, perso.Gobelins, perso.Gobelins, perso.Gobelins],[perso.Aigles, perso.Aigles ],[ perso.Slime ],[perso.Centaures, perso.Centaures, perso.Centaures],[perso.Loup_garou],[perso.Araingnees,perso.Araingnees,perso.Araingnees],[perso.Carapateur],[perso.Golems,perso.Golems],[perso.Treant],[perso.Geant],[perso.Nains,perso.Nains,perso.Nains],[perso.Elfs,perso.Elfs]]
+        self.mob_niv1 = [[perso.Rats, perso.Rats, perso.Rats, perso.Rats ],[ perso.Gobelins, perso.Gobelins, perso.Gobelins, perso.Gobelins],[perso.Aigles, perso.Aigles ],[ perso.Slime ], [perso.Carapateur]]
+        self.mob_niv2 = [[perso.Centaures, perso.Centaures, perso.Centaures],[perso.Loup_garou],[perso.Araingnees,perso.Araingnees,perso.Araingnees], [perso.Carapateur],[perso.Golems,perso.Golems]]
+        self.mob_niv3 = [[perso.Carapateur],[perso.Golems,perso.Golems],[perso.Treant],[perso.Geant],[perso.Nains,perso.Nains,perso.Nains],[perso.Elfs,perso.Elfs]]
+        self.ls_ennemi = [self.mob_niv1, self.mob_niv2, self.mob_niv3]
+        
+        self.niv_carte = 0
+        self.cartes = ["carte.mp", "carten2.mp", "carten3.mp"]       
         self.combat = [False]
         self.carte_changee = False
         self.fichier = fichier
         self.recup_map()
         self.taille_mat = [len(self.matrice_case), len(self.matrice_case[0])]
+         
         # création de la matrice qu sert au cases dde la carte
         self.dict_cases = {
                             "herbe1": herbe1(),
@@ -42,6 +49,7 @@ class carte:
         
     def recup_map(self):
         double_mat = []
+        self.fichier = self.cartes[self.niv_carte]
         with open(self.fichier, "r") as fichier:
             pick = pickle.Unpickler(fichier)
             double_mat = pick.load()
@@ -60,9 +68,9 @@ class carte:
             for y in range(len(mat_objet[0])):
                 if mat_objet[x][y] != "":
                     if mat_objet[x][y] == "ennemi":
-                        e = random.randrange(12)
+                        e = random.randrange(len(self.ls_ennemi[self.niv_carte]))
                         ls_en = []
-                        for a in self.ls_ennemi[e]:
+                        for a in self.ls_ennemi[self.niv_carte][e]:
                             ls_en.append(a())
                         self.matrice_objet[x][y] = ennemi(self, x, y, ls_en)
                     
@@ -74,16 +82,16 @@ class carte:
                         self.matrice_objet[x][y] = porte_boss(self, x, y, "carten2.mp")                                                
                     
                     elif mat_objet[x][y] == "boss1":
-                        e = 12
+                        e = 0
                         ls_en = []
-                        for a in self.ls_ennemi[e]:
+                        for a in self.ls_ennemi[0][e]:
                             ls_en.append(a())
                         self.matrice_objet[x][y] = ennemi(self, x, y, ls_en)
                     else:                        
                         exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
                 
     def changer_carte(self, nom_carte):
-        self.fichier = nom_carte        
+        self.niv_carte += 1 
         self.recup_map()
         self.carte_changee = True        
         
