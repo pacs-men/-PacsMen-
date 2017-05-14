@@ -505,7 +505,7 @@ class Archer(perso):
         self.defen=5
         self.res=5
         self.vit=100
-        self.prec=95
+        self.prec=90
         self.crit=20
         self.arme_total=[armes.ArcL,armes.Arbalete,armes.ArcA]
         self.armure_total=[armure.Cape,armure.Justaucorps,armure.Cote]
@@ -634,8 +634,8 @@ class Rats(mobs):
     def __init__(self):
         mobs.__init__(self)
         self.nom="Rats"
-        self.pv_max=50
-        self.pv=50
+        self.pv_max=70
+        self.pv=70
         self.atk=15
         self.defen=5
         self.res=10
@@ -665,11 +665,11 @@ class Aigles(mobs):
         self.nom="Aigles"
         self.pv_max=25
         self.pv=25
-        self.atk=40
+        self.atk=30
         self.mag=0
         self.defen=10
         self.res=0
-        self.vit=100
+        self.vit=120
         self.nombre=2
         self.img = pygame.image.load("data/Ennemi/aigle_carte.png").convert_alpha()
         self.img_combat = pygame.image.load("data/Ennemi/aigle_combat.png").convert_alpha()
@@ -678,8 +678,8 @@ class Slime(mobs):
     def __init__(self):
         mobs.__init__(self)
         self.nom="Slime"
-        self.pv_max=90
-        self.pv=90
+        self.pv_max=100
+        self.pv=100
         self.atk=0
         self.mag=30
         self.defen=10
@@ -696,7 +696,7 @@ class Centaures(mobs):
         self.pv_max=80
         self.pv=80
         self.atk=0
-        self.mag=50
+        self.mag=40
         self.defen=10
         self.res=20
         self.vit=70
@@ -708,12 +708,12 @@ class Loup_garou(mobs):
     def __init__(self):
         mobs.__init__(self)
         self.nom="Loup Garou"
-        self.pv_max=200
-        self.pv=200
-        self.atk=60
+        self.pv_max=250
+        self.pv=250
+        self.atk=50
         self.mag=0
-        self.defen=25
-        self.res=15
+        self.defen=20
+        self.res=10
         self.vit=70
         self.nombre=1
         self.img = pygame.image.load("data/Ennemi/loupgarou_carte.png").convert_alpha()
@@ -726,7 +726,7 @@ class Araingnees(mobs):
         self.pv_max=20
         self.pv=20
         self.atk=0
-        self.mag=20
+        self.mag=30
         self.defen=5
         self.res=5
         self.vit=120
