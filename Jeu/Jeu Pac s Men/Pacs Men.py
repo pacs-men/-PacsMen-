@@ -156,7 +156,7 @@ def ouvrir_map():
     return carte
 
 #creation de la carte et initialisation du deplacement
-mape = carte.carte("carte_niv1_ennemi.mp", joueur)
+mape = carte.carte("carte.mp", joueur)
 taille_carte = mape.taille_mat[0]
 
 
