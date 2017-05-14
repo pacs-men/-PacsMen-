@@ -150,7 +150,7 @@ class perso:
     
     def effet_def(self):
         '''
-            impact des alterations d'etat
+            impact des altérations d'état
         '''
         if self.effet==True:
             if self.brulure > 0:
@@ -541,7 +541,6 @@ class Archer(perso):
             execution d'une attaque physique
         '''
         if random.randrange(100)<self.prec:
-            self.passif_attaque_def()
             if random.randrange(100)>self.crit:
                 self.cible2.pv -= (self.atk+self.arme.atk)*(1-float(self.cible2.defen+self.cible2.armure.defen)/100)
             else:
@@ -556,7 +555,6 @@ class Archer(perso):
             execution d'une attaque magique
         '''
         if random.randrange(100)<self.prec:
-            self.passif_attaque_def()
             if random.randrange(100)>self.crit:
                 self.cible2.pv -= (self.mag+self.arme.mag)*(1-float(self.cible2.res+self.cible2.armure.res)/100)
             else:
