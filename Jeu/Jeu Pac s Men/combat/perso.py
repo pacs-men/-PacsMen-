@@ -365,7 +365,7 @@ class AssassinsMagique(perso):
         self.crit=10
         self.arme_total=[armes.LamesE,armes.Fouet,armes.Crescent]
         self.armure_total=[armure.Gilet,armure.Veste,armure.Armurean]
-        self.image_complet = pygame.image.load("data/Emeric/complet.png").convert_alpha()
+        self.image_complet = pygame.image.load("data/Sebastien/complet.png").convert_alpha()
         self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
