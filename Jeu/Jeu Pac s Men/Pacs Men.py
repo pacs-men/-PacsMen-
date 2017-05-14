@@ -2,6 +2,7 @@
 #! /usr/bin/python
 
 import pygame
+from pygame.locals import *
 pygame.init()
 fenetre=pygame.display.set_mode((640,640))
 pygame.display.set_caption('Programme Pygame de base')
@@ -12,7 +13,6 @@ import Carte.inventaire as inventaire
 import combat.perso as perso
 import Carte.menu as menu
 
-from pygame.locals import *
 import sys
 import Carte.objet as objet
 import Carte.scriptpa as script_pa
@@ -47,6 +47,7 @@ y=0
 
 dict_fleche = {K_DOWN: "bas", K_UP:"haut", K_RIGHT:"droite", K_LEFT:"gauche"}
 
+#declanchement de la repetition des touches
 pygame.key.set_repeat(300,70)
 
 #declanchement de la musique
@@ -142,6 +143,22 @@ def afficher_ecran():
     affichercarte(x0,y0, x_mvt_carte, y_mvt_carte)
     afficher_joueur(x0, y0, x_mvt_carte, y_mvt_carte)               
     affiche_pv(joueur,fenetre)
+
+#fonction affichant l'ecran de fin de jeu lors d'une defaite
+def gameover(fenetre,joueur):
+    perdu = pygame.font.SysFont('Calibri',40,True,False)
+    game_over = perdu.render("GameOver",False,red)
+    txt_rect = game_over.get_rect()
+    fenetre.fill(black)
+    fenetre.blit(game_over,txt_rect(center=(320, 150)))
+    dead= joueur.image_complet
+    for i in range (0,5):
+        dead_img = dead.subsurface(i*64,1280,64,64)
+        fenetre.fill(black,(288,288,64,64))
+        fenetre.blit(dead_img,dead_img.get_rect(center=(320,320)))
+        pygame.time.wait(100)
+        pygame.display.flip()
+
 
 #creation de la carte et initialisation du deplacement
 mape = carte.carte(joueur)
