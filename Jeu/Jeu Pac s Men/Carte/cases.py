@@ -75,6 +75,7 @@ class murs(case):
       self.type = "murs"
       self.rep = "M"
       self.chemin_image = "data/Mur.png"
+      self.marchable = False
       self.load_image()
 
 class sols(case):
@@ -83,6 +84,7 @@ class sols(case):
       self.type = "sols"
       self.rep = "S"
       self.chemin_image = "data/Grass01.png"
+      
       self.load_image()
     
 
@@ -92,4 +94,5 @@ class trous(case):
       self.type = "trous"
       self.rep = "T"
       self.chemin_image = "data/trous.png"
+      self.marchable = False
       self.load_image()

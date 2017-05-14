@@ -71,7 +71,7 @@ class carte:
                         self.matrice_objet[x][y] = coffre(self, x, y, contenu)
                     
                     elif mat_objet[x][y] == "porte_boss":
-                        self.matrice_objet[x][y] = porte_boss(self, x, y, "carte2.mp")                                                
+                        self.matrice_objet[x][y] = porte_boss(self, x, y, "carten2.mp")                                                
                     
                     elif mat_objet[x][y] == "boss1":
                         e = 12

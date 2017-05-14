@@ -77,7 +77,7 @@ class perso(obj_boug):
             return False
             
     def step(self):
-        if self.inc == 3:         
+        if self.inc == 2:         
             if self.stade_animation !=0:
                 if self.stade_animation == 8:
                     self.stade_animation = 0
