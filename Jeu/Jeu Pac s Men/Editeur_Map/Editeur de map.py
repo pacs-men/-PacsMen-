@@ -21,12 +21,12 @@ pos_fin = (0, 0)
 #dict_obj = {"coffre":"brown", "arbre" :"green", "ennemi":"red","porte":"black", "porte":"grey", "porte_boss":"yellow", "boss1":"maroon",  "boss":"maroon", "coffre_boss":"brown"}
 
 #niv 2
-dict_case = {"herbe":"green", "murs":"blue", "sols":"grey", "trous":"black"}
-dict_obj = {"coffre":"brown", "Stalagmites" :"cyan", "ennemi":"red", "boss":"maroon", "coffre_boss":"brown", "porte_boss":"yellow"}
+#dict_case = {"herbe":"green", "murs":"blue", "sols":"grey", "trous":"black"}
+#dict_obj = {"coffre":"brown", "Stalagmites" :"cyan", "ennemi":"red", "boss":"maroon", "coffre_boss":"brown", "porte_boss":"yellow"}
 
 # niv 3
-#dict_case = {"herbe":"green", "murs":"blue", "sols":"grey", "trous":"black"}
-#dict_obj = {"coffre":"brown", "Stalagmites" :"cyan", "ennemi":"red","porte":"white"}
+dict_case = {"herbe":"green", "mur":"blue", "sols":"grey", "trous":"black"}
+dict_obj = {"coffre":"brown", "Stalagmites" :"cyan", "ennemi":"red","porte":"white", "boss":"maroon"}
 
 def petit(a, b):
     if a<b:
