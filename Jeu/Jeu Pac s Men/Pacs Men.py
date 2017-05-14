@@ -195,10 +195,7 @@ while continuer:
                     j=info
 
             if event.key == K_s:
-                for a in range (len(sc.ls_page)):
-                    text = font.render(dialogues.ls_page[a],True,black)
-                    fenetre.blit(text, [0,0])
-                    pygame.display.flip()
+                script_pa.script_pa(fenetre)
             
             if event.key == K_i:
                  inventaire.inventaire(fenetre,joueur)
