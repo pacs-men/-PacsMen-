@@ -46,7 +46,7 @@ def ouvrir_fichier():
         global l
         fichier = tkFileDialog.askopenfilename(title = "ouvrir le fichier", filetypes = [("fichier map", "*.mp")])
         double_mat = []        
-        with open(fichier, "rb") as f:
+        with open(fichier, "r") as f:
             mon_pickler = pickle.Unpickler(f)
             double_mat = mon_pickler.load()
         print double_mat
