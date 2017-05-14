@@ -45,7 +45,7 @@ x=0
 y=0
 
 
-
+dict_fleche = {K_DOWN: "bas", K_UP:"haut", K_RIGHT:"droite", K_LEFT:"gauche"}
 
 pygame.key.set_repeat(300,70)
 
@@ -57,24 +57,92 @@ continuer = True
 
 joueur=menu.start_menu(fenetre,joueur)
 
-def affichercarte(x0,y0):
-    for x in range(taille_fenetre):
-        for y in range(taille_fenetre):
-            fenetre.blit(mape.get_image_case(x+x0, y+y0),(x*32, y*32))
+def affichercarte(x0,y0, xmvt, ymvt):
 
-    for x in range(taille_fenetre):
-        for y in range(taille_fenetre):
-            if mape.matrice_objet[x+x0][y+y0] != None:
-                fenetre.blit(mape.get_image_obj(x+x0, y+y0),(x*32, y*32))
-    affiche_pv(joueur,fenetre)
+    for x in range(-1, taille_fenetre+1):
+        for y in range(-1, taille_fenetre+1):
+            if xmvt:
+                posx = (x+mvt_perso.dict_dir[mvt_perso.direction][0])*32 -mvt_perso.dict_dir[mvt_perso.direction][0]*4*mvt_perso.stade_animation
+            else:
+                posx = x*32
+            if ymvt:
+                posy = (y+mvt_perso.dict_dir[mvt_perso.direction][1])*32 -mvt_perso.dict_dir[mvt_perso.direction][1]*4*mvt_perso.stade_animation
+            else:
+                posy = y*32
+            fenetre.blit(mape.get_image_case(x+x0, y+y0),(posx, posy))
+            
+            if x+x0>= len(mape.matrice_objet):
+                x=x-1
+            if y+y0>= len(mape.matrice_objet[0]):
+                y=y-1
 
+            if mape.matrice_objet[x+x0][y+y0]!= None and mape.matrice_objet[x+x0][y+y0] != mvt_perso:
+                fenetre.blit(mape.get_image_obj(x+x0, y+y0),(posx, posy))
+
+def afficher_joueur(x0, y0, xmvt, ymvt):
+    if mvt_perso.stade_animation!= 0:
+        if not xmvt: 
+            imgx = (32*(mvt_perso.posx-mvt_perso.dict_dir[mvt_perso.direction][0]-x0))+(4*mvt_perso.dict_dir[mvt_perso.direction][0]*mvt_perso.stade_animation)-16
+        else:
+            imgx = (32*(mvt_perso.posx-x0))-16
+        if not ymvt: 
+            imgy = (32*(mvt_perso.posy-mvt_perso.dict_dir[mvt_perso.direction][1]-y0))+(4*mvt_perso.dict_dir[mvt_perso.direction][1]*mvt_perso.stade_animation)-32
+        else:
+            imgy = (32*(mvt_perso.posy-y0))-32
+    else:
+        imgx = (32*(mvt_perso.posx-x0))-16
+        imgy = (32*(mvt_perso.posy-y0))-32
+
+    fenetre.blit(mvt_perso.dict_images[mvt_perso.direction][mvt_perso.stade_animation],(imgx, imgy))
+
+
+    
 def affiche_pv(joueur,fenetre):
     prct_pv=(joueur.pv/joueur.pv_max)*100
     dessiner(fenetre,black,(9,9,102,12),1)
     dessiner(fenetre,red,(10,10,prct_pv,10))
     fenetre.blit(ecrire(str(joueur.pv)+"/"+str(joueur.pv_max),True,black),(120,10))
+   
+def afficher_ecran():
+# affichage
+    x_mvt_carte = True    
+    y_mvt_carte = True
     
-               
+    if mvt_perso.posx<10:
+        x0 = 0
+    elif mvt_perso.posx>=taille_carte-11:
+        x0 = taille_carte-20
+        x_mvt_carte = False
+    else:
+        x0 = mvt_perso.posx-10
+
+    if mvt_perso.posy<10:
+        y0 = 0
+        y_mvt_carte = False
+    elif mvt_perso.posy>=taille_carte-11:
+        y0 = taille_carte-20
+        y_mvt_carte = False
+    else:
+        y0 = mvt_perso.posy-10
+    
+    if mvt_perso.stade_animation == 0:
+        x_mvt_carte = False    
+        y_mvt_carte = False
+    
+    if mvt_perso.posx<11:
+        x_mvt_carte = False    
+    if mvt_perso.posx>=taille_carte-9:
+        x_mvt_carte = False    
+    if mvt_perso.posy<11:
+        y_mvt_carte = False    
+    if mvt_perso.posy>=taille_carte-9:
+        y_mvt_carte = False    
+    
+    
+    affichercarte(x0,y0, x_mvt_carte, y_mvt_carte)
+    afficher_joueur(x0, y0, x_mvt_carte, y_mvt_carte)               
+    affiche_pv(joueur,fenetre)
+
 def ouvrir_map():
     carte = ""
     with open("carte.mp", "rb") as fichier:
@@ -95,12 +163,12 @@ taille_carte = mape.taille_mat[0]
 if joueur == "End":
     continuer = False
 else:
-    mvt_perso = objet.perso(mape, 2, 2, joueur.ls_imagedir)
+    mvt_perso = objet.perso(mape, 2, 2, joueur.ls_images)
     script_pa.script_pa(fenetre)
     pygame.mixer.music.load('data/compo 1.wav')
     pygame.mixer.music.play(-1)
 
-
+direction_sauvegardee= ""
 
 while continuer:
     # prise en compte des evenements
@@ -109,32 +177,26 @@ while continuer:
             continuer = False
             
         if event.type == KEYDOWN:
-            if event.key == K_DOWN:
-                if mvt_perso.direction != "bas":
-                    mvt_perso.ch_direction("bas")
-                    mvt_perso.avancer()
-                else:
-                    mvt_perso.avancer()
-            if event.key == K_UP:
-                if mvt_perso.direction != "haut":
-                    mvt_perso.ch_direction("haut")
-                    mvt_perso.avancer()
-                else:
-                    mvt_perso.avancer()
-            if event.key == K_LEFT:
-                if mvt_perso.direction != "gauche":
-                    mvt_perso.ch_direction("gauche")
-                    mvt_perso.avancer()
-                else:
-                    mvt_perso.avancer()
-            if event.key == K_RIGHT:
-                if mvt_perso.direction != "droite":
-                    mvt_perso.ch_direction("droite")
-                    mvt_perso.avancer()
-                else:
-                    mvt_perso.avancer()
+            if mvt_perso.stade_animation == 0:
+                if event.key in [K_DOWN, K_UP, K_LEFT, K_RIGHT]:
+                                        
+                    if mvt_perso.direction != dict_fleche[event.key]:
+                        mvt_perso.ch_direction(dict_fleche[event.key])
+                        mvt_perso.avancer()
+                    else:
+                        mvt_perso.avancer()
+                elif direction_sauvegardee in [K_DOWN, K_UP, K_LEFT, K_RIGHT]:
+                    if mvt_perso.direction != dict_fleche[direction_sauvegardee]:
+                        mvt_perso.ch_direction(dict_fleche[direction_sauvegardee])
+                        mvt_perso.avancer()
+                    else:
+                        mvt_perso.avancer()
+                    
+            else:
+                if event.key in [K_DOWN, K_UP, K_LEFT, K_RIGHT]:
+                    direction_sauvegardee = event.key
 
-
+                                 
             if event.key == K_ESCAPE:
                 info = menu.menupause(fenetre,joueur)
                 if info == "End":
@@ -166,25 +228,11 @@ while continuer:
         
     if mape.carte_changee:
         print mape.matrice_case
-        mvt_perso = objet.perso(mape, 2, 2, joueur.ls_imagedir)
+        mvt_perso = objet.perso(mape, 2, 2, joueur.ls_images)
         mape.carte_changee = False       
     
-    # affichage
-    if mvt_perso.posx<10:
-        x0 = 0
-    elif mvt_perso.posx>=taille_carte-11:
-        x0 = taille_carte-20
-    else:
-        x0 = mvt_perso.posx-10
-
-    if mvt_perso.posy<10:
-        y0 = 0
-    elif mvt_perso.posy>=taille_carte-11:
-        y0 = taille_carte-20
-
-    else:
-        y0 = mvt_perso.posy-10
-    affichercarte(x0,y0)
-    pygame.display.flip()
     
+    afficher_ecran()
+    pygame.display.flip()
+    mvt_perso.step()
 pygame.quit()

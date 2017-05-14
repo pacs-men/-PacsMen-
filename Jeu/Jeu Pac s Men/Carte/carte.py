@@ -108,6 +108,10 @@ class carte:
         
         return potions_renvoi
     def get_image_case(self, x, y):
+        if x>=len(self.matrice_case):
+            x = len(self.matrice_case)-1
+        if y>=len(self.matrice_case[0]):
+            y = len(self.matrice_case[0])-1
         return self.dict_cases[self.matrice_case[x][y]].image
         
     def get_image_obj(self, x, y):

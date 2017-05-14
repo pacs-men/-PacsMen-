@@ -381,13 +381,18 @@ class AssassinsMagique(perso):
         self.crit=10
         self.arme_total=[armes.LamesE,armes.Fouet,armes.Crescent]
         self.armure_total=[armure.Gilet,armure.Veste,armure.Armurean]
+        self.image_complet = pygame.image.load("data/Emeric/complet.png").convert_alpha()
         self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_gauche = pygame.image.load("data/seb.jpg").convert_alpha()
+        self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
         self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_haut = pygame.image.load("data/seb.jpg").convert_alpha()
+        self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
         self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
-        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
+        self.ls_haut = [self.image_complet.subsurface((64*i, 64*8, 64, 64)) for i in range(9)]
+        self.ls_gauche = [self.image_complet.subsurface((64*i, 64*9, 64, 64)) for i in range(9)]
+        self.ls_bas = [self.image_complet.subsurface((64*i, 64*10, 64, 64)) for i in range(9)]
+        self.ls_droite = [self.image_complet.subsurface((64*i, 64*11, 64, 64)) for i in range(9)]
+        self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
         
         def passif_attaque_def(self):
             self.pv += 5
@@ -410,13 +415,18 @@ class Mage(perso):
         self.crit=5
         self.arme_total=[armes.Livre,armes.Parchemin,armes.Grimoire]
         self.armure_total=[armure.Robe,armure.TuniqueI,armure.TogeI]
+        self.image_complet = pygame.image.load("data/Emeric/complet.png").convert_alpha()
         self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
         self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
         self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
         self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
-        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
+        self.ls_haut = [self.image_complet.subsurface((64*i, 64*8, 64, 64)) for i in range(9)]
+        self.ls_gauche = [self.image_complet.subsurface((64*i, 64*9, 64, 64)) for i in range(9)]
+        self.ls_bas = [self.image_complet.subsurface((64*i, 64*10, 64, 64)) for i in range(9)]
+        self.ls_droite = [self.image_complet.subsurface((64*i, 64*11, 64, 64)) for i in range(9)]
+        self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
         
     def passif_attaque_def(self):
         if random.randrange(10)<1:
@@ -440,13 +450,18 @@ class AssassinsPhysique(perso):
         self.crit=10
         self.arme_total=[armes.Dagues,armes.LamesD,armes.Hachettes]
         self.armure_total=[armure.Tenue,armure.Manteau,armure.Armureco]
-        self.img= pygame.image.load("data/Nassim/AssassinPhysiqueFace.png").convert_alpha()
+        self.image_complet = pygame.image.load("data/Nassim/complet.png").convert_alpha()
+        self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_gauche = pygame.image.load("data/Nassim/AssassinPhysiqueGauche.png").convert_alpha()
-        self.img_droite = pygame.image.load("data/Nassim/AssassinPhysiqueDroite.png").convert_alpha()
-        self.img_haut = pygame.image.load("data/Nassim/AssassinPhysiqueDos.png").convert_alpha()
-        self.img_bas = pygame.image.load("data/Nassim/AssassinPhysiqueFace.png").convert_alpha()
-        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
+        self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
+        self.ls_haut = [self.image_complet.subsurface((64*i, 64*8, 64, 64)) for i in range(9)]
+        self.ls_gauche = [self.image_complet.subsurface((64*i, 64*9, 64, 64)) for i in range(9)]
+        self.ls_bas = [self.image_complet.subsurface((64*i, 64*10, 64, 64)) for i in range(9)]
+        self.ls_droite = [self.image_complet.subsurface((64*i, 64*11, 64, 64)) for i in range(9)]
+        self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
         
      def passif_attaque_def(self):
         self.cible.saignement = 1
@@ -468,14 +483,18 @@ class Combattant(perso):
         self.crit=5
         self.arme_total=[armes.Epee,armes.Hache,armes.EpeeRL]
         self.armure_total=[armure.Armurecu,armure.Plastron,armure.Cuirasse]
-        self.img= pygame.image.load("data/PA/face.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/PA/face.png").convert_alpha()
-        self.img_gauche = pygame.image.load("data/PA/gauche.png").convert_alpha()
-        self.img_droite = pygame.image.load("data/PA/droite.png").convert_alpha()
-        self.img_haut = pygame.image.load("data/PA/dos.png").convert_alpha()
-        self.img_bas = pygame.image.load("data/PA/face.png").convert_alpha()
-        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
-        
+        self.image_complet = pygame.image.load("data/PA/complet.png").convert_alpha()
+        self.img= pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
+        self.ls_haut = [self.image_complet.subsurface((64*i, 64*8, 64, 64)) for i in range(9)]
+        self.ls_gauche = [self.image_complet.subsurface((64*i, 64*9, 64, 64)) for i in range(9)]
+        self.ls_bas = [self.image_complet.subsurface((64*i, 64*10, 64, 64)) for i in range(9)]
+        self.ls_droite = [self.image_complet.subsurface((64*i, 64*11, 64, 64)) for i in range(9)]
+        self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
     def passif_def(self,adv):
         if self.pv < 500*0.7 and self.passif == 0:
             self.defen == self.defen*2
@@ -505,13 +524,18 @@ class Archer(perso):
         self.crit=20
         self.arme_total=[armes.ArcL,armes.Arbalete,armes.ArcA]
         self.armure_total=[armure.Cape,armure.Justaucorps,armure.Cote]
+        self.image_complet = pygame.image.load("data/Martin/complet.png").convert_alpha()
         self.img= pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/Martin/complet.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
         self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
         self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
         self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
-        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
+        self.ls_haut = [self.image_complet.subsurface((64*i, 64*8, 64, 64)) for i in range(9)]
+        self.ls_gauche = [self.image_complet.subsurface((64*i, 64*9, 64, 64)) for i in range(9)]
+        self.ls_bas = [self.image_complet.subsurface((64*i, 64*10, 64, 64)) for i in range(9)]
+        self.ls_droite = [self.image_complet.subsurface((64*i, 64*11, 64, 64)) for i in range(9)]
+        self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
         self.cible2=None
         
     def attaque2(self):
@@ -583,15 +607,18 @@ class Soigneur(perso):
         self.prec=95
         self.crit=0
         self.arme_total=[armes.Baton,armes.Orbe,armes.Sceptre]
-        self.armure_total=[armure.TuniqueH,armure.TogeA,armure.Corset]
+        self.image_complet = pygame.image.load("data/Emeric/complet.png").convert_alpha()
         self.img= pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
         self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
         self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
         self.img_bas = pygame.image.load("data/perso.png").convert_alpha()
-        self.ls_imagedir = [self.img_gauche, self.img_droite, self.img_haut, self.img_bas]
-        
+        self.ls_haut = [self.image_complet.subsurface((64*i, 64*8, 64, 64)) for i in range(9)]
+        self.ls_gauche = [self.image_complet.subsurface((64*i, 64*9, 64, 64)) for i in range(9)]
+        self.ls_bas = [self.image_complet.subsurface((64*i, 64*10, 64, 64)) for i in range(9)]
+        self.ls_droite = [self.image_complet.subsurface((64*i, 64*11, 64, 64)) for i in range(9)]
+        self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
     def passif_def(self,adv):
         self.pv += 15
         if self.pv>self.pv_max:
