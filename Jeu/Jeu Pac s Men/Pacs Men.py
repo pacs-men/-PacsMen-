@@ -156,14 +156,14 @@ def ouvrir_map():
     return carte
 
 #creation de la carte et initialisation du deplacement
-mape = carte.carte("carte.mp", joueur)
+mape = carte.carte("carte_niv1_ennemi.mp", joueur)
 taille_carte = mape.taille_mat[0]
 
 
 if joueur == "End":
     continuer = False
 else:
-    mvt_perso = objet.perso(mape, 2, 2, joueur.ls_images)
+    mvt_perso = objet.perso(mape, 47, 45, joueur.ls_images)
     script_pa.script_pa(fenetre)
     pygame.mixer.music.load('data/compo 1.wav')
     pygame.mixer.music.play(-1)
@@ -215,7 +215,7 @@ while continuer:
         
     if mape.carte_changee:
         print mape.matrice_case
-        mvt_perso = objet.perso(mape, 2, 2, joueur.ls_images)
+        mvt_perso = objet.perso(mape, 48, 47, joueur.ls_images)
         mape.carte_changee = False       
     
     

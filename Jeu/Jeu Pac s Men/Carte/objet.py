@@ -158,11 +158,4 @@ class coffre_boss2(objet):
     def interagir(self):        
         self.carte.joueur.upgrade(2)
 
-class coffre_boss2(objet):
-    def __init__(self, carte, x, y):
-        objet.__init__(self, carte, x, y)
-        self.image = pygame.image.load("data/sprite_08.png")
-    def interagir(self):        
-        self.carte.joueur.upgrade(2)
-
         

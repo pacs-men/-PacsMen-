@@ -18,7 +18,7 @@ pos_fin = (0, 0)
 
 # niv 1
 dict_case = {"herbe":"green", "mur":"grey"}
-dict_obj = {"coffre":"brown", "arbre" :"green", "ennemi":"red","porte":"black", "porte":"grey", "porte_boss":"yellow"}
+dict_obj = {"coffre":"brown", "arbre" :"green", "ennemi":"red","porte":"black", "porte":"grey", "porte_boss":"yellow", "boss1":"maroon"}
 
 #niv 2
 #dict_case = {"herbe":"green", "murs":"blue", "sols":"grey", "trous":"black"}
@@ -163,13 +163,10 @@ EFF = Button(fenetre, text="effacer objet", command=effobj)
 EFF.pack()   
 LOAD = Button(fenetre, text="charger_carte", command=ouvrir_fichier)
 LOAD.pack()    
+
+
 m = c_matrice(nombre_case)
-print m
-afficher_matrice(m)
-
-
 l= c_matrice2(nombre_case)
-afficher_matrice2(l)
 
 lignes()
 
