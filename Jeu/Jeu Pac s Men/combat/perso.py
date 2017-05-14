@@ -177,7 +177,7 @@ class perso:
                 self.pv = self.pv_max
             self.potionvie2-=1
         
-        if potion == "vie3"and self.potionvie3>0 and self.pv != self.pv_max:
+        if potion == "vie3" and self.potionvie3>0 and self.pv != self.pv_max:
             self.pv += 250
             if self.pv > self.pv_max:
                 self.pv = self.pv_max
