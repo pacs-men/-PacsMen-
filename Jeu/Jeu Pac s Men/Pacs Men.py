@@ -146,18 +146,29 @@ def afficher_ecran():
 
 #fonction affichant l'ecran de fin de jeu lors d'une defaite
 def gameover(fenetre,joueur):
+    continuer=True
     perdu = pygame.font.SysFont('Calibri',40,True,False)
-    game_over = perdu.render("GameOver",False,red)
-    txt_rect = game_over.get_rect()
+    game_over = perdu.render("GameOver",True,red)
     fenetre.fill(black)
-    fenetre.blit(game_over,txt_rect(center=(320, 150)))
+    fenetre.blit(game_over,game_over.get_rect(center=(320, 150)))
     dead= joueur.image_complet
+    appuie = font.render("Appuiez sur Entrer pour quitter",True,white)
+    fenetre.blit(appuie,appuie.get_rect(center=(320,450)))
     for i in range (0,5):
         dead_img = dead.subsurface(i*64,1280,64,64)
         fenetre.fill(black,(288,288,64,64))
         fenetre.blit(dead_img,dead_img.get_rect(center=(320,320)))
-        pygame.time.wait(100)
+        pygame.time.wait(200)
         pygame.display.flip()
+    while continuer:    
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                continuer = False
+            if event.type == KEYDOWN:
+                if event.key == K_RETURN:
+                    continuer = False
+            
+    
 
 
 #creation de la carte et initialisation du deplacement
@@ -215,8 +226,8 @@ while continuer:
         elif a == "Fuite":
             pass
         elif a == "Mort joueur":
-            continuer = 0
-            print("Afficher Mort A faire")
+            continuer = False
+            gameover(fenetre, joueur)
         mape.combat = [False]
         
     if mape.carte_changee:
