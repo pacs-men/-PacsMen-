@@ -262,78 +262,78 @@ class perso:
         
         if self.critique3fois >= 0:
             if self.critique3 == 0:
-                self.crit -= 15
-                self.critique3fois -= 1
+                self.crit -= 15 * self.critique3fois
+                self.critique3fois = 0
                 self.critique3 -=1
             else:
                 self.critique3 -=1
     
         if self.critique2fois >= 0:
             if self.critique2 == 0:
-                self.crit -= 10
-                self.critique2fois -= 1
+                self.crit -= 10 * self.critique2fois
+                self.critique2fois = 0
                 self.critique2 -=1 
             else:
                 self.critique2 -=1    
     
         if self.critique1fois >= 0:
             if self.critique1 == 0:
-                self.crit -= 5
-                self.critique1fois -= 1
+                self.crit -= 5 * self.critique1fois
+                self.critique1fois = 0
                 self.critique1 -=1     
             else:
                 self.critique1 -=1     
 
         if self.armure1fois >= 0:
             if self.armure1 == 0:
-                self.defen -= 5
-                self.res -=5
-                self.armure1fois -= 1
+                self.defen -= 5 * self.armure1fois
+                self.res -=5 * self.armure1fois
+                self.armure1fois = 0
                 self.armure1 -=1  
             else:
                 self.armure1 -=1  
 
         if self.armure2fois >= 0:
             if self.armure2 == 0:
-                self.defen -= 10
-                self.res -= 10
-                self.armure2fois -= 1
+                self.defen -= 10 * self.armure2fois
+                self.res -= 10 * self.armure2fois
+                self.armure2fois = 0
                 self.armure2 -=1      
             else:
                 self.armure2 -=1      
 
         if self.armure3fois >= 0:
             if self.armure3 == 0:
-                self.defen -= 20
-                self.res -= 20
-                self.armure3fois -= 1
+                self.defen -= 20 * self.armure3fois
+                self.res -= 20 * self.armure3fois
+                self.armure3fois = 0
                 self.armure3 -=1
             else:
                 self.armure3 -=1     
     
         if self.force3fois >= 0:
             if self.force3 == 0:
-                self.atk -= 150
-                self.mag -= 150
-                self.force3fois -= 1
+                self.atk -= 150 * self.force3fois
+                self.mag -= 150 * self.force3fois
+                self.force3fois = 0
                 self.force3 -=1
             else:
                 self.force3 -=1       
      
         if self.force2fois >= 0:
             if self.force2 == 0:
-                self.atk -= 100
-                self.mag -= 100
-                self.force2fois -= 1
+                self.atk -= 100 * self.force2fois
+                self.mag -= 100 * self.force2fois
+                self.force2fois = 0
                 self.force2 -=1      
             else:
                 self.force2 -=1      
     
         if self.force1fois >= 0:
             if self.force1 == 0:
-                self.atk -= 50
-                self.mag -= 50
-                self.force1fois -= 1
+                self.atk -= 50 * self.force1fois
+                self.mag -= 50 * self.force1fois
+                self.force1fois = 0
                 self.force1 -=1
             else:
                 self.force1 -=1
@@ -342,12 +342,12 @@ class perso:
         
         if self.precision == 1:
             self.precision -= 15 * self.precisionfois
-            self.precisionfois -= 1
+            self.precisionfois = 0
             self.precision -=1
             
         if self.vitesse == 1:
             self.vitesse -= 15 * self.vitessefois
-            self.vitessefois -= 1
+            self.vitessefois = 0
             self.vitesse -=1
             
 class AssassinsMagique(perso):
