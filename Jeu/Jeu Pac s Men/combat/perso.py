@@ -42,15 +42,15 @@ class perso:
         self.force1=-1
         self.force1fois=0
         self.force2=-1
-        self.force2fois=0        
+        self.force2fois=0
         self.force3=-1
         self.force3fois=0
         self.critique1=-1
         self.critique1fois=0
         self.critique2=-1
-        self.critique2fois=0         
+        self.critique2fois=0
         self.critique3=-1
-        self.critique3fois=0 
+        self.critique3fois=0
         self.vitesse=-1
         self.vitessefois=0
         self.precision=-1
@@ -289,7 +289,7 @@ class perso:
                 self.defen -= 5 * self.armure1fois
                 self.res -=5 * self.armure1fois
                 self.armure1fois = 0
-                self.armure1 -=1  
+                self.armure1 -=1
             else:
                 self.armure1 -=1  
 
@@ -298,7 +298,7 @@ class perso:
                 self.defen -= 10 * self.armure2fois
                 self.res -= 10 * self.armure2fois
                 self.armure2fois = 0
-                self.armure2 -=1      
+                self.armure2 -=1
             else:
                 self.armure2 -=1      
 

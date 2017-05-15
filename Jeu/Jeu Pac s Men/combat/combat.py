@@ -155,7 +155,7 @@ def affiche_combat(fenetre,joueur,ennemi):
             pv_toto += ennemi[i].pv
         if pv_toto == 0:
             if random.randrange(0,1) == 1:
-                joueur.potionvie1+=random.randrange(0,3)
+                joueur.potionvie1+=random.randrange(1,3)
             if random.randrange(0,5) == 1:
                 joueur.potionvie2 += 1
             if random.randrange(0,10) == 1:
@@ -182,8 +182,8 @@ def affiche_combat(fenetre,joueur,ennemi):
                 joueur.potionvitesse += 1
             if random.randrange(0,10) == 1:
                 joueur.potionprecision += 1
-            pygame.mixer.music.load('data/compo 1.wav')
-            pygame.mixer.music.play(-1)
+            #pygame.mixer.music.load('data/compo 1.wav')
+            #pygame.mixer.music.play(-1)
             return "fin"
 
         
@@ -223,9 +223,15 @@ def affiche_combat(fenetre,joueur,ennemi):
                             tour+=1
 
                     if position_bouton == 3:
-                        pygame.mixer.music.load('data/compo 1.wav')
-                        pygame.mixer.music.play(-1)
-                        return "Fuite"
+                        if random.randrange(100) <= 80:
+                            return "Fuite"
+                        else:
+                            joueur.action_type = None
+                            if combat_start(joueur,ennemi) == "Mort joueur":
+                                return "Mort joueur"
+
+                        #pygame.mixer.music.load('data/compo 1.wav')
+                        #pygame.mixer.music.play(-1)
 
     
 

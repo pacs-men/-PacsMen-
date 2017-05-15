@@ -57,7 +57,7 @@ pygame.mixer.music.play(-1)
 continuer = True
 
 joueur=menu.start_menu(fenetre,joueur)
-
+joueur.upgrade(0)
 def affichercarte(x0,y0, xmvt, ymvt):
 
     for x in range(-1, taille_fenetre+1):
