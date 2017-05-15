@@ -139,6 +139,7 @@ class perso:
         '''
             effet des passifs d'attaque
         '''
+        print "test"
         pass
     
     def passif_def(self,adv):
@@ -380,6 +381,7 @@ class AssassinsMagique(perso):
         self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
         
         def passif_attaque_def(self):
+            print 5
             self.pv += 5
 
 class Mage(perso):
