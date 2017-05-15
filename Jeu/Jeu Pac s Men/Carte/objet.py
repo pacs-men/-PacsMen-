@@ -7,7 +7,7 @@ from carte import*
 import sys
 sys.path.append("..")
 import combat.combat as combat
-
+import subprocess
 
 class objet:
     def __init__(self, carte, x, y):
@@ -160,4 +160,10 @@ class Stalagmites(objet):
          objet.__init__(self, carte, x, y)
          self.image = pygame.image.load("data/sprite_00.png")
 
-        
+class pnj(objet):
+     def __init__(self, carte, x, y):
+         objet.__init__(self, carte, x, y)
+         self.image = pygame.image.load("data/Sprite_RC.png")
+     
+     def interagir(self):
+         subprocess.call("start python RC/ElProyectoRubiksCube.py")
