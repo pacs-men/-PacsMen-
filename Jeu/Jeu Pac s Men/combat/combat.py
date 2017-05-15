@@ -59,8 +59,8 @@ def combat_attaque(participant_vit):
 
         
 def affiche_combat(fenetre,joueur,ennemi):
-    pygame.mixer.music.load('data/05 - Le Voyage de Basile.mp3')
-    pygame.mixer.music.play(-1)
+    #pygame.mixer.music.load('data/05 - Le Voyage de Basile.mp3')
+    #pygame.mixer.music.play(-1)
     nb_ennemis = ennemi[0].nombre
     continuer = 1
     position_bouton=1

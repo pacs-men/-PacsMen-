@@ -124,28 +124,31 @@ def inventaire(fenetre,Joueur):
         pvperso_rect.top = 10
         fenetre.blit(pvperso,pvperso_rect)
 		#affichage de l'armure
-        if Joueur.defen > 90:
+        if Joueur.defen+Joueur.armure.defen > 90:
             armureperso=ecrire("Defense: "+str(90),True,black)
         else:
-            armureperso=ecrire("Defense: "+str(Joueur.defen),True,black)
+            armureperso=ecrire("Defense: "+str(Joueur.defen+Joueur.armure.defen),True,black)
         armureperso_rect=armureperso.get_rect()
         armureperso_rect.right = 630
         armureperso_rect.top = 35
         fenetre.blit(armureperso,armureperso_rect)
         #affichage de l'attaque
-        atkperso=ecrire("Attaque: "+str(Joueur.atk),True,black)
+        atkperso=ecrire("Attaque: "+str(Joueur.atk+Joueur.arme.atk),True,black)
         atkperso_rect=atkperso.get_rect()
         atkperso_rect.right = 630
         atkperso_rect.top = 60
         fenetre.blit(atkperso,atkperso_rect)
         #affichage de la magie
-        magperso=ecrire("Magie: "+str(Joueur.mag),True,black)
+        magperso=ecrire("Magie: "+str(Joueur.mag+Joueur.arme.mag),True,black)
         magperso_rect=magperso.get_rect()
         magperso_rect.right = 630
         magperso_rect.top = 85
         fenetre.blit(magperso,magperso_rect)
         #affichage de la resistance
-        resperso=ecrire("Resistance: "+str(Joueur.res),True,black)
+        if Joueur.defen+Joueur.armure.defen > 90:
+            resperso=ecrire("Resistance: "+str(90),True,black)
+        else:
+            resperso=ecrire("Resistance: "+str(Joueur.res+Joueur.armure.res),True,black)
         resperso_rect=resperso.get_rect()
         resperso_rect.right = 630
         resperso_rect.top = 110
