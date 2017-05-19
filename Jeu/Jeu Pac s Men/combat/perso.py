@@ -523,6 +523,13 @@ class Archer(perso):
         self.ls_droite = [self.image_complet.subsurface((64*i, 64*11, 64, 64)) for i in range(9)]
         self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
         self.cible2=None
+        self.ls_anim=[]
+        for i in range (13):
+            self.ls_anim.append(self.img.subsurface((i*64,1216,64,64)))
+        self.ls_anim.append(ls_anim[2])
+        self.ls_anim.append(ls_anim[1])
+        self.ls_anim.append(ls_anim[0])
+            
         
     def attaque2(self):
         '''
