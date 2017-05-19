@@ -9,6 +9,9 @@ sys.path.append("..")
 import combat.combat as combat
 import subprocess
 
+liste_image = {"data/perso.png": pygame.image.load("data/perso.png").convert_alpha(), 
+               "data/sprite_01.png": pygame.image.load("data/sprite_01.png").convert_alpha()}
+
 class objet:
     def __init__(self, carte, x, y):
         if carte.matrice_objet[x][y] == None and carte.matrice_case[x][y]:
@@ -33,7 +36,7 @@ class obj_boug(objet):
         objet.__init__(self, carte, x, y)
         self.direction = "gauche"
         self.dict_dir = {"gauche":(-1, 0), "droite":(1, 0), "haut":(0, -1), "bas":(0, 1)}
-        self.image = pygame.image.load("data/perso.png").convert_alpha()
+        self.image = liste_image["data/perso.png"]
     def ch_direction(self, direction):
         if direction in ["haut", "bas", "gauche", "droite"]:
             self.direction = direction
@@ -85,10 +88,11 @@ class perso(obj_boug):
                     self.stade_animation +=1
             self.inc = 0
         self.inc+=1
+
 class arbre(objet):
      def __init__(self, carte, x, y):
          objet.__init__(self, carte, x, y)
-         self.image = pygame.image.load("data/sprite_01.png")
+         self.image = liste_image["data/sprite_01.png"]
 
 
 class ennemi(obj_boug):
