@@ -85,10 +85,8 @@ class perso:
         if self.stun == True:
             self.stun = False
         elif self.action == "Physique":
-            self.passif_attaque_def()
             self.AttaquePhysique()
         elif self.action == "Magique":
-            self.passif_attaque_def()
             self.AttaqueMagique()
         
         
@@ -380,9 +378,10 @@ class AssassinsMagique(perso):
         self.ls_droite = [self.image_complet.subsurface((64*i, 64*11, 64, 64)) for i in range(9)]
         self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
         
-        def passif_attaque_def(self):
-            print 5
-            self.pv += 5
+    def passif_attaque_def(self):
+        self.pv += 5
+        if self.pv > self.pv_max:
+            self.pv = self.pv_max
 
 class Mage(perso):
     
