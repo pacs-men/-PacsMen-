@@ -282,7 +282,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                         anim_joueur(fenetre,joueur)
                         if combat_start(joueur,ennemi) == "Mort joueur":
                             return "Mort joueur"
-                        return "next"
+                        return "Next"
                                  
     if nb_ennemis == 2:
          while continuer:
@@ -331,7 +331,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                         anim_joueur(fenetre,joueur)
                         if combat_start(joueur,ennemi) == "Mort joueur":
                             return "Mort joueur"
-                        return "next"
+                        return "Next"
                         
             pygame.display.flip()
     if nb_ennemis == 3:
@@ -387,7 +387,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                         anim_joueur(fenetre,joueur)
                         if combat_start(joueur,ennemi) == "Mort joueur":
                             return "Mort joueur"
-                        return "next"
+                        return "Next"
                         
             pygame.display.flip()
     if nb_ennemis == 4:
@@ -449,7 +449,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                         anim_joueur(fenetre,joueur)
                         if combat_start(joueur,ennemi) == "Mort joueur":
                             return "Mort joueur"
-                        return "next"
+                        return "Next"
                         
             pygame.display.flip()
 
