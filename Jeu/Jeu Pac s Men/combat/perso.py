@@ -137,7 +137,6 @@ class perso:
         '''
             effet des passifs d'attaque
         '''
-        print "test"
         pass
     
     def passif_def(self,adv):
