@@ -7,6 +7,7 @@ from carte import*
 import sys
 sys.path.append("..")
 import combat.combat as combat
+import combat.perso as person
 import subprocess
 
 liste_image = {"data/perso.png": pygame.image.load("data/perso.png").convert_alpha(), 
@@ -138,10 +139,13 @@ class porte_boss(objet):
         self.carte.changer_carte()
 
 class boss(obj_boug):
-    def __init__(self, carte, x, y, ls_ennemi):
+    def __init__(self, carte, x, y):
          objet.__init__(self, carte, x, y)
-         self.ls_ennemi = ls_ennemi
-         self.image = ls_ennemi[0].img
+         ls_boss = person.liste_boss[self.carte.niv_carte]
+         self.ls_ennemi = []
+         for a in ls_boss:
+             self.ls_ennemi.append(a()) 
+         self.image = self.ls_ennemi[0].img
 
     def interagir(self):
          self.carte.combat = [True, self]
