@@ -448,6 +448,13 @@ class AssassinsPhysique(perso):
         self.ls_bas = [self.image_complet.subsurface((64*i, 64*10, 64, 64)) for i in range(9)]
         self.ls_droite = [self.image_complet.subsurface((64*i, 64*11, 64, 64)) for i in range(9)]
         self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
+        self.ls_anim=[self.image_complet.subsurface((64*i, 64*15, 64, 64)) for i in range(6)]
+        self.ls_anim.append(self.ls_anim[5])
+        self.ls_anim.append(self.ls_anim[4])
+        self.ls_anim.append(self.ls_anim[3])
+        self.ls_anim.append(self.ls_anim[2])
+        self.ls_anim.append(self.ls_anim[1])
+        self.ls_anim.append(self.ls_anim[0])
         
      def passif_attaque_def(self):
         self.cible.saignement = 1
@@ -481,6 +488,7 @@ class Combattant(perso):
         self.ls_bas = [self.image_complet.subsurface((64*i, 64*10, 64, 64)) for i in range(9)]
         self.ls_droite = [self.image_complet.subsurface((64*i, 64*11, 64, 64)) for i in range(9)]
         self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
+        self.ls_anim=[self.image_complet.subsurface((64*i, 64*19, 64, 64)) for i in range(13)]
     def passif_def(self,adv):
         if self.pv < 500*0.7 and self.passif == 0:
             self.defen == self.defen*2
@@ -512,7 +520,7 @@ class Archer(perso):
         self.armure_total=[armure.Cape,armure.Justaucorps,armure.Cote]
         self.image_complet = pygame.image.load("data/Martin/complet.png").convert_alpha()
         self.img= pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = self.image_complet.subsurface(64*0, 64*19, 64, 64)
         self.img_gauche = pygame.image.load("data/perso.png").convert_alpha()
         self.img_droite = pygame.image.load("data/perso.png").convert_alpha()
         self.img_haut = pygame.image.load("data/perso.png").convert_alpha()
@@ -524,8 +532,6 @@ class Archer(perso):
         self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
         self.cible2=None
         self.ls_anim=[self.image_complet.subsurface((64*i, 64*19, 64, 64)) for i in range(13)]
-        #for i in range (13):
-        #    self.ls_anim.append(self.img.subsurface((i*64,1216,64,64)))
         self.ls_anim.append(self.ls_anim[2])
         self.ls_anim.append(self.ls_anim[1])
         self.ls_anim.append(self.ls_anim[0])
