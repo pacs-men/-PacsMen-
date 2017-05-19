@@ -826,3 +826,58 @@ class Elfs(mobs):
         self.img = pygame.image.load("data/perso.png").convert_alpha()
         self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
         
+class Boss(mobs):
+    def __init__(self):
+        mobs.__init__(self)
+
+        
+class Troll(Boss):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Troll"
+        self.pv_max=1000
+        self.pv=1000
+        self.atk=85
+        self.mag=0
+        self.defen=60
+        self.res=50
+        self.vit=15
+        
+class Chimere1(Boss):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Chimère Violette"
+        self.pv_max=800
+        self.pv=800
+        self.atk=0
+        self.mag=75
+        self.defen=40
+        self.res=50
+        self.vit=40        
+        
+class Chimere2(Boss):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Gueule dentelée"
+        self.pv_max=800
+        self.pv=800
+        self.atk=75
+        self.mag=0
+        self.defen=50
+        self.res=40
+        self.vit=40          
+
+        
+        
+        
+class Thunderlord(Boss):
+    def __init__(self):
+        mobs.__init__(self)
+        self.nom="Thunderlord"
+        self.pv_max=1500
+        self.pv=1500
+        self.atk=0
+        self.mag=150
+        self.defen=50
+        self.res=55
+        self.vit=45  
