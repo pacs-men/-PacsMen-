@@ -77,14 +77,7 @@ class carte:
                     elif mat_objet[x][y] == "coffre":
                         contenu = self.potions_aleatoires()
                         self.matrice_objet[x][y] = coffre(self, x, y, contenu)
-                    
-                    
-                    elif mat_objet[x][y] == "boss":
-                        e = 0
-                        ls_en = []
-                        for a in self.ls_ennemi[0][e]:
-                            ls_en.append(a())
-                        self.matrice_objet[x][y] = ennemi(self, x, y, ls_en)
+                        
                     else:                        
                         exec("self.matrice_objet[x][y] = "+mat_objet[x][y]+"(self, x, y)")
                 
