@@ -2,6 +2,7 @@
 import random ,pygame,armes,armure
 from pygame.locals import *
 
+liste_boss = [[Troll], [Chimere1, Chimere2], [Thunderlord]]
 class perso:
     def __call__(self):
         print "ceci est une fonction"
