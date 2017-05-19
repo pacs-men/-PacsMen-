@@ -12,7 +12,7 @@ text_fuite = font.render("fuite",True,noir)
 
 
 
-def combat_start(joueur,participant):
+def combat_start(joueur,participant,fenetre):
     ''' 
         fonction principale du combat
         parametre: class joueur , liste des participants
@@ -23,13 +23,13 @@ def combat_start(joueur,participant):
     participant.append(joueur)
     participant.sort(key=lambda v: v.vit)
     participant.reverse()
-    statut = combat_attaque(participant)
+    statut = combat_attaque(participant,fenetre)
     participant.reverse()
     participant.remove(joueur)
     return statut
     
     
-def combat_attaque(participant_vit):
+def combat_attaque(participant_vit,fenetre):
     '''
         attaque de tous les participants dans l'ordre de vitesse + test de mort
     '''
@@ -47,14 +47,20 @@ def combat_attaque(participant_vit):
                      participant_vit[i].popo_actif()
                 elif participant_vit[i].type_action == "attaque":
                      participant_vit[i].attaque()
+                     animatk(joueur,fenetre)
             else:
                 participant_vit[i].cible_def(participant_vit)
                 participant_vit[i].attaque()
             participant_vit[i].popo_def()
             participant_vit[i].effet_def()
             
-            
-    
+def animatk(joueur,fenetre):
+    bk = pygame.image.load("data/fondcombatmap1.jpg").convert()
+    reset= fenetre.blit(bk,(60,260),(60,260,80,80))
+    ls = joueur.anim_combat
+    for a in range (len(ls)):
+        reset
+        fenetre.blit(ls[a],(68,268))
     
 
         
@@ -280,7 +286,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
                         anim_joueur(fenetre,joueur)
-                        if combat_start(joueur,ennemi) == "Mort joueur":
+                        if combat_start(joueur,ennemi,fenetre) == "Mort joueur":
                             return "Mort joueur"
                         return "Next"
                                  
@@ -329,7 +335,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
                         anim_joueur(fenetre,joueur)
-                        if combat_start(joueur,ennemi) == "Mort joueur":
+                        if combat_start(joueur,ennemi,fenetre) == "Mort joueur":
                             return "Mort joueur"
                         return "Next"
                         
@@ -385,7 +391,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
                         anim_joueur(fenetre,joueur)
-                        if combat_start(joueur,ennemi) == "Mort joueur":
+                        if combat_start(joueur,ennemi,fenetre) == "Mort joueur":
                             return "Mort joueur"
                         return "Next"
                         
@@ -447,7 +453,7 @@ def select_ennemi(fenetre,joueur,ennemi,tour):
                     if event.key == K_RETURN:
                         joueur.cible = ennemi[position_bouton]
                         anim_joueur(fenetre,joueur)
-                        if combat_start(joueur,ennemi) == "Mort joueur":
+                        if combat_start(joueur,ennemi,fenetre) == "Mort joueur":
                             return "Mort joueur"
                         return "Next"
                         
