@@ -2,7 +2,6 @@
 import random ,pygame,armes,armure
 from pygame.locals import *
 
-liste_boss = [[Troll], [Chimere1, Chimere2], [Thunderlord]]
 class perso:
     def __call__(self):
         print "ceci est une fonction"
@@ -850,6 +849,9 @@ class Troll(Boss):
         self.defen=60
         self.res=50
         self.vit=15
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        
         
 class Chimere1(Boss):
     def __init__(self):
@@ -861,7 +863,10 @@ class Chimere1(Boss):
         self.mag=75
         self.defen=40
         self.res=50
-        self.vit=40        
+        self.vit=40
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        
         
 class Chimere2(Boss):
     def __init__(self):
@@ -874,7 +879,9 @@ class Chimere2(Boss):
         self.defen=50
         self.res=40
         self.vit=40          
-
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        
         
         
         
@@ -888,4 +895,10 @@ class Thunderlord(Boss):
         self.mag=150
         self.defen=50
         self.res=55
-        self.vit=45  
+        self.vit=45
+        self.img = pygame.image.load("data/perso.png").convert_alpha()
+        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
+        
+
+
+liste_boss = [[Troll], [Chimere1, Chimere2], [Thunderlord]]
