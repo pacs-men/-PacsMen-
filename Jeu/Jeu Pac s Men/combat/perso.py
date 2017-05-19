@@ -2,6 +2,7 @@
 import random ,pygame,armes,armure
 from pygame.locals import *
 
+#liste_boss = [[Troll], [Chimere1, Chimere2], [Thunderlord]]
 class perso:
     def __call__(self):
         print "ceci est une fonction"
@@ -522,12 +523,12 @@ class Archer(perso):
         self.ls_droite = [self.image_complet.subsurface((64*i, 64*11, 64, 64)) for i in range(9)]
         self.ls_images = [self.ls_gauche, self.ls_droite, self.ls_haut, self.ls_bas]
         self.cible2=None
-        self.ls_anim=[]
-        for i in range (13):
-            self.ls_anim.append(self.img.subsurface((i*64,1216,64,64)))
-        self.ls_anim.append(ls_anim[2])
-        self.ls_anim.append(ls_anim[1])
-        self.ls_anim.append(ls_anim[0])
+        self.ls_anim=[self.image_complet.subsurface((64*i, 64*19, 64, 64)) for i in range(13)]
+        #for i in range (13):
+        #    self.ls_anim.append(self.img.subsurface((i*64,1216,64,64)))
+        self.ls_anim.append(self.ls_anim[2])
+        self.ls_anim.append(self.ls_anim[1])
+        self.ls_anim.append(self.ls_anim[0])
             
         
     def attaque2(self):
@@ -849,9 +850,6 @@ class Troll(Boss):
         self.defen=60
         self.res=50
         self.vit=15
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
-        
         
 class Chimere1(Boss):
     def __init__(self):
@@ -863,10 +861,7 @@ class Chimere1(Boss):
         self.mag=75
         self.defen=40
         self.res=50
-        self.vit=40
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
-        
+        self.vit=40        
         
 class Chimere2(Boss):
     def __init__(self):
@@ -879,9 +874,7 @@ class Chimere2(Boss):
         self.defen=50
         self.res=40
         self.vit=40          
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
-        
+
         
         
         
@@ -895,10 +888,4 @@ class Thunderlord(Boss):
         self.mag=150
         self.defen=50
         self.res=55
-        self.vit=45
-        self.img = pygame.image.load("data/perso.png").convert_alpha()
-        self.img_combat = pygame.image.load("data/perso.png").convert_alpha()
-        
-
-
-liste_boss = [[Troll], [Chimere1, Chimere2], [Thunderlord]]
+        self.vit=45  

@@ -47,7 +47,7 @@ def combat_attaque(participant_vit,fenetre):
                      participant_vit[i].popo_actif()
                 elif participant_vit[i].type_action == "attaque":
                      participant_vit[i].attaque()
-                     animatk(joueur,fenetre)
+                     animatk(participant_vit[i],fenetre)
             else:
                 participant_vit[i].cible_def(participant_vit)
                 participant_vit[i].attaque()
@@ -57,10 +57,13 @@ def combat_attaque(participant_vit,fenetre):
 def animatk(joueur,fenetre):
     bk = pygame.image.load("data/fondcombatmap1.jpg").convert()
     reset= fenetre.blit(bk,(60,260),(60,260,80,80))
-    ls = joueur.anim_combat
+    ls = joueur.ls_anim
     for a in range (len(ls)):
+        pygame.time.wait(100)
         reset
+        fenetre.blit(bk,(60,260),(60,260,80,80))
         fenetre.blit(ls[a],(68,268))
+        pygame.display.flip()
     
 
         
