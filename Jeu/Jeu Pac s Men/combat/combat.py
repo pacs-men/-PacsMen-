@@ -61,15 +61,16 @@ def animatk(joueur,fenetre):
     for a in range (len(ls)):
         pygame.time.wait(100)
         reset
-        fenetre.blit(bk,(60,260),(60,260,80,80))
-        fenetre.blit(ls[a],(68,268))
+        fenetre.blit(bk,(20,260),(20,260,250,200))
+        if joueur.nom == 'Pierre Antoine':
+            fenetre.blit(ls[a],(28,270))
+        else:
+            fenetre.blit(ls[a],(68,268))
         pygame.display.flip()
     
 
         
 def affiche_combat(fenetre,joueur,ennemi):
-    #pygame.mixer.music.load('data/05 - Le Voyage de Basile.mp3')
-    #pygame.mixer.music.play(-1)
     nb_ennemis = ennemi[0].nombre
     continuer = 1
     position_bouton=1
@@ -191,8 +192,6 @@ def affiche_combat(fenetre,joueur,ennemi):
                 joueur.potionvitesse += 1
             if random.randrange(0,10) == 1:
                 joueur.potionprecision += 1
-            #pygame.mixer.music.load('data/compo 1.wav')
-            #pygame.mixer.music.play(-1)
             return "fin"
 
         
@@ -239,8 +238,6 @@ def affiche_combat(fenetre,joueur,ennemi):
                             if combat_start(joueur,ennemi) == "Mort joueur":
                                 return "Mort joueur"
 
-                        #pygame.mixer.music.load('data/compo 1.wav')
-                        #pygame.mixer.music.play(-1)
 
     
 
@@ -639,7 +636,7 @@ def potion_type(fenetre,joueur,ennemi):
                         joueur.action="vitesse"
                     if position_bouton==12:
                         joueur.action="precision"
-                    combat_start(joueur,ennemi)
+                    combat_start(joueur,ennemi,fenetre)
                     return "Next"
                     
         pygame.display.flip()
