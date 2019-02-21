@@ -235,7 +235,7 @@ def affiche_combat(fenetre,joueur,ennemi):
                             return "Fuite"
                         else:
                             joueur.action_type = None
-                            if combat_start(joueur,ennemi) == "Mort joueur":
+                            if combat_start(joueur,ennemi,fenetre) == "Mort joueur":
                                 return "Mort joueur"
 
 
