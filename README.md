@@ -1,11 +1,21 @@
-# -PacsMen-
-Jeu pour L'isn
+# -PacsMen- Jeu pour L'isn
+ 
+fiture implementable :
 
-A faire:
-
-Jeu terminé jouable et battre le boss:
-- Avoir toutes les textures (Clarisse)
-- Gestion de l'écran de combat (Nassim)
-- Integration du script (Pierre-Antoine)
-- Integration de la musique (Martin)
-- Integration du PNG de rumix-cube (Sebastien)
+- histoire:
+  - integré les histoires des boss
+  - crée des PNG pour apportée du vivant
+  
+- graphisme:
+  - animation d'entrée en combat
+  - animation de fin de combat
+  - animation des ennemis
+  - animation de changement de zone
+  
+- autre:
+  - creation d'un menu sur echap
+  - creation d'un menu principal
+  - creation de sauvegarde
+  - creation d'un editeur de perso/ennemi
+  - developent de l'IA
+  - ecran de chargement
