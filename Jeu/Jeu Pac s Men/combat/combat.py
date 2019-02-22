@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+
 import pygame,random
 from pygame.locals import *
 pygame.init()
 noir=(0,0,0)
 blanc=(0xFF, 0xFF, 0xFF)
+bleuClair = (18,158,158)
 font = pygame.font.SysFont('Calibri', 25, True, False)
 text_attaque = font.render("attaque",True,noir)
 text_potion = font.render("potion",True,noir)
@@ -21,8 +23,7 @@ def combat_start(joueur,participant,fenetre):
         trie les participants au combat selon leur vitesse
     '''
     participant.append(joueur)
-    participant.sort(key=lambda v: v.vit)
-    participant.reverse()
+    participant.sort(reverse = True , key = lambda v: v.vit)
     statut = combat_attaque(participant,fenetre)
     participant.reverse()
     participant.remove(joueur)
@@ -86,7 +87,7 @@ def affiche_combat(fenetre,joueur,ennemi):
         text_pv_joueur = font.render("Pv : "+str(joueur.pv)+"/"+str(joueur.pv_max),True,noir)
         
         fenetre.blit(background_image, [0, 0])
-        pygame.draw.rect(fenetre, blanc, [0, 590, 640, 50])
+        pygame.draw.rect(fenetre, bleuClair, [0, 590, 640, 50])
         fenetre.blit(joueur.img_combat, joueur.img_combat.get_rect(center=(100, 300)))
         
         if nb_ennemis == 1:

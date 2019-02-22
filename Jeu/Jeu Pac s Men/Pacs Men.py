@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 #! /usr/bin/python
 
+#initialisation de pygame
 import pygame
 from pygame.locals import *
 pygame.init()
 fenetre=pygame.display.set_mode((640,640))
 pygame.display.set_caption('Programme Pygame de base')
+
 
 import Carte.carte as carte
 import Carte.script as script
@@ -19,7 +21,7 @@ import Carte.scriptpa as script_pa
 import combat.combat as combat
 import pickle
 import random
-#sys.path.append()
+
 
 #definition des couleurs
 black=(0,0,0)
